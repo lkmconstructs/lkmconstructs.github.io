@@ -177,30 +177,35 @@
         }
         
         header {
-           background: #212225;
-           background-image: url('data:image/svg+xml;utf8,<svg width="1600" height="120" xmlns="http://www.w3.org/2000/svg"><g opacity="0.18"><polyline points="60,100 200,60 320,105 550,80 900,110 1500,55" stroke="%23639B8D" stroke-width="2.2" fill="none"/><polyline points="170,25 350,90 670,45 820,80 1100,100 1450,30" stroke="%23D4A017" stroke-width="1.5" fill="none"/><polyline points="110,110 180,50 470,80 800,55 1120,80 1350,100" stroke="%23639B8D" stroke-width="1.4" fill="none"/><polyline points="240,80 330,110 700,70 980,110 1340,80" stroke="%23D4A017" stroke-width="1" fill="none"/><circle cx="200" cy="60" r="4" fill="%23639B8D"/><circle cx="320" cy="105" r="3" fill="%23D4A017"/><circle cx="670" cy="45" r="4" fill="%23639B8D"/><circle cx="1100" cy="100" r="3" fill="%23D4A017"/><rect x="900" y="107" width="10" height="10" rx="2" fill="%23D4A017"/><rect x="1350" y="98" width="10" height="10" rx="2" fill="%23639B8D"/><line x1="600" y1="10" x2="600" y2="110" stroke="%23D4A017" stroke-width="1.2" opacity="0.75"/><line x1="1200" y1="115" x2="1200" y2="30" stroke="%23639B8D" stroke-width="1.5" opacity="0.6"/><circle cx="1200" cy="30" r="3" fill="%23D4A017"/><circle cx="350" cy="90" r="2" fill="%23639B8D"/><circle cx="800" cy="55" r="3" fill="%23D4A017"/><circle cx="550" cy="80" r="2.5" fill="%23639B8D"/><circle cx="1450" cy="30" r="3" fill="%23D4A017"/></g></svg>');
-           background-size: 1600px 120px;
-           background-repeat: no-repeat;
-           background-position: center bottom;
-           padding: 8px 0;
-           border-bottom: 1px solid rgba(212, 160, 23, 0.3);
-           position: sticky;
-           top: 0;
-           z-index: 100;
-           backdrop-filter: blur(10px);
+            background: #212225;
+            background-image: url('data:image/svg+xml;utf8,<svg width="1600" height="120" xmlns="http://www.w3.org/2000/svg"><g opacity="0.18"><polyline points="60,100 200,60 320,105 550,80 900,110 1500,55" stroke="%23639B8D" stroke-width="2.2" fill="none"/><polyline points="170,25 350,90 670,45 820,80 1100,100 1450,30" stroke="%23D4A017" stroke-width="1.5" fill="none"/><polyline points="110,110 180,50 470,80 800,55 1120,80 1350,100" stroke="%23639B8D" stroke-width="1.4" fill="none"/><polyline points="240,80 330,110 700,70 980,110 1340,80" stroke="%23D4A017" stroke-width="1" fill="none"/><circle cx="200" cy="60" r="4" fill="%23639B8D"/><circle cx="320" cy="105" r="3" fill="%23D4A017"/><circle cx="670" cy="45" r="4" fill="%23639B8D"/><circle cx="1100" cy="100" r="3" fill="%23D4A017"/><rect x="900" y="107" width="10" height="10" rx="2" fill="%23D4A017"/><rect x="1350" y="98" width="10" height="10" rx="2" fill="%23639B8D"/><line x1="600" y1="10" x2="600" y2="110" stroke="%23D4A017" stroke-width="1.2" opacity="0.75"/><line x1="1200" y1="115" x2="1200" y2="30" stroke="%23639B8D" stroke-width="1.5" opacity="0.6"/><circle cx="1200" cy="30" r="3" fill="%23D4A017"/><circle cx="350" cy="90" r="2" fill="%23639B8D"/><circle cx="800" cy="55" r="3" fill="%23D4A017"/><circle cx="550" cy="80" r="2.5" fill="%23639B8D"/><circle cx="1450" cy="30" r="3" fill="%23D4A017"/></g></svg>');
+            background-size: 1600px 120px;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            padding: 0 0; /* Tighter padding so logo/nav aren't floating */
+            border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            min-height: 160px; /* Match your logo's height */
         }
 
         }
         
         header .container {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            min-height: 160px; /* Ensures row always fits the logo */
+            gap: 40px; /* If nav gets squashed, adds breathing room */
         }
         
         .logo img {
             height: 160px;
             width: auto;
+            display: block;
         }
         
         .mobile-toggle {
@@ -716,20 +721,20 @@
             color: rgba(232, 230, 227, 0.7);
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 950px) {
             .logo img { height: 90px; }
             .hero h1 { font-size: 2.4rem; }
             .hero p { font-size: 1.15rem; }
             .product-grid { grid-template-columns: 1fr; }
             .beta-form { padding: 35px; }
             
-            nav {
-                display: none !important;
-                flex-direction: column;
-                background: rgba(26, 26, 26, 0.95);
-                border-bottom: 1px solid rgba(212, 160, 23, 0.3);
-                width: 100%;
-                padding: 20px 0;
+            nav { 
+              display: none !important; 
+              flex-direction: column; 
+              background: rgba(26, 26, 26, 0.95); 
+              border-bottom: 1px solid rgba(212, 160, 23, 0.3); 
+              width: 100%; 
+              padding: 20px 0; 
             }
             
             #menu-toggle:checked + nav {
@@ -744,6 +749,27 @@
                 margin: 12px 0 !important;
                 font-size: 1.2rem;
             }
+
+    @media (max-width: 950px) {
+    
+        header .container {
+            flex-direction: column;
+            align-items: flex-start;
+            min-height: unset;
+            gap: 0;
+        }
+        
+        .logo img {
+            height: 90px;
+        }
+        
+        nav {
+            margin-top: 10px;
+            width: 100%;
+            justify-content: flex-start;
+        }
+    }
+
         }
     </style>
 </head>
