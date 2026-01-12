@@ -138,33 +138,6 @@
             100% { opacity: 0.15; filter: blur(2px); }
         }
         
-        .coming-soon {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .coming-soon .cs-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(15, 15, 15, 0.95);
-            backdrop-filter: blur(8px);
-            color: #D4A017;
-            font-family: 'Noto Serif Display', serif; font-weight: 300;
-            font-size: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity .35s ease;
-            border: 1px solid rgba(212, 160, 23, 0.25);
-            pointer-events: none;
-            border-radius: 14px;
-        }
-        
-        .coming-soon:hover .cs-overlay {
-            opacity: 1;
-        }
-        
         header, section, footer, .section-divider {
             position: relative;
             z-index: 2;
@@ -190,17 +163,15 @@
             backdrop-filter: blur(10px);
             min-height: 180px;
         }
-
-        }
         
         header .container {
             display: flex;
-            align-items: center;
+            align-items: flex-end;
             justify-content: space-between;
-            flex-wrap: nowrap;       /* Don't let nav drop below! */
+            flex-wrap: nowrap;
             min-height: 160px;
-            gap: 40px; 
-            padding-bottom: 50px;
+            gap: 40px;
+            padding-bottom: 15px;
         }
 
         .logo {
@@ -429,127 +400,6 @@
             background: linear-gradient(90deg, transparent, #639B8D, #D4A017, transparent);
         }
         
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 45px;
-            margin-bottom: 60px;
-        }
-        
-        .product-card {
-            background: rgba(60, 65, 75, 0.85);
-            border-radius: 14px;
-            padding: 42px;
-            border: 1px solid rgba(99, 155, 141, 0.35);
-            transition: all 0.3s;
-            opacity: 0;
-            animation: fadeUp 0.6s forwards;
-            box-shadow: 0 0 30px rgba(99, 155, 141, 0.15);
-            position: relative;
-        }
-        
-        .product-card > * {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .product-card:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(25px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0 45px rgba(99, 155, 141, 0.35), 0 10px 40px rgba(0, 0, 0, 0.4);
-            border-color: rgba(99, 155, 141, 0.6);
-            background: rgba(70, 75, 85, 0.9);
-        }
-        
-        .product-card h3 {
-            font-family: 'Noto Serif Display', serif; font-weight: 300;
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #D4A017;
-        }
-        
-        .product-card p {
-            margin-bottom: 12px;
-            color: #E8E6E3;
-        }
-        
-        .product-card ul {
-            list-style: none;
-            margin-top: 25px;
-        }
-        
-        .product-card ul li {
-            padding: 10px 0;
-            padding-left: 30px;
-            position: relative;
-            color: rgba(232, 230, 227, 0.85);
-            transition: all 0.3s ease;
-        }
-        
-        .product-card ul li:hover {
-            padding-left: 35px;
-            color: #E8E6E3;
-        }
-        
-        .product-card ul li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #639B8D;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-        
-        .product-card ul li:hover:before {
-            color: #D4A017;
-            transform: scale(1.2);
-        }
-        
-        /* Coming Soon Overlay */
-        .product-card.coming-soon {
-            position: relative;
-        }
-        
-        .cs-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(26, 26, 26, 0.95);
-            color: #D4A017;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 600;
-            font-family: 'Noto Serif Display', serif;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            border-radius: 12px;
-            z-index: 10;
-            pointer-events: none;
-        }
-        
-        .product-card.coming-soon:hover .cs-overlay {
-            opacity: 1;
-        }
-        
         .beta {
             padding: 110px 0;
             background: #1a1a1a;
@@ -738,7 +588,6 @@
             .logo img { height: 90px; }
             .hero h1 { font-size: 2.4rem; }
             .hero p { font-size: 1.15rem; }
-            .product-grid { grid-template-columns: 1fr; }
             .beta-form { padding: 35px; }
             
             nav { 
@@ -762,27 +611,23 @@
                 margin: 12px 0 !important;
                 font-size: 1.2rem;
             }
-
-    @media (max-width: 950px) {
-    
-        header .container {
-            flex-direction: column;
-            align-items: flex-start;
-            min-height: unset;
-            gap: 0;
-        }
-        
-        .logo img {
-            height: 90px;
-        }
-        
-        nav {
-            margin-top: 10px;
-            width: 100%;
-            justify-content: flex-start;
-        }
-    }
-
+            
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+                min-height: unset;
+                gap: 0;
+            }
+            
+            .logo img {
+                height: 90px;
+            }
+            
+            nav {
+                margin-top: 10px;
+                width: 100%;
+                justify-content: flex-start;
+            }
         }
     </style>
 </head>
@@ -815,51 +660,29 @@
 
     <div class="section-divider"></div>
 
-    <section id="portfolio" class="products">
-    <div class="container">
-        <h2>2026 PRODUCT SUITE</h2>
-        <div style="text-align:center; max-width: 750px; margin: 50px auto; font-size: 1.2rem; line-height: 1.9;">
-            <p style="color: rgba(232, 230, 227, 0.9); margin-bottom: 25px;">
-                Our full custom AI suite launches in 2026. What's in the ChatGPT Store now? Portfolio demos—public proof-of-concepts with limited features.
-            </p>
-            <p style="color: rgba(232, 230, 227, 0.9);">
-                Want capability without compromise? <a href="#beta" style="color:#D4A017; text-decoration: none; border-bottom: 1px solid #D4A017;">Request early access</a> or <a href="contact.html" style="color:#639B8D; text-decoration: none; border-bottom: 1px solid #639B8D;">contact us</a> for serious builds.
-            </p>
+    <section id="about" class="about">
+        <div class="container">
+            <h2>BUILT FOR THOSE WHO RUN AHEAD</h2>
+            <div class="about-content">
+                <p>We don't do "one size fits all." Every tool we craft is designed for your reality, not a faceless market checklist. Our approach prioritizes substance over production—building AI systems that match your workflow, enhance your decision-making, and scale with your ambitions.</p>
+                <p>With expertise spanning legal, corporate, and marketing sectors, we understand the complexity of real-world applications. We build custom AI solutions that adapt to how you actually work, providing genuine capability enhancement rather than forcing you to adapt to rigid tools.</p>
+                <p>We create tools that evolve with you, not against you. No generic templates. No forced routines. Just capability—amplified, sharpened, and yours to command.</p>
             </div>
         </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <section id="products" class="products">
+    <section id="portfolio" class="products">
         <div class="container">
-            <h2>OUR SOLUTIONS</h2>
-            <div class="product-grid">
-                <div class="product-card coming-soon">
-                    <div class="cs-overlay">Coming Soon</div>
-                    <h3>Inkline</h3>
-                    <p><strong>AI writing companion that enhances your voice, never replaces it.</strong></p>
-                    <p>Trained on your samples to refine prose while maintaining your unique style. Future-ready for self-publishing workflows.</p>
-                    <ul>
-                        <li>Adapts to your tone and voice</li>
-                        <li>Enhances without rewriting</li>
-                        <li>Self-publishing support (advanced tier)</li>
-                        <li>Your writing, your control</li>
-                    </ul>
-                </div>
-                
-                <div class="product-card coming-soon">
-                    <div class="cs-overlay">Coming Soon</div>
-                    <h3>Clarion</h3>
-                    <p><strong>Comprehensive teaching assistant for real classrooms.</strong></p>
-                    <p>Built by someone who understands the chaos. Supports bilingual learners, neurodivergent students, and practical lesson planning.</p>
-                    <ul>
-                        <li>Bilingual classroom support</li>
-                        <li>Neurodivergent learning assistance</li>
-                        <li>Lesson planning and slide decks</li>
-                        <li>Grading and assessment tools</li>
-                    </ul>
-                </div>
+            <h2>2026 PRODUCT SUITE</h2>
+            <div style="text-align:center; max-width: 750px; margin: 50px auto; font-size: 1.2rem; line-height: 1.9;">
+                <p style="color: rgba(232, 230, 227, 0.9); margin-bottom: 25px;">
+                    Our full custom AI suite launches in 2026. What's in the ChatGPT Store now? Portfolio demos—public proof-of-concepts with limited features.
+                </p>
+                <p style="color: rgba(232, 230, 227, 0.9);">
+                    Want capability without compromise? <a href="#beta" style="color:#D4A017; text-decoration: none; border-bottom: 1px solid #D4A017;">Request early access</a> or <a href="contact.html" style="color:#639B8D; text-decoration: none; border-bottom: 1px solid #639B8D;">contact us</a> for serious builds.
+                </p>
             </div>
         </div>
     </section>
@@ -885,8 +708,8 @@
                 <div class="form-group">
                     <label>Products of Interest *</label>
                     <div class="checkbox-group">
-                        <label><input type="checkbox" name="products" value="inkline"> Inkline (Writing Companion)</label>
-                        <label><input type="checkbox" name="products" value="clarion"> Clarion (Teaching Assistant)</label>
+                        <label><input type="checkbox" name="products" value="Writing Companion"> Writing Companion </label>
+                        <label><input type="checkbox" name="products" value="Teaching Assistant"> Teaching Assistant </label>
                         <label><input type="checkbox" name="products" value="other"> Other AI Solutions</label>
                     </div>
                 </div>
