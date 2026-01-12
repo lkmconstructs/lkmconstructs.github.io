@@ -120,7 +120,7 @@
         
         .hero {
             background: radial-gradient(ellipse at center, rgba(45, 45, 45, 0.7) 0%, transparent 70%), #1a1a1a;
-            padding: 140px 0 80px;
+            padding: 80px 0 60px;
             text-align: center;
             overflow: hidden;
         }
@@ -180,9 +180,9 @@
         }
         
         @keyframes dividerPulse {
-            0%   { opacity: 0.25; filter: blur(3px); }
-            40%  { opacity: 0.6;  filter: blur(6px); }
-            100% { opacity: 0.25; filter: blur(3px); }
+            0%   { opacity: 0.15; filter: blur(2px); }
+            40%  { opacity: 0.3;  filter: blur(3px); }
+            100% { opacity: 0.15; filter: blur(2px); }
         }
         
         .section {
@@ -198,8 +198,8 @@
         .coming-soon .cs-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(15, 15, 15, 0.72);
-            backdrop-filter: blur(3px);
+            background: rgba(15, 15, 15, 0.82);
+            backdrop-filter: blur(4px);
             color: #D4A017;
             font-family: 'Noto Serif Display', serif; font-weight: 300;
             font-size: 2rem;
@@ -211,6 +211,7 @@
             border: 1px solid rgba(212, 160, 23, 0.25);
             pointer-events: none;
             border-radius: 14px;
+            z-index: 10;
         }
         
         .coming-soon:hover .cs-overlay {
