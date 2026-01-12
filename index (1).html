@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LKM Constructs - AI Systems That Deliver Results</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- SEO -->
+    <meta name="description" content="AI systems designed for clarity, control, and real-world performance. Custom solutions that adapt to your workflow, not the other way around.">
+    <link rel="canonical" href="https://lkmconstructs.com/">
+    <meta name="author" content="LKM Constructs, LLC">
+    <meta name="theme-color" content="#1a1a1a">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="LKM Constructs - AI Systems That Deliver Results">
+    <meta property="og:description" content="AI systems designed for clarity, control, and real-world performance. Custom solutions that adapt to your workflow, not the other way around.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lkmconstructs.com/">
+    <meta property="og:image" content="https://lkmconstructs.com/assets/og-card.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LKM Constructs - AI Systems That Deliver Results">
+    <meta name="twitter:description" content="AI systems designed for clarity, control, and real-world performance. Custom solutions that adapt to your workflow, not the other way around.">
+    <meta name="twitter:image" content="https://lkmconstructs.com/assets/og-card.png">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "LKM Constructs",
+      "url": "https://lkmconstructs.com",
+      "logo": "https://lkmconstructs.com/assets/LKM_Constructs_web.svg",
+      "founder": {
+        "@type": "Person",
+        "name": "Melissa Kaye Pinkston"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/lkm-constructs/"
+      ],
+      "description": "AI systems designed for clarity, control, and real-world performance.",
+      "foundingDate": "2024"
+    }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #E8E6E3;
+            background-color: #1a1a1a;
+            background-image: 
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="300" height="300" filter="url(%23noise)" opacity="0.15"/></svg>'),
+                repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.01) 2px, rgba(255, 255, 255, 0.01) 4px);
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(99, 155, 141, 0.4) 0%, rgba(99, 155, 141, 0.4) 1.5px, transparent 1.5px),
+                radial-gradient(circle at 100px 100px, rgba(99, 155, 141, 0.4) 0%, rgba(99, 155, 141, 0.4) 1.5px, transparent 1.5px),
+                repeating-linear-gradient(0deg, transparent 0px, transparent 99px, rgba(99, 155, 141, 0.25) 99px, rgba(99, 155, 141, 0.25) 100px),
+                repeating-linear-gradient(90deg, transparent 0px, transparent 99px, rgba(99, 155, 141, 0.25) 99px, rgba(99, 155, 141, 0.25) 100px),
+                repeating-linear-gradient(45deg, transparent 0px, transparent 149px, rgba(212, 160, 23, 0.12) 149px, rgba(212, 160, 23, 0.12) 150px);
+            background-size: 100px 100px, 100px 100px, 100px 100px, 100px 100px, 300px 300px;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 15% 20%, rgba(99, 155, 141, 0.18) 0%, transparent 40%),
+                radial-gradient(ellipse at 85% 30%, rgba(212, 160, 23, 0.15) 0%, transparent 45%),
+                radial-gradient(ellipse at 50% 80%, rgba(99, 155, 141, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 60%, rgba(99, 155, 141, 0.1) 0%, transparent 40%),
+                radial-gradient(ellipse at 30% 70%, rgba(212, 160, 23, 0.08) 0%, transparent 35%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .section-divider {
+            height: 80px;
+            background: linear-gradient(to right, 
+                transparent 0%, 
+                rgba(99, 155, 141, 0.15) 25%, 
+                rgba(212, 160, 23, 0.15) 50%, 
+                rgba(99, 155, 141, 0.15) 75%, 
+                transparent 100%);
+            position: relative;
+            margin: 0;
+            border-top: 1px solid rgba(99, 155, 141, 0.25);
+            border-bottom: 1px solid rgba(99, 155, 141, 0.25);
+            overflow: visible;
+        }
+        
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, #639B8D, #D4A017, #639B8D);
+            opacity: 0.35;
+            filter: blur(4px);
+            animation: dividerPulse 6s ease-in-out infinite;
+        }
+        
+        @keyframes dividerPulse {
+            0%   { opacity: 0.25; filter: blur(3px); }
+            40%  { opacity: 0.6;  filter: blur(6px); }
+            100% { opacity: 0.25; filter: blur(3px); }
+        }
+        
+        header, section, footer, .section-divider {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #E8E6E3;
+        }
+        
+        #menu-toggle {
+            display: none;
+        }
+        
+        nav a {
+            color: #E8E6E3;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 3px;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #639B8D, #D4A017);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #D4A017;
+            letter-spacing: 0.5px;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .hero {
+            background: 
+                radial-gradient(ellipse at center, rgba(45, 45, 45, 0.7) 0%, transparent 70%),
+                #1a1a1a;
+            position: relative;
+            color: #E8E6E3;
+            padding: 140px 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(99, 155, 141, 0.25) 0%, transparent 65%);
+            pointer-events: none;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #E8E6E3;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 65%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #639B8D, #D4A017, transparent);
+        }
+        
+        .hero p {
+            font-size: 1.35rem;
+            margin-bottom: 45px;
+            margin-top: 35px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(232, 230, 227, 0.85);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #639B8D 0%, #4a7c6f 100%);
+            color: #E8E6E3;
+            padding: 18px 50px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.15rem;
+            transition: all 0.3s;
+            box-shadow: 0 6px 25px rgba(99, 155, 141, 0.4);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(99, 155, 141, 0.4);
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(212, 160, 23, 0.3) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            border-radius: 50%;
+        }
+        
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(99, 155, 141, 0.5), 0 0 30px rgba(212, 160, 23, 0.3);
+            border-color: #D4A017;
+        }
+        
+        .about {
+            padding: 110px 0;
+            background: #1a1a1a;
+        }
+        
+        .about h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: #D4A017;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #639B8D, #D4A017, transparent);
+        }
+        
+        .about-content {
+            max-width: 820px;
+            margin: 55px auto 0;
+            font-size: 1.15rem;
+            line-height: 1.9;
+        }
+        
+        .about-content p {
+            margin-bottom: 25px;
+            color: rgba(232, 230, 227, 0.9);
+        }
+        
+        .products {
+            padding: 110px 0;
+            background: 
+                radial-gradient(ellipse at center, rgba(45, 45, 45, 0.5) 0%, transparent 60%),
+                #1a1a1a;
+        }
+        
+        .products h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 65px;
+            color: #D4A017;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .products h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #639B8D, #D4A017, transparent);
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 45px;
+            margin-bottom: 60px;
+        }
+        
+        .product-card {
+            background: rgba(60, 65, 75, 0.85);
+            border-radius: 14px;
+            padding: 42px;
+            border: 1px solid rgba(99, 155, 141, 0.35);
+            transition: all 0.3s;
+            opacity: 0;
+            animation: fadeUp 0.6s forwards;
+            box-shadow: 0 0 30px rgba(99, 155, 141, 0.15);
+        }
+        
+        .product-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 45px rgba(99, 155, 141, 0.35), 0 10px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(99, 155, 141, 0.6);
+            background: rgba(70, 75, 85, 0.9);
+        }
+        
+        .product-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #D4A017;
+        }
+        
+        .product-card p {
+            margin-bottom: 12px;
+            color: #E8E6E3;
+        }
+        
+        .product-card ul {
+            list-style: none;
+            margin-top: 25px;
+        }
+        
+        .product-card ul li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: rgba(232, 230, 227, 0.85);
+            transition: all 0.3s ease;
+        }
+        
+        .product-card ul li:hover {
+            padding-left: 35px;
+            color: #E8E6E3;
+        }
+        
+        .product-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #639B8D;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .product-card ul li:hover:before {
+            color: #D4A017;
+            transform: scale(1.2);
+        }
+        
+        .beta {
+            padding: 110px 0;
+            background: #1a1a1a;
+            position: relative;
+        }
+        
+        .beta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #639B8D, #D4A017, transparent);
+        }
+        
+        .beta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #D4A017;
+        }
+        
+        .beta-intro {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 55px;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(232, 230, 227, 0.85);
+        }
+        
+        .beta-form {
+            max-width: 620px;
+            margin: 0 auto;
+            background: rgba(60, 65, 75, 0.85);
+            padding: 48px;
+            border-radius: 14px;
+            border: 1px solid rgba(99, 155, 141, 0.35);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), 0 0 45px rgba(99, 155, 141, 0.15);
+        }
+        
+        .form-group {
+            margin-bottom: 26px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #E8E6E3;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(212, 160, 23, 0.3);
+            border-radius: 8px;
+            font-size: 1rem;
+            color: #E8E6E3;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:hover,
+        .form-group textarea:hover {
+            border-color: rgba(212, 160, 23, 0.5);
+            background: rgba(26, 26, 26, 0.9);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #D4A017;
+            box-shadow: 0 0 20px rgba(212, 160, 23, 0.25), 0 0 35px rgba(99, 155, 141, 0.15);
+            background: #1a1a1a;
+            transform: translateY(-1px);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(232, 230, 227, 0.3);
+        }
+        
+        .checkbox-group {
+            margin-bottom: 20px;
+        }
+        
+        .checkbox-group label {
+            display: block;
+            padding: 12px 0;
+            padding-left: 8px;
+            color: #E8E6E3;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 6px;
+        }
+        
+        .checkbox-group label:hover {
+            color: #D4A017;
+            background: rgba(212, 160, 23, 0.08);
+            padding-left: 12px;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 12px;
+            width: auto;
+            accent-color: #639B8D;
+        }
+        
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, #639B8D 0%, #4a7c6f 100%);
+            color: #E8E6E3;
+            padding: 17px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.15rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(99, 155, 141, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .submit-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+        
+        .submit-button:hover::before {
+            width: 350px;
+            height: 350px;
+        }
+        
+        .submit-button:hover {
+            background: linear-gradient(135deg, #4a7c6f 0%, #639B8D 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 155, 141, 0.45), 0 0 25px rgba(212, 160, 23, 0.2);
+            letter-spacing: 0.5px;
+        }
+        
+        .submit-button:active {
+            transform: translateY(0);
+            box-shadow: 0 3px 15px rgba(99, 155, 141, 0.35);
+        }
+        
+        footer {
+            background: #1a1a1a;
+            border-top: 1px solid rgba(212, 160, 23, 0.25);
+            color: #E8E6E3;
+            padding: 55px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #639B8D, #D4A017, transparent);
+        }
+        
+        footer p {
+            margin-bottom: 12px;
+            color: rgba(232, 230, 227, 0.7);
+        }
+        
+        @media (max-width: 768px) {
+            .logo img { height: 45px; }
+            .hero h1 { font-size: 2.4rem; }
+            .hero p { font-size: 1.15rem; }
+            .product-grid { grid-template-columns: 1fr; }
+            .beta-form { padding: 35px; }
+            
+            nav {
+                display: none !important;
+                flex-direction: column;
+                background: rgba(26, 26, 26, 0.95);
+                border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+                width: 100%;
+                padding: 20px 0;
+            }
+            
+            #menu-toggle:checked + nav {
+                display: flex !important;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            nav a {
+                margin: 12px 0 !important;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/LKM_Constructs_web.svg" alt="LKM Constructs">
+            </div>
+            <label for="menu-toggle" class="mobile-toggle">☰</label>
+            <input type="checkbox" id="menu-toggle">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="coming-soon.html">Coming Soon</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="container">
+                <h1>AI that works how you work—never the other way around</h1>
+                <p>Custom solutions built for your edge, not their checklist. We create tools that evolve with you, adapt to your needs, and amplify your capabilities.</p>
+                <a href="#beta" class="cta-button">Get Early Access</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Built for Those Who Run Ahead</h2>
+            <div class="about-content">
+                <p>We don't do "one size fits all." Every tool we craft is designed for your reality, not a faceless market checklist. Our approach prioritizes substance over production—building AI systems that match your workflow, enhance your decision-making, and scale with your ambitions.</p>
+                <p>With expertise spanning legal, corporate, and marketing sectors, we understand the complexity of real-world applications. We build custom AI solutions that adapt to how you actually work, providing genuine capability enhancement rather than forcing you to adapt to rigid tools.</p>
+                <p>We create tools that evolve with you, not against you. No generic templates. No forced routines. Just capability—amplified, sharpened, and yours to command.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="products" class="products">
+        <div class="container">
+            <h2>Our Solutions</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <h3>Inkline</h3>
+                    <p><strong>AI writing companion that enhances your voice, never replaces it.</strong></p>
+                    <p>Trained on your samples to refine prose while maintaining your unique style. Future-ready for self-publishing workflows.</p>
+                    <ul>
+                        <li>Adapts to your tone and voice</li>
+                        <li>Enhances without rewriting</li>
+                        <li>Self-publishing support (advanced tier)</li>
+                        <li>Your writing, your control</li>
+                    </ul>
+                </div>
+                
+                <div class="product-card">
+                    <h3>Clarion</h3>
+                    <p><strong>Comprehensive teaching assistant for real classrooms.</strong></p>
+                    <p>Built by someone who understands the chaos. Supports bilingual learners, neurodivergent students, and practical lesson planning.</p>
+                    <ul>
+                        <li>Bilingual classroom support</li>
+                        <li>Neurodivergent learning assistance</li>
+                        <li>Lesson planning and slide decks</li>
+                        <li>Grading and assessment tools</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="beta" class="beta">
+        <div class="container">
+            <h2>Get Early Access</h2>
+            <p class="beta-intro">Join our beta program and help shape the future of adaptive AI tools. Early access members get priority features, discounted pricing, and direct input into development.</p>
+            
+            <form class="beta-form" action="https://formspree.io/f/mlggrkwo" method="POST">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Products of Interest *</label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="products" value="inkline"> Inkline (Writing Companion)</label>
+                        <label><input type="checkbox" name="products" value="clarion"> Clarion (Teaching Assistant)</label>
+                        <label><input type="checkbox" name="products" value="other"> Other AI Solutions</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="industry">Industry/Role (Optional)</label>
+                    <input type="text" id="industry" name="industry" placeholder="e.g., Education, Legal, Content Creation">
+                </div>
+                
+                <div class="form-group">
+                    <label for="use-case">How would you use these tools? (Optional)</label>
+                    <textarea id="use-case" name="use-case" rows="4" placeholder="Tell us about your workflow or specific needs"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-button">Join Beta Program</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 LKM Constructs LLC</p>
+            <p>AI Systems & Strategic Workflow Design | Remote</p>
+        </div>
+    </footer>
+</body>
+</html>

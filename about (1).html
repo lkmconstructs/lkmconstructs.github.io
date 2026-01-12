@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | LKM Constructs</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- SEO -->
+    <meta name="description" content="Learn about LKM Constructs and founder Melissa Pinkston—AI systems architect specializing in governance, workflow design, and applied intelligence.">
+    <link rel="canonical" href="https://lkmconstructs.com/about.html">
+    <meta name="author" content="LKM Constructs, LLC">
+    <meta name="theme-color" content="#1a1a1a">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="About | LKM Constructs">
+    <meta property="og:description" content="Learn about LKM Constructs and founder Melissa Pinkston—AI systems architect specializing in governance, workflow design, and applied intelligence.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lkmconstructs.com/about.html">
+    <meta property="og:image" content="https://lkmconstructs.com/assets/og-card.png">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About | LKM Constructs">
+    <meta name="twitter:description" content="Learn about LKM Constructs and founder Melissa Pinkston—AI systems architect specializing in governance, workflow design, and applied intelligence.">
+    <meta name="twitter:image" content="https://lkmconstructs.com/assets/og-card.png">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.7;
+            color: #E8E6E3;
+            background-color: #1a1a1a;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="300" height="300" filter="url(%23noise)" opacity="0.15"/></svg>'), repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(255, 255, 255, 0.01) 2px, rgba(255, 255, 255, 0.01) 4px);
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 0% 0%, rgba(99, 155, 141, 0.4) 0%, rgba(99, 155, 141, 0.4) 1.5px, transparent 1.5px), radial-gradient(circle at 100px 100px, rgba(99, 155, 141, 0.4) 0%, rgba(99, 155, 141, 0.4) 1.5px, transparent 1.5px), repeating-linear-gradient(0deg, transparent 0px, transparent 99px, rgba(99, 155, 141, 0.25) 99px, rgba(99, 155, 141, 0.25) 100px), repeating-linear-gradient(90deg, transparent 0px, transparent 99px, rgba(99, 155, 141, 0.25) 99px, rgba(99, 155, 141, 0.25) 100px), repeating-linear-gradient(45deg, transparent 0px, transparent 149px, rgba(212, 160, 23, 0.12) 149px, rgba(212, 160, 23, 0.12) 150px);
+            background-size: 100px 100px, 100px 100px, 100px 100px, 100px 100px, 300px 300px;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at 15% 20%, rgba(99, 155, 141, 0.18) 0%, transparent 40%), radial-gradient(ellipse at 85% 30%, rgba(212, 160, 23, 0.15) 0%, transparent 45%), radial-gradient(ellipse at 50% 80%, rgba(99, 155, 141, 0.12) 0%, transparent 50%), radial-gradient(ellipse at 70% 60%, rgba(99, 155, 141, 0.1) 0%, transparent 40%), radial-gradient(ellipse at 30% 70%, rgba(212, 160, 23, 0.08) 0%, transparent 35%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        header, section, footer, .section-divider { position: relative; z-index: 2; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        header {
+            background: rgba(26, 26, 26, 0.95);
+            border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        
+        .logo img { height: 60px; width: auto; }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #E8E6E3;
+        }
+        
+        #menu-toggle { display: none; }
+        
+        nav a {
+            color: #E8E6E3;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 3px;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #639B8D, #D4A017);
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover { color: #D4A017; letter-spacing: 0.5px; }
+        nav a:hover::after { width: 100%; }
+        
+        .hero {
+            background: radial-gradient(ellipse at center, rgba(45, 45, 45, 0.7) 0%, transparent 70%), #1a1a1a;
+            padding: 140px 0;
+            text-align: center;
+            overflow: hidden;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #E8E6E3;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 65%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #639B8D, #D4A017, transparent);
+        }
+        
+        .section-divider {
+            height: 80px;
+            background: linear-gradient(to right, transparent 0%, rgba(99, 155, 141, 0.15) 25%, rgba(212, 160, 23, 0.15) 50%, rgba(99, 155, 141, 0.15) 75%, transparent 100%);
+            position: relative;
+            margin: 0;
+            border-top: 1px solid rgba(99, 155, 141, 0.25);
+            border-bottom: 1px solid rgba(99, 155, 141, 0.25);
+            overflow: visible;
+        }
+        
+        .section-divider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, #639B8D, #D4A017, #639B8D);
+            opacity: 0.35;
+            filter: blur(4px);
+            animation: dividerPulse 6s ease-in-out infinite;
+        }
+        
+        @keyframes dividerPulse {
+            0%   { opacity: 0.25; filter: blur(3px); }
+            40%  { opacity: 0.6;  filter: blur(6px); }
+            100% { opacity: 0.25; filter: blur(3px); }
+        }
+        
+        .section {
+            padding: 110px 0;
+            background: #1a1a1a;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: #D4A017;
+            text-align: center;
+        }
+        
+        .section p {
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+            line-height: 1.9;
+            color: rgba(232, 230, 227, 0.9);
+        }
+        
+        .highlight { color: #4a9d9d; font-weight: 600; }
+        
+        ul {
+            list-style: none;
+            margin: 40px 0;
+            background: rgba(60, 65, 75, 0.85);
+            border-radius: 14px;
+            padding: 42px;
+            border: 1px solid rgba(99, 155, 141, 0.35);
+            box-shadow: 0 0 30px rgba(99, 155, 141, 0.15);
+        }
+        
+        ul li {
+            font-size: 1.15rem;
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            color: rgba(232, 230, 227, 0.85);
+        }
+        
+        ul li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #D4A017;
+            font-size: 1.3rem;
+        }
+        
+        footer {
+            background: #1a1a1a;
+            border-top: 1px solid rgba(212, 160, 23, 0.25);
+            padding: 55px 0;
+            text-align: center;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #639B8D, #D4A017, transparent);
+        }
+        
+        footer p { margin-bottom: 12px; color: rgba(232, 230, 227, 0.7); }
+        
+        footer a {
+            color: #4a9d9d;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover { color: #d4a574; }
+        
+        @media (max-width: 768px) {
+            .logo img { height: 45px; }
+            .hero h1 { font-size: 2.4rem; }
+            .section h2 { font-size: 2rem; }
+            .section p { font-size: 1rem; }
+            ul { padding: 30px; }
+            
+            nav {
+                display: none !important;
+                flex-direction: column;
+                background: rgba(26, 26, 26, 0.95);
+                border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+                width: 100%;
+                padding: 20px 0;
+            }
+            
+            #menu-toggle:checked + nav {
+                display: flex !important;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            nav a {
+                margin: 12px 0 !important;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="assets/LKM_Constructs_web.svg" alt="LKM Constructs">
+            </div>
+            <label for="menu-toggle" class="mobile-toggle">☰</label>
+            <input type="checkbox" id="menu-toggle">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="coming-soon.html">Coming Soon</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>About LKM Constructs</h1>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="section">
+            <div class="container">
+                <p>I'm Melissa—founder of LKM Constructs, wife, mom, and someone who got tired of watching AI tools fall apart every time a platform pivoted or padded itself with "safety" that killed real work.</p>
+                
+                <p>I spent years in business operations and legal compliance, which taught me two things: systems break when they're built on someone else's shifting priorities, and the best tools are the ones you actually control. That frustration led me to build LKM Constructs—a company focused on constitutional AI frameworks: systems with enforced rules, memory, and boundaries, treated like infrastructure, not an afterthought.</p>
+                
+                <p>Most AI development focuses on making models compliant. I focus on making them sovereign.</p>
+                
+                <p>There's a difference between an assistant that follows rules and a system that holds constitutional boundaries while adapting to how you actually work.</p>
+                
+                <p>I'm not interested in building tools that sound impressive in demos but collapse under real-world pressure. I'm building AI systems that last—frameworks where your investment in training, memory, and workflow isn't hostage to quarterly pivots or shifting definitions of "safe."</p>
+                
+                <p>LKM Constructs exists because platform dependency is a structural problem, not a feature trade-off. If you're tired of renting your AI infrastructure, I'm building to help people see what governed ownership actually looks like.</p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="section">
+            <div class="container">
+                <h2>Background</h2>
+                <ul>
+                    <li>Business Administration, Phi Beta Kappa honors</li>
+                    <li>Legal operations & corporate administration specialist</li>
+                    <li>AI systems architect & governance framework designer</li>
+                </ul>
+                
+                <p style="margin-top: 40px;">LKM Constructs products launch in <strong>2026</strong>—AI tools for writers, educators, and strategic operators. Built on operational rigor and designed for real-world application.</p>
+                
+                <p style="margin-top: 20px; color: #d4a574; font-weight: 600;">Full-stack AI system design available after 2026 product launch.</p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section class="section">
+            <div class="container">
+                <p style="text-align: center; font-size: 1.25rem;">
+                    <a href="https://www.linkedin.com/company/lkm-constructs/" target="_blank" style="color: #4a9d9d; text-decoration: none; transition: color 0.3s;">Connect on LinkedIn →</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 LKM Constructs LLC</p>
+            <p>AI Systems & Strategic Workflow Design | Remote</p>
+        </div>
+    </footer>
+</body>
+</html>
