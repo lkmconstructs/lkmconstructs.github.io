@@ -72,18 +72,45 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         
         header {
-            background: rgba(26, 26, 26, 0.95);
+            background: #212225;
+            background-image: url('data:image/svg+xml;utf8,<svg width="1600" height="180" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="rgba(33,34,37,0)" /><stop offset="50%" stop-color="rgba(33,34,37,0.1)" /><stop offset="100%" stop-color="rgba(33,34,37,0.8)" /></linearGradient></defs><rect x="0" y="0" width="1600" height="180" fill="url(%23fade)" /><g opacity="0.22"><polyline points="60,160 150,100 200,160 300,80 450,160 600,120 900,170 1200,110 1500,170" stroke="%23639B8D" stroke-width="2.4" fill="none"/><polyline points="80,30 260,90 380,30 600,110 940,55 1400,110 1580,40" stroke="%23D4A017" stroke-width="1.5" fill="none"/><polyline points="110,140 180,110 320,160 470,70 730,110 1300,170" stroke="%23639B8D" stroke-width="1.7" fill="none"/><polyline points="190,170 270,140 700,130 980,160 1430,120" stroke="%23D4A017" stroke-width="1" fill="none"/><circle cx="150" cy="100" r="4" fill="%23639B8D"/><circle cx="300" cy="80" r="3" fill="%23D4A017"/><circle cx="940" cy="55" r="4" fill="%23639B8D"/><circle cx="1400" cy="110" r="3" fill="%23D4A017"/><rect x="900" y="170" width="10" height="10" rx="2" fill="%23D4A017"/><rect x="1300" y="170" width="10" height="10" rx="2" fill="%23639B8D"/><line x1="600" y1="10" x2="600" y2="170" stroke="%23D4A017" stroke-width="1.5" opacity="0.7"/><line x1="1200" y1="175" x2="1200" y2="30" stroke="%23639B8D" stroke-width="1.5" opacity="0.6"/><circle cx="1200" cy="30" r="3" fill="%23D4A017"/><circle cx="260" cy="90" r="2" fill="%23639B8D"/><circle cx="700" cy="130" r="3" fill="%23D4A017"/><circle cx="600" cy="120" r="2.5" fill="%23639B8D"/><circle cx="1580" cy="40" r="3" fill="%23D4A017"/></g></svg>');
+            background-size: 1600px 180px;
+            background-repeat: no-repeat;
+            background-position: center bottom;
+            padding: 0 0;
             border-bottom: 1px solid rgba(212, 160, 23, 0.3);
-            padding: 20px 0;
             position: sticky;
             top: 0;
             z-index: 100;
             backdrop-filter: blur(10px);
+            min-height: 180px;
         }
         
-        header .container { display: flex; justify-content: space-between; align-items: center; }
+        header .container { 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: nowrap;       /* Don't let nav drop below! */
+            min-height: 160px;
+            gap: 40px;
+        }
+
+        .logo {
+            flex-shrink: 0;
+        }
         
-        .logo img { height: 80px; width: auto; }
+        .logo img { 
+            height: 150px; 
+            width: auto; 
+            display: block;
+        }
+        nav {
+            flex: 1 1 auto;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            min-width: 0;
+        }
         
         .mobile-toggle {
             display: none;
@@ -384,7 +411,22 @@
                 margin: 12px 0 !important;
                 font-size: 1.2rem;
             }
+    @media (max-width: 950px) {
+        header .container {
+            flex-direction: column;
+            align-items: flex-start;
+            min-height: unset;
+            gap: 0;
         }
+        .logo img {
+            height: 90px;
+        }
+        nav {
+            margin-top: 10px;
+            width: 100%;
+            justify-content: flex-start;
+        }
+    }
     </style>
 </head>
 <body>
