@@ -177,13 +177,17 @@
         }
         
         header {
-            background: rgba(26, 26, 26, 0.95);
-            border-bottom: 1px solid rgba(212, 160, 23, 0.3);
-            padding: 20px 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
+           background: #212225;
+    /* You can layer a grid pattern here if you want to be extra: */
+           background-image:
+               repeating-linear-gradient(0deg, transparent 0px, transparent 38px, rgba(255,255,255,0.02) 38px, rgba(255,255,255,0.02) 40px),
+               repeating-linear-gradient(90deg, transparent 0px, transparent 38px, rgba(255,255,255,0.025) 38px, rgba(255,255,255,0.025) 40px);
+           border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+           padding: 20px 0;
+           position: sticky;
+           top: 0;
+           z-index: 100;
+           backdrop-filter: blur(10px);
         }
         
         header .container {
@@ -193,7 +197,7 @@
         }
         
         .logo img {
-            height: 80px;
+            height: 160px;
             width: auto;
         }
         
@@ -711,7 +715,7 @@
         }
         
         @media (max-width: 768px) {
-            .logo img { height: 60px; }
+            .logo img { height: 90px; }
             .hero h1 { font-size: 2.4rem; }
             .hero p { font-size: 1.15rem; }
             .product-grid { grid-template-columns: 1fr; }
