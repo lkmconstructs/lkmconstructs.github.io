@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | LKM Constructs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Published research from LKM Constructs — constitutional AI governance, adversarial detection, and model-agnostic safety infrastructure.">
+    <meta name="author" content="LKM Constructs, LLC">
+    <meta name="theme-color" content="#1a1a1a">
+    <meta property="og:title" content="Research | LKM Constructs">
+    <meta property="og:description" content="Published research from LKM Constructs — constitutional AI governance and safety infrastructure.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lkmconstructs.com/research.html">
+    <meta property="og:image" content="https://lkmconstructs.com/assets/og-card.png">
+    <style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;line-height:1.7;color:#E8E6E3;background-color:#1a1a1a;background-image:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="300" height="300" filter="url(%23noise)" opacity="0.15"/></svg>'),repeating-linear-gradient(0deg,transparent 0px,transparent 2px,rgba(255,255,255,0.01) 2px,rgba(255,255,255,0.01) 4px);position:relative}
+body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background-image:radial-gradient(circle at 0% 0%,rgba(99,155,141,0.4) 0%,rgba(99,155,141,0.4) 1.5px,transparent 1.5px),radial-gradient(circle at 100px 100px,rgba(99,155,141,0.4) 0%,rgba(99,155,141,0.4) 1.5px,transparent 1.5px),repeating-linear-gradient(0deg,transparent 0px,transparent 99px,rgba(99,155,141,0.25) 99px,rgba(99,155,141,0.25) 100px),repeating-linear-gradient(90deg,transparent 0px,transparent 99px,rgba(99,155,141,0.25) 99px,rgba(99,155,141,0.25) 100px),repeating-linear-gradient(45deg,transparent 0px,transparent 149px,rgba(212,160,23,0.12) 149px,rgba(212,160,23,0.12) 150px);background-size:100px 100px,100px 100px,100px 100px,100px 100px,300px 300px;pointer-events:none;z-index:1}
+body::after{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 15% 20%,rgba(99,155,141,0.18) 0%,transparent 40%),radial-gradient(ellipse at 85% 30%,rgba(212,160,23,0.15) 0%,transparent 45%),radial-gradient(ellipse at 50% 80%,rgba(99,155,141,0.12) 0%,transparent 50%),radial-gradient(ellipse at 70% 60%,rgba(99,155,141,0.1) 0%,transparent 40%),radial-gradient(ellipse at 30% 70%,rgba(212,160,23,0.08) 0%,transparent 35%);pointer-events:none;z-index:1}
+header,main,footer,.section-divider{position:relative;z-index:2}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+header{background:#212225;background-image:url('data:image/svg+xml;utf8,<svg width="1600" height="180" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="fade" x1="0" y1="0" x2="0" y2="1"><stop offset="0%25" stop-color="rgba(33,34,37,0)"/><stop offset="50%25" stop-color="rgba(33,34,37,0.1)"/><stop offset="100%25" stop-color="rgba(33,34,37,0.8)"/></linearGradient></defs><rect x="0" y="0" width="1600" height="180" fill="url(%23fade)"/><g opacity="0.22"><polyline points="60,160 150,100 200,160 300,80 450,160 600,120 900,170 1200,110 1500,170" stroke="%23639B8D" stroke-width="2.4" fill="none"/><polyline points="80,30 260,90 380,30 600,110 940,55 1400,110 1580,40" stroke="%23D4A017" stroke-width="1.5" fill="none"/><polyline points="110,140 180,110 320,160 470,70 730,110 1300,170" stroke="%23639B8D" stroke-width="1.7" fill="none"/><circle cx="150" cy="100" r="4" fill="%23639B8D"/><circle cx="300" cy="80" r="3" fill="%23D4A017"/><circle cx="940" cy="55" r="4" fill="%23639B8D"/><circle cx="1400" cy="110" r="3" fill="%23D4A017"/></g></svg>');background-size:1600px 180px;background-repeat:no-repeat;background-position:center bottom;border-bottom:1px solid rgba(212,160,23,0.3);position:sticky;top:0;z-index:100;backdrop-filter:blur(10px);min-height:180px}
+header .container{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:nowrap;min-height:160px;gap:40px}
+.logo{flex-shrink:0} .logo img{height:150px;width:auto;display:block}
+nav{flex:1 1 auto;display:flex;justify-content:flex-end;align-items:center;min-width:0}
+.mobile-toggle{display:none;font-size:1.8rem;cursor:pointer;color:#E8E6E3} #menu-toggle{display:none}
+nav a{color:#E8E6E3;text-decoration:none;margin-left:30px;font-weight:500;transition:all 0.3s ease;position:relative;padding-bottom:3px}
+nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:linear-gradient(90deg,#639B8D,#D4A017);transition:width 0.3s ease}
+nav a:hover{color:#D4A017;letter-spacing:0.5px} nav a:hover::after,nav a.active::after{width:100%} nav a.active{color:#D4A017}
+.hero{background:radial-gradient(ellipse at center,rgba(45,45,45,0.7) 0%,transparent 70%),#1a1a1a;padding:100px 0 60px;text-align:center}
+.hero h1{font-family:'Noto Serif Display',serif;font-size:3.5rem;font-weight:700;color:#E8E6E3;position:relative;display:inline-block;margin-bottom:10px}
+.hero h1::after{content:'';position:absolute;bottom:-10px;left:50%;transform:translateX(-50%);width:65%;height:3px;background:linear-gradient(90deg,transparent,#639B8D,#D4A017,transparent)}
+.hero-sub{font-size:1.15rem;color:rgba(232,230,227,0.9);max-width:700px;margin:30px auto 0;line-height:1.9}
+.section-divider{height:80px;background:linear-gradient(to right,transparent 0%,rgba(99,155,141,0.15) 25%,rgba(212,160,23,0.15) 50%,rgba(99,155,141,0.15) 75%,transparent 100%);position:relative;margin:0;border-top:1px solid rgba(99,155,141,0.25);border-bottom:1px solid rgba(99,155,141,0.25)}
+.section-divider::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:2px;background:linear-gradient(90deg,#639B8D,#D4A017,#639B8D);opacity:0.35;filter:blur(4px);animation:dividerPulse 6s ease-in-out infinite}
+@keyframes dividerPulse{0%{opacity:.15;filter:blur(2px)}40%{opacity:.3;filter:blur(3px)}100%{opacity:.15;filter:blur(2px)}}
+.section{padding:60px 0;background:#1a1a1a;max-width:960px;margin:0 auto}
+.research-card{background:rgba(60,65,75,0.85);border:1px solid rgba(99,155,141,0.35);border-radius:14px;padding:36px 40px;box-shadow:0 0 30px rgba(99,155,141,0.15);margin-bottom:24px;transition:border-color 0.3s}
+.research-card:hover{border-color:rgba(212,160,23,0.5)}
+.research-card .card-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:.14em;color:#639B8D;margin-bottom:8px}
+.research-card h3{font-family:'Noto Serif Display',serif;font-size:1.6rem;font-weight:600;color:#E8E6E3;margin-bottom:8px}
+.research-card .card-meta{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:rgba(232,230,227,0.5);margin-bottom:16px}
+.research-card p{font-size:1rem;line-height:1.8;color:rgba(232,230,227,0.85);margin-bottom:20px}
+.research-card .card-stats{display:flex;gap:20px;margin-bottom:20px;flex-wrap:wrap}
+.research-card .card-stat{font-family:'JetBrains Mono',monospace;font-size:.75rem}
+.research-card .card-stat .num{font-family:'Noto Serif Display',serif;font-size:1.4rem;font-weight:700;color:#D4A017;display:block}
+.research-card .card-stat .label{color:rgba(232,230,227,0.5);text-transform:uppercase;letter-spacing:.08em}
+.card-links{display:flex;gap:12px;flex-wrap:wrap}
+.card-links a{font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;padding:10px 24px;border:1px solid rgba(99,155,141,0.4);border-radius:6px;color:#E8E6E3;text-decoration:none;transition:all 0.3s}
+.card-links a:hover{border-color:#D4A017;color:#D4A017}
+.card-links a.primary{background:linear-gradient(135deg,#639B8D,rgba(99,155,141,0.8));border-color:#639B8D;color:#fff} .card-links a.primary:hover{opacity:0.9}
+footer{background:#1a1a1a;border-top:1px solid rgba(212,160,23,0.25);padding:55px 0;text-align:center;position:relative}
+footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#639B8D,#D4A017,transparent)}
+footer p{margin-bottom:12px;color:rgba(232,230,227,0.7)}
+footer a{color:#4a9d9d;text-decoration:none;transition:color .3s} footer a:hover{color:#d4a574}
+@media(max-width:768px){.logo img{height:60px}.hero h1{font-size:2.4rem}.research-card{padding:24px}.research-card h3{font-size:1.3rem}.card-stats{gap:12px}nav{display:none!important;flex-direction:column;background:rgba(26,26,26,0.95);border-bottom:1px solid rgba(212,160,23,0.3);width:100%;padding:20px 0}#menu-toggle:checked+nav{display:flex!important}.mobile-toggle{display:block}nav a{margin:12px 0!important;font-size:1.2rem}}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo"><img src="assets/LKM_Constructs_web.svg" alt="LKM Constructs"></div>
+            <label for="menu-toggle" class="mobile-toggle">&#9776;</label>
+            <input type="checkbox" id="menu-toggle">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="research.html" class="active">Research</a>
+                <a href="coming-soon.html">Coming Soon</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>RESEARCH</h1>
+                <p class="hero-sub">Published work in constitutional AI governance, adversarial detection, and model-agnostic safety infrastructure.</p>
+            </div>
+        </section>
+        <div class="section-divider"></div>
+        <section class="section">
+            <div class="container">
+
+                <div class="research-card">
+                    <div class="card-label">Preprint &#183; February 2026</div>
+                    <h3>PatternWall: Constitutional Governance Middleware for AI Safety</h3>
+                    <div class="card-meta">Melissa Pinkston &#183; LKM Constructs</div>
+                    <p>A pre-filter architecture for model-agnostic adversarial detection. PatternWall intercepts prompts before they reach an AI model, enforcing governance as deterministic infrastructure rather than relying on model-level training or provider-specific tuning.</p>
+                    <div class="card-stats">
+                        <div class="card-stat"><span class="num">100%</span><span class="label">Attack Detection</span></div>
+                        <div class="card-stat"><span class="num">96.4%</span><span class="label">Hard Block</span></div>
+                        <div class="card-stat"><span class="num">5</span><span class="label">Models Tested</span></div>
+                        <div class="card-stat"><span class="num">0%</span><span class="label">False Positives</span></div>
+                    </div>
+                    <div class="card-links">
+                        <a href="research/patternwall.html" class="primary">View Details &amp; Demo</a>
+                        <a href="papers/patternwall_v3_7.pdf" target="_blank">Download Paper (PDF)</a>
+                    </div>
+                </div>
+
+                <!-- Future: Sensus card goes here -->
+
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 LKM Constructs LLC</p>
+            <p>AI Systems &amp; Strategic Workflow Design | Remote</p>
+        </div>
+    </footer>
+</body>
+</html>
