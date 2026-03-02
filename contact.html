@@ -450,5 +450,18 @@
             <p>AI Systems & Strategic Workflow Design | Remote</p>
         </div>
     </footer>
+    
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const subject = params.get('subject');
+        if (subject) {
+            const select = document.getElementById('interest');
+            if (subject.includes('Healthcare')) {
+                select.value = 'Pilot - Healthcare';
+            } else if (subject.includes('Legal')) {
+                select.value = 'Pilot - Legal';
+            }
+        }
+    </script>
 </body>
 </html>
