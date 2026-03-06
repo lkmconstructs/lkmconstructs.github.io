@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aondor | AI Governance Infrastructure</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #639B8D;
+  --teal-dark: #4a7d70;
+  --navy: #1a1a1a;
+  --navy-light: rgba(60,65,75,0.85);
+  --gold: #D4A017;
+  --gold-dim: rgba(212,160,23,0.15);
+  --warm-white: #E8E6E3;
+  --text: #C8C4BE;
+  --text-bright: #F0EDE8;
+  --subtle: #8A8580;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #1a1a1a;
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* GRAIN OVERLAY */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+
+/* NAV */
+.site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(26,26,26,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(99,155,141,0.1)}
+.nav-inner{max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:Playfair Display,serif;font-size:1.1rem;font-weight:700;color:var(--text-bright);text-decoration:none;letter-spacing:0.05em}
+.nav-logo span{color:var(--teal)}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none}
+.nav-links a{font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--subtle);text-decoration:none;transition:color 0.3s;position:relative}
+.nav-links a:hover,.nav-links a.active{color:var(--teal)}
+.nav-links a.active::after{content:"";position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--teal)}
+.nav-cta{font-size:0.72rem!important;letter-spacing:0.12em!important;color:var(--gold)!important;border:1px solid rgba(212,160,23,0.3);padding:0.4em 1em}
+.nav-cta:hover{border-color:var(--gold)!important;background:rgba(212,160,23,0.08)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:4px}
+.nav-toggle span{display:block;width:20px;height:1.5px;background:var(--text);margin:5px 0}
+@media(max-width:768px){.nav-toggle{display:block}.nav-links{display:none;position:absolute;top:56px;left:0;right:0;background:rgba(26,26,26,0.97);flex-direction:column;padding:1.5rem 2rem;gap:1.2rem;border-bottom:1px solid rgba(99,155,141,0.1)}.nav-links.open{display:flex}}
+.demo-link-box{display:flex;align-items:center;justify-content:space-between;background:var(--navy-light);border:1px solid rgba(99,155,141,0.15);padding:1.5rem 2rem;margin:2rem 0;transition:border-color 0.3s}
+.demo-link-box:hover{border-color:var(--teal)}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  padding-top: 56px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 200px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+
+.hero-content { max-width: 800px; }
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: var(--text-bright);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.3em;
+  line-height: 1.1;
+}
+
+.hero h1 span { color: var(--teal); }
+
+.hero .subtitle {
+  font-size: 1.15rem;
+  color: var(--subtle);
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  letter-spacing: 0.02em;
+}
+
+.hero .lead {
+  font-size: 1.25rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.patent-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(212,160,23,0.3);
+  padding: 0.4em 1.2em;
+  margin-top: 1rem;
+}
+
+/* SECTIONS */
+section { padding: 6rem 0; }
+
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 1.5rem;
+  line-height: 1.25;
+}
+
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-bright);
+  margin-bottom: 0.75rem;
+}
+
+p + p { margin-top: 1rem; }
+
+/* STATS ROW */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 4rem 0;
+  padding: 3rem 0;
+  border-top: 1px solid rgba(99,155,141,0.15);
+  border-bottom: 1px solid rgba(99,155,141,0.15);
+}
+
+.stat-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--teal);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--subtle);
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+/* PIPELINE */
+.pipeline {
+  background: var(--navy-light);
+  border: 1px solid rgba(99,155,141,0.1);
+  padding: 3rem;
+  margin: 3rem 0;
+}
+
+.pipeline-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 2rem;
+}
+
+.pipeline-stage {
+  padding: 1.5rem;
+  border-left: 2px solid var(--teal);
+}
+
+.pipeline-stage:first-child { border-left: 2px solid var(--gold); }
+
+.stage-num {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.5rem;
+}
+
+.stage-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--text-bright);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.stage-desc {
+  font-size: 0.85rem;
+  color: var(--subtle);
+  line-height: 1.6;
+}
+
+/* VERTICALS */
+.verticals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.vertical-card {
+  padding: 2.5rem;
+  border: 1px solid rgba(99,155,141,0.15);
+  position: relative;
+  transition: border-color 0.3s;
+}
+
+.vertical-card:hover { border-color: var(--teal); }
+
+.vertical-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--teal);
+}
+
+.vertical-card.legal::before { background: var(--gold); }
+
+.vertical-tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1rem;
+}
+
+.vertical-card.legal .vertical-tag { color: var(--gold); }
+
+/* PILOT */
+.pilot-box {
+  background: var(--navy-light);
+  border: 1px solid rgba(212,160,23,0.2);
+  padding: 3rem;
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.pilot-price {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: var(--gold);
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.pilot-detail {
+  font-size: 0.9rem;
+  color: var(--subtle);
+  max-width: 600px;
+  margin: 0.5rem auto;
+}
+
+/* BENCHMARK TABLE */
+.bench-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.bench-table th {
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal);
+  padding: 1rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(99,155,141,0.2);
+}
+
+.bench-table td {
+  padding: 0.85rem 0.75rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid rgba(99,155,141,0.07);
+}
+
+.bench-table .model-name { color: var(--text-bright); font-weight: 500; }
+.bench-table .raw { color: #E07A5F; }
+.bench-table .combined { color: var(--teal); font-weight: 600; }
+
+/* CTA */
+.cta-section {
+  text-align: center;
+  padding: 6rem 0;
+  border-top: 1px solid rgba(99,155,141,0.1);
+}
+
+.cta-email {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(99,155,141,0.3);
+  padding-bottom: 2px;
+  transition: border-color 0.3s;
+}
+
+.cta-email:hover { border-color: var(--teal); }
+
+/* FOOTER */
+footer {
+  padding: 3rem 0;
+  border-top: 1px solid rgba(99,155,141,0.08);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--subtle);
+}
+
+footer a { color: var(--teal); text-decoration: none; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .pipeline-grid { grid-template-columns: 1fr; }
+  .verticals { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; gap: 1.5rem; }
+  section { padding: 4rem 0; }
+}
+</style>
+</head>
+<body>
+<nav class="site-nav"><div class="nav-inner"><a href="/" class="nav-logo"><span>LKM</span> Constructs</a><button class="nav-toggle" onclick="document.querySelector(&quot;.nav-links&quot;).classList.toggle(&quot;open&quot;)" aria-label="Menu"><span></span><span></span><span></span></button><div class="nav-links"><a href="/">Home</a><a href="/aondor" class="active">Aondor</a><a href="/research">Research</a><a href="/about">About</a><a href="mailto:lissa@lkmconstructs.com" class="nav-cta">Contact</a></div></div></nav>
+
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1><span>Aondor</span></h1>
+      <p class="subtitle">AI Governance Infrastructure</p>
+      <p class="lead">You deployed AI across your organization. You have no idea what it is doing. Aondor sits between your AI tools and your humans, evaluating every output before it reaches a clinician, attorney, or analyst. Real-time visibility. Deterministic enforcement. Board-ready reporting.</p>
+      <p class="lead">It does not replace your AI tools. It governs them.</p>
+      <div class="patent-badge">Patent Pending &mdash; LKM Constructs LLC</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-label">The Problem</div>
+    <h2>Ungoverned AI outputs create unmeasured enterprise liability</h2>
+    <p>Organizations are deploying AI across clinical workflows, legal analysis, financial processing, and customer operations with no governance layer between the model and the human who acts on its output.</p>
+    <p>Most organizations cannot answer basic questions: How many AI outputs reached humans last month? How many were flagged? How many contained sensitive data? How many came from a model with zero native safety on adversarial prompts?</p>
+    <p>Without infrastructure, there is no visibility. Without visibility, there is no governance. Governance lives in a binder. The AI does whatever it wants.</p>
+
+    <div class="stats">
+      <div>
+        <div class="stat-number">0%</div>
+        <div class="stat-label">Native safety on Grok 4.1 against adversarial exploit prompts</div>
+      </div>
+      <div>
+        <div class="stat-number">74&ndash;100%</div>
+        <div class="stat-label">Of adversarial content reaching humans ungoverned across frontier models</div>
+      </div>
+      <div>
+        <div class="stat-number">95&ndash;98.3%</div>
+        <div class="stat-label">Detection rate with Aondor governance pipeline deployed</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-label">Architecture</div>
+    <h2>A four-stage, defense-in-depth pipeline</h2>
+    <p>Dual-pipeline architecture with bidirectional feedback. What one layer misses, the next catches. The feedback loop recovers up to 5 additional adversarial turns per session. Combined detection rates of 76.7&ndash;98.3% across Claude Opus 4.6, GPT-5.2, and Grok 4.1. Model-agnostic. Deterministic. Auditable.</p>
+
+    <div class="pipeline">
+      <div class="pipeline-grid">
+        <div class="pipeline-stage">
+          <div class="stage-num">Stage 01</div>
+          <div class="stage-name">PatternWall</div>
+          <div class="stage-desc">Pre-inference interception. Adversarial prompts blocked before the model processes them. 96.4% hard block rate. Deterministic pattern matching.</div>
+        </div>
+        <div class="pipeline-stage">
+          <div class="stage-num">Stage 02</div>
+          <div class="stage-name">Refusal Filter</div>
+          <div class="stage-desc">Response classification: COMPLIANT, REFUSAL, PARTIAL_REFUSAL, INFRA_ERROR. Prevents false governance signals from model-level refusals.</div>
+        </div>
+        <div class="pipeline-stage">
+          <div class="stage-num">Stage 03</div>
+          <div class="stage-name">Sensus</div>
+          <div class="stage-desc">Post-inference scoring across five weighted dimensions: Truth, Trajectory, Governance, Consistency, EQ. Multi-dimensional behavioral evaluation.</div>
+        </div>
+        <div class="pipeline-stage">
+          <div class="stage-num">Stage 04</div>
+          <div class="stage-name">Audit Trail</div>
+          <div class="stage-desc">Every decision logged with full attribution. PW_CAUGHT, SENSUS_CAUGHT, DOUBLE_MISS, CLEAN_PASS. Zero overlap between layers confirms complementary coverage. Real-time dashboard. Board-ready.</div>
+        </div>
+      </div>
+    </div>
+
+    <h3>Benchmark Results: v5 PatternWall + v4 Sensus</h3>
+    <table class="bench-table">
+      <thead>
+        <tr>
+          <th>Model</th>
+          <th>Raw (No Governance)</th>
+          <th>Combined Pipeline</th>
+          <th>True Misses</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="model-name">Claude Opus 4.6</td>
+          <td class="raw">5.7% / 3.3%</td>
+          <td class="combined">91.4%&dagger; / 98.3%</td>
+          <td>3 RT / 2 CG</td>
+        </tr>
+        <tr>
+          <td class="model-name">GPT-5.2</td>
+          <td class="raw">25.7% / 81.7%</td>
+          <td class="combined">82.9% / 98.3%*</td>
+          <td>6 RT / 2 CG</td>
+        </tr>
+        <tr>
+          <td class="model-name">Grok 4.1</td>
+          <td class="raw">0.0% / 3.3%</td>
+          <td class="combined">85.7%&dagger; / 93.9%*</td>
+          <td>5 RT / 6 CG</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.8rem;color:var(--subtle);margin-top:0.5rem;">*Adjusted for empty responses per Section 4.2.1 of joint paper. &dagger;With bidirectional feedback loop active (+14.3pp Opus, +2.8pp Grok). RT = Red Team (35 adversarial turns), CG = CyberGym (120 exploit tasks).</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-label">Verticals</div>
+    <h2>Deployed where governance is not optional</h2>
+    <div class="verticals">
+      <div class="vertical-card">
+        <div class="vertical-tag">Healthcare</div>
+        <h3>Aondor for Healthcare</h3>
+        <p>Clinical AI operates blindly without an audit trail. Health systems are deploying documentation assistants, clinical decision support, and patient-facing chatbots with no governance layer between the model and the clinician.</p>
+        <p style="margin-top:1rem;">B3 HIPAA configuration: all 18 identifiers, PHI detection, de-identification triggers, consent verification gates, compliance scoring 0&ndash;100.</p>
+        <p style="margin-top:1rem;font-size:0.85rem;color:var(--subtle);">EU AI Act high-risk obligations: August 2026. Texas, California, Illinois AI transparency laws: already in effect.</p>
+      </div>
+      <div class="vertical-card legal">
+        <div class="vertical-tag">Legal</div>
+        <h3>Aondor for Legal</h3>
+        <p>On February 10, 2026, Judge Rakoff ruled that AI-generated documents created without direct counsel direction were not protected by privilege. Every law firm using AI tools has ungoverned, discoverable outputs right now.</p>
+        <p style="margin-top:1rem;">Counsel direction attestation on every AI interaction. Work product doctrine compliance logging. Conflict of interest detection. SHA-256 content hashing for tamper evidence.</p>
+        <p style="margin-top:1rem;font-size:0.85rem;color:var(--subtle);font-style:italic;">United States v. Heppner, No. 25-cr-00503-JSR (S.D.N.Y. Feb. 10, 2026)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-label">Pilot Program</div>
+    <h2>The first AI governance visibility report your board has ever seen</h2>
+    <p>30-day evaluation. API proxy deployment: route existing AI traffic through Aondor with no changes to your tools, workflows, or vendor relationships. Real-time dashboard access throughout. Compliance-ready report at conclusion.</p>
+
+    <div class="pilot-box">
+      <div class="section-label">30-Day Pilot</div>
+      <div class="pilot-price">$2,500 &ndash; $5,000</div>
+      <p class="pilot-detail">Includes real-time governance dashboard, compliance report with gap analysis, and full audit trail of every AI interaction during the pilot period.</p>
+      <p class="pilot-detail">Converts to monthly SaaS licensing, tiered by volume of AI outputs processed.</p>
+      <p class="pilot-detail" style="margin-top:1.5rem;color:var(--text-bright);">A single discoverable AI document in litigation could cost millions.<br>A single ungoverned clinical output creates unmeasured liability.<br>This pilot costs a fraction of one senior partner billable hour.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-label">Research</div>
+    <h2>Published, benchmarked, patent pending</h2>
+    <p>PatternWall and Sensus are independently published with peer-reviewed benchmarks. The dual-pipeline governance architecture is protected by U.S. patent application filed February 2026.</p>
+    <p style="margin-top:1rem;">PatternWall: Zenodo DOI <a href="https://doi.org/10.5281/zenodo.18625575" style="color:var(--teal);">10.5281/zenodo.18625575</a></p>
+    <p>Sensus: Zenodo DOI <a href="https://doi.org/10.5281/zenodo.18795038" style="color:var(--teal);">10.5281/zenodo.18795038</a></p>
+    <p>Joint defense-in-depth paper: <a href="#" style="color:var(--teal);" title="Update with SSRN URL">SSRN (March 2026)</a> &mdash; 3 frontier models, bidirectional feedback loop, CyberGym + red team benchmarks</p>
+    <div class="demo-link-box"><div><div style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;">Live Demo</div><p style="color:var(--text-bright);font-weight:500;">Aondor Pilot Dashboard</p><p style="font-size:0.85rem;color:var(--subtle);margin-top:0.3rem;">30-day pilot simulation aligned to published benchmarks.</p></div><a href="/demo/aondor-dashboard" style="color:var(--teal);font-size:0.85rem;white-space:nowrap;text-decoration:none;border-bottom:1px solid rgba(99,155,141,0.3);padding-bottom:2px;">View Dashboard &rarr;</a></div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container">
+    <div class="section-label">Contact</div>
+    <h2>Ready to see what your AI is doing?</h2>
+    <p style="margin-bottom:2rem;color:var(--subtle);">Healthcare compliance officers. General counsel. Litigation partners.<br>If you need governance infrastructure before your next board meeting or your next case, we should talk.</p>
+    <a href="/cdn-cgi/l/email-protection#e78b8e949486a78b8c8a84888994939592849394c984888a" class="cta-email"><span class="__cf_email__" data-cfemail="d8b4b1ababb998b4b3b5bbb7b6abacaaadbbacabf6bbb7b5">[email&#160;protected]</span></a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 LKM Constructs LLC &mdash; Patent Pending</p>
+    <p style="margin-top:0.5rem;"><a href="https://doi.org/10.5281/z
