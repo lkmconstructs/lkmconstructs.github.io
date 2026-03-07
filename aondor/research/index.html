@@ -231,8 +231,7 @@ header, section, footer { position: relative; z-index: 2; }
     padding: 4px 0 4px 12px; margin-top: 4px;
   }
   .nav-dropdown-menu a { padding: 8px 12px !important; font-size: 1rem !important; }
-  .nav-dropdown:hover .nav-dropdown-menu,
-  .nav-dropdown .nav-dropdown-menu { display: block; }
+  .nav-dropdown.open .nav-dropdown-menu { display: block; }
 }
 
 /* HERO */
@@ -537,6 +536,7 @@ footer a { color: var(--teal); text-decoration: none; }
   .stats { grid-template-columns: 1fr; gap: 1.5rem; }
   section { padding: 3rem 0; }
   .link-row { flex-direction: column; }
+  .hero { padding-top: 100px; min-height: 60vh; }
 }
 
 
@@ -602,7 +602,7 @@ footer a { color: var(--teal); text-decoration: none; }
       <a href="/">Home</a>
       <a href="/about.html">About</a>
       <a href="/products.html">Products</a>
-      <div class="nav-dropdown">
+      <div class="nav-dropdown" onclick="if(window.innerWidth<=768){this.classList.toggle('open');event.stopPropagation()}">
         <a href="/aondor/" class="active">Aondor</a>
         <div class="nav-dropdown-menu">
           <a href="/aondor/">Overview</a>
@@ -610,7 +610,6 @@ footer a { color: var(--teal); text-decoration: none; }
           <a href="/aondor/demo/">Demo Dashboard</a>
         </div>
       </div>
-      <a href="/research.html">Research</a>
       <a href="/coming-soon.html">Coming Soon</a>
       <a href="/contact.html" class="nav-contact">Contact</a>
     </div>

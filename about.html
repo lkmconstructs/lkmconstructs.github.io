@@ -230,8 +230,7 @@ header, section, footer { position: relative; z-index: 2; }
     padding: 4px 0 4px 12px; margin-top: 4px;
   }
   .nav-dropdown-menu a { padding: 8px 12px !important; font-size: 1rem !important; }
-  .nav-dropdown:hover .nav-dropdown-menu,
-  .nav-dropdown .nav-dropdown-menu { display: block; }
+  .nav-dropdown.open .nav-dropdown-menu { display: block; }
 }
 
 /* HERO */
@@ -530,12 +529,23 @@ footer {
 footer a { color: var(--teal); text-decoration: none; }
 
 /* RESPONSIVE */
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+  padding: 2rem 0;
+  border-top: 1px solid rgba(99,155,141,0.15);
+  border-bottom: 1px solid rgba(99,155,141,0.15);
+}
 @media (max-width: 768px) {
   .pipeline-grid { grid-template-columns: 1fr; }
   .verticals { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr; gap: 1.5rem; }
   section { padding: 3rem 0; }
   .link-row { flex-direction: column; }
+  .credentials-grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 100px; min-height: 60vh; }
 }
 
 
@@ -551,7 +561,7 @@ footer a { color: var(--teal); text-decoration: none; }
       <a href="/">Home</a>
       <a href="/about.html" class="active">About</a>
       <a href="/products.html">Products</a>
-      <div class="nav-dropdown">
+      <div class="nav-dropdown" onclick="if(window.innerWidth<=768){this.classList.toggle('open');event.stopPropagation()}">
         <a href="/aondor/">Aondor</a>
         <div class="nav-dropdown-menu">
           <a href="/aondor/">Overview</a>
@@ -559,7 +569,6 @@ footer a { color: var(--teal); text-decoration: none; }
           <a href="/aondor/demo/">Demo Dashboard</a>
         </div>
       </div>
-      <a href="/research.html">Research</a>
       <a href="/coming-soon.html">Coming Soon</a>
       <a href="/contact.html" class="nav-contact">Contact</a>
     </div>
@@ -594,7 +603,7 @@ footer a { color: var(--teal); text-decoration: none; }
     <div class="content-card">
       <div class="section-label">Background</div>
       <h2>Credentials</h2>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin:2rem 0;padding:2rem 0;border-top:1px solid rgba(99,155,141,0.15);border-bottom:1px solid rgba(99,155,141,0.15);">
+      <div class="credentials-grid">
         <div>
           <div style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;color:var(--text-bright);margin-bottom:0.5rem;">Business Administration</div>
           <div style="font-size:0.85rem;color:var(--subtle);">Phi Beta Kappa honors</div>
