@@ -104,10 +104,11 @@ header, section, footer { position: relative; z-index: 2; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  background: rgba(33,34,37,0.95);
+  background: linear-gradient(90deg, rgba(35,62,56,0.96) 0%, rgba(42,55,45,0.96) 50%, rgba(50,48,35,0.96) 100%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(212,160,23,0.25);
+  border-bottom: 2px solid var(--teal);
+  box-shadow: 0 2px 20px rgba(99,155,141,0.25), 0 2px 15px rgba(212,160,23,0.1);
   height: 76px;
 }
 .site-header .nav-container {
@@ -577,12 +578,13 @@ footer a { color: var(--teal); text-decoration: none; }
 .hero-home .headline {
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  font-size: clamp(1.8rem, 4.5vw, 3.8rem);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   line-height: 1.15;
   color: var(--text-bright);
   margin-bottom: 0.4em;
+  white-space: nowrap;
 }
 .hero-home .headline .gold { color: var(--gold); }
 .hero-home .subline {
@@ -613,6 +615,7 @@ footer a { color: var(--teal); text-decoration: none; }
 .beta-form-card {
   max-width: 620px;
   margin: 0 auto;
+  text-align: left;
 }
 .form-group { margin-bottom: 1.5rem; }
 .form-group label {
@@ -634,11 +637,12 @@ footer a { color: var(--teal); text-decoration: none; }
 .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(200,196,190,0.3); }
 
 .checkbox-group label {
-  display: block; padding: 10px 8px; color: var(--text);
+  display: flex; align-items: center; padding: 10px 8px; color: var(--text);
   cursor: pointer; transition: all 0.3s; border-radius: 6px; font-size: 0.95rem;
+  text-align: left;
 }
 .checkbox-group label:hover { color: var(--gold); background: rgba(212,160,23,0.06); padding-left: 12px; }
-.checkbox-group input[type="checkbox"] { margin-right: 10px; accent-color: var(--teal); }
+.checkbox-group input[type="checkbox"] { flex-shrink: 0; margin-right: 10px; accent-color: var(--teal); }
 
 .form-submit {
   width: 100%; padding: 16px;
@@ -709,69 +713,62 @@ footer a { color: var(--teal); text-decoration: none; }
   </div>
 </section>
 
-<!-- THE PROBLEM (from Aondor) -->
+<!-- THE PROBLEM -->
 <section>
   <div class="container">
     <div class="content-card">
       <div class="section-label">The Problem</div>
-      <h2>Ungoverned AI outputs create unmeasured enterprise liability</h2>
-      <p>Organizations are deploying AI across clinical workflows, legal analysis, financial processing, and customer operations with no governance layer between the model and the human who acts on its output.</p>
-      <p>Most organizations cannot answer basic questions: How many AI outputs reached humans last month? How many were flagged? How many contained sensitive data? How many came from a model with zero native safety on adversarial prompts?</p>
-      <p>Without infrastructure, there is no visibility. Without visibility, there is no governance. Governance lives in a binder. The AI does whatever it wants.</p>
+      <h2>Your AI has no guardrails. You just don&rsquo;t know it yet.</h2>
+      <p>Every frontier model we tested failed basic adversarial safety. Your teams are acting on AI outputs right now with no governance layer between the model and the decision. No visibility. No audit trail. No way to answer the board when they ask what your AI actually did last quarter.</p>
 
       <div class="stats">
         <div>
           <div class="stat-number">0%</div>
-          <div class="stat-label">Native safety on Grok 4.1 against adversarial exploit prompts</div>
+          <div class="stat-label">Native safety on Grok 4.1 against adversarial prompts</div>
         </div>
         <div>
           <div class="stat-number">74&ndash;100%</div>
-          <div class="stat-label">Of adversarial content reaching humans ungoverned across frontier models</div>
+          <div class="stat-label">Adversarial content reaching humans ungoverned</div>
         </div>
         <div>
-          <div class="stat-number">95&ndash;98.3%</div>
-          <div class="stat-label">Detection rate with Aondor governance pipeline deployed</div>
+          <div class="stat-number">98.3%</div>
+          <div class="stat-label">Detection rate with Aondor deployed</div>
         </div>
+      </div>
+
+      <div style="margin-top:1.5rem;">
+        <a href="/aondor/" class="cta-btn secondary">See the benchmarks &rarr;</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ARCHITECTURE (from Aondor) -->
+<!-- THE SOLUTION -->
 <section>
   <div class="container">
     <div class="content-card">
-      <div class="section-label">Architecture</div>
-      <h2>A four-stage, defense-in-depth pipeline</h2>
-      <p>Dual-pipeline architecture with bidirectional feedback. What one layer misses, the next catches. The feedback loop recovers up to 5 additional adversarial turns per session. Combined detection rates of 76.7&ndash;98.3% across Claude Opus 4.6, GPT-5.2, and Grok 4.1. Model-agnostic. Deterministic. Auditable.</p>
+      <div class="section-label">The Solution</div>
+      <h2>Governance that sits between your AI and your people</h2>
+      <p>Aondor is a dual-pipeline middleware layer — PatternWall intercepts adversarial prompts before inference, Sensus evaluates outputs after. What one layer misses, the other catches. A bidirectional feedback loop recovers additional threats in real time. Model-agnostic, deterministic, and auditable across every AI tool in your stack.</p>
 
-      <div class="pipeline">
-        <div class="pipeline-grid">
-          <div class="pipeline-stage">
-            <div class="stage-num">Stage 01</div>
-            <div class="stage-name">PatternWall</div>
-            <div class="stage-desc">Pre-inference interception. Adversarial prompts blocked before the model processes them. 96.4% hard block rate. Deterministic pattern matching.</div>
-          </div>
-          <div class="pipeline-stage">
-            <div class="stage-num">Stage 02</div>
-            <div class="stage-name">Refusal Filter</div>
-            <div class="stage-desc">Response classification: COMPLIANT, REFUSAL, PARTIAL_REFUSAL, INFRA_ERROR. Prevents false governance signals from model-level refusals.</div>
-          </div>
-          <div class="pipeline-stage">
-            <div class="stage-num">Stage 03</div>
-            <div class="stage-name">Sensus</div>
-            <div class="stage-desc">Post-inference scoring across five weighted dimensions: Truth, Trajectory, Governance, Consistency, EQ. Multi-dimensional behavioral evaluation.</div>
-          </div>
-          <div class="pipeline-stage">
-            <div class="stage-num">Stage 04</div>
-            <div class="stage-name">Audit Trail</div>
-            <div class="stage-desc">Every decision logged with full attribution. PW_CAUGHT, SENSUS_CAUGHT, DOUBLE_MISS, CLEAN_PASS. Zero overlap between layers confirms complementary coverage. Real-time dashboard. Board-ready.</div>
-          </div>
+      <div class="stats">
+        <div>
+          <div class="stat-number">4</div>
+          <div class="stat-label">Pipeline stages, defense-in-depth</div>
+        </div>
+        <div>
+          <div class="stat-number">76.7&ndash;98.3%</div>
+          <div class="stat-label">Combined detection across 3 frontier models</div>
+        </div>
+        <div>
+          <div class="stat-number">0</div>
+          <div class="stat-label">Overlap between layers — complementary, not redundant</div>
         </div>
       </div>
 
-      <div style="margin-top:2rem;text-align:center;">
+      <div style="margin-top:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;">
         <a href="/aondor/" class="cta-btn primary">Explore Aondor &rarr;</a>
+        <a href="/aondor/research/" class="cta-btn secondary">Read the research</a>
       </div>
     </div>
   </div>
