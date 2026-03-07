@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aondor | AI Governance Infrastructure</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="Aondor AI governance infrastructure — dual-pipeline defense-in-depth for regulated industries. Patent pending.">
+<meta name="author" content="LKM Constructs, LLC">
 <style>
 :root {
   --teal: #639B8D;
@@ -22,27 +24,50 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  background: #1a1a1a;
+  background-color: #1a1a1a;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/></filter><rect width="300" height="300" filter="url(%23noise)" opacity="0.15"/></svg>'), repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(255,255,255,0.01) 2px, rgba(255,255,255,0.01) 4px);
   color: var(--text);
   font-family: 'Inter', sans-serif;
   font-weight: 300;
   line-height: 1.7;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* GRAIN OVERLAY */
+/* TEAL CIRCUIT-NODE GRID */
 body::before {
   content: '';
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-image:
+    radial-gradient(circle at 0% 0%, rgba(99,155,141,0.4) 0%, rgba(99,155,141,0.4) 1.5px, transparent 1.5px),
+    radial-gradient(circle at 100px 100px, rgba(99,155,141,0.4) 0%, rgba(99,155,141,0.4) 1.5px, transparent 1.5px),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 99px, rgba(99,155,141,0.25) 99px, rgba(99,155,141,0.25) 100px),
+    repeating-linear-gradient(90deg, transparent 0px, transparent 99px, rgba(99,155,141,0.25) 99px, rgba(99,155,141,0.25) 100px),
+    repeating-linear-gradient(45deg, transparent 0px, transparent 149px, rgba(212,160,23,0.12) 149px, rgba(212,160,23,0.12) 150px);
+  background-size: 100px 100px, 100px 100px, 100px 100px, 100px 100px, 300px 300px;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 1;
 }
 
+/* AMBIENT GLOW */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(99,155,141,0.18) 0%, transparent 40%),
+    radial-gradient(ellipse at 85% 30%, rgba(212,160,23,0.15) 0%, transparent 45%),
+    radial-gradient(ellipse at 50% 80%, rgba(99,155,141,0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 60%, rgba(99,155,141,0.1) 0%, transparent 40%),
+    radial-gradient(ellipse at 30% 70%, rgba(212,160,23,0.08) 0%, transparent 35%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+header, section, footer { position: relative; z-index: 2; }
+
 .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
-
-
 
 /* SLIM BRANDED NAV */
 .site-header {
@@ -53,7 +78,7 @@ body::before {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(212,160,23,0.25);
-  height: 64px;
+  height: 76px;
 }
 .site-header .nav-container {
   max-width: 1200px;
@@ -62,7 +87,7 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 76px;
 }
 .site-header .nav-logo {
   flex-shrink: 0;
@@ -71,7 +96,7 @@ body::before {
   text-decoration: none;
 }
 .site-header .nav-logo img {
-  height: 44px;
+  height: 66px;
   width: auto;
   display: block;
 }
@@ -101,18 +126,10 @@ body::before {
   transform: scaleX(0);
   transition: transform 0.3s ease;
 }
-.site-header .nav-links a:hover {
-  color: #D4A017;
-}
-.site-header .nav-links a:hover::after {
-  transform: scaleX(1);
-}
-.site-header .nav-links a.active {
-  color: #D4A017;
-}
-.site-header .nav-links a.active::after {
-  transform: scaleX(1);
-}
+.site-header .nav-links a:hover { color: #D4A017; }
+.site-header .nav-links a:hover::after { transform: scaleX(1); }
+.site-header .nav-links a.active { color: #D4A017; }
+.site-header .nav-links a.active::after { transform: scaleX(1); }
 .site-header .nav-links a.nav-contact {
   color: #D4A017;
   border: 1px solid rgba(212,160,23,0.3);
@@ -141,7 +158,7 @@ body::before {
   .site-header .nav-links {
     display: none;
     position: absolute;
-    top: 64px; left: 0; right: 0;
+    top: 76px; left: 0; right: 0;
     background: rgba(33,34,37,0.97);
     backdrop-filter: blur(12px);
     flex-direction: column;
@@ -155,15 +172,62 @@ body::before {
   .site-header .nav-links a.nav-contact { margin-left: 0; margin-top: 8px; text-align: center; }
 }
 
+/* AONDOR DROPDOWN */
+.nav-dropdown { position: relative; display: inline-block; }
+.nav-dropdown > a { cursor: pointer; }
+.nav-dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; left: 0;
+  min-width: 200px;
+  background: rgba(33,34,37,0.97);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212,160,23,0.25);
+  border-top: 2px solid #D4A017;
+  border-radius: 0 0 8px 8px;
+  padding: 8px 0;
+  z-index: 200;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+.nav-dropdown:hover .nav-dropdown-menu { display: block; }
+.nav-dropdown-menu a {
+  display: block !important;
+  padding: 10px 20px !important;
+  margin: 0 !important;
+  font-size: 0.82rem !important;
+  color: rgba(232,230,227,0.85) !important;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.nav-dropdown-menu a:hover {
+  color: #D4A017 !important;
+  background: rgba(212,160,23,0.08);
+  padding-left: 24px !important;
+}
+.nav-dropdown-menu a::after { display: none !important; }
+@media(max-width:768px) {
+  .nav-dropdown-menu {
+    position: static;
+    background: rgba(26,26,26,0.5);
+    border: none; border-top: none;
+    border-left: 2px solid rgba(212,160,23,0.3);
+    border-radius: 0; box-shadow: none;
+    padding: 4px 0 4px 12px; margin-top: 4px;
+  }
+  .nav-dropdown-menu a { padding: 8px 12px !important; font-size: 1rem !important; }
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown .nav-dropdown-menu { display: block; }
+}
+
 /* HERO */
 .hero {
-  min-height: 100vh;
-  padding-top: 64px;
+  min-height: 80vh;
+  padding-top: 76px;
   display: flex;
   align-items: center;
   position: relative;
 }
-
 .hero::after {
   content: '';
   position: absolute;
@@ -172,9 +236,7 @@ body::before {
   width: 200px; height: 1px;
   background: linear-gradient(90deg, transparent, var(--teal), transparent);
 }
-
 .hero-content { max-width: 800px; }
-
 .hero h1 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(2.8rem, 6vw, 4.5rem);
@@ -184,24 +246,20 @@ body::before {
   margin-bottom: 0.3em;
   line-height: 1.1;
 }
-
 .hero h1 span { color: var(--teal); }
-
 .hero .subtitle {
   font-size: 1.15rem;
   color: var(--subtle);
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   max-width: 600px;
   letter-spacing: 0.02em;
 }
-
 .hero .lead {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   color: var(--text);
   line-height: 1.8;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
-
 .patent-badge {
   display: inline-block;
   font-size: 0.75rem;
@@ -213,8 +271,19 @@ body::before {
   margin-top: 1rem;
 }
 
+/* CONTENT CARDS */
+.content-card {
+  background: var(--navy-light);
+  border: 1px solid rgba(99,155,141,0.35);
+  border-radius: 14px;
+  padding: 2.5rem;
+  box-shadow: 0 0 30px rgba(99,155,141,0.1);
+  transition: border-color 0.3s;
+}
+.content-card:hover { border-color: rgba(212,160,23,0.4); }
+
 /* SECTIONS */
-section { padding: 6rem 0; }
+section { padding: 4rem 0; }
 
 .section-label {
   font-size: 0.7rem;
@@ -243,17 +312,60 @@ h3 {
 
 p + p { margin-top: 1rem; }
 
+/* LINK BANNER ROW */
+.link-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.link-banner {
+  flex: 1;
+  min-width: 260px;
+  background: var(--navy-light);
+  border: 1px solid rgba(99,155,141,0.25);
+  border-radius: 10px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: border-color 0.3s;
+  text-decoration: none;
+}
+.link-banner:hover { border-color: var(--gold); }
+.link-banner .banner-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.3rem;
+}
+.link-banner .banner-title {
+  color: var(--text-bright);
+  font-weight: 500;
+  font-size: 1rem;
+}
+.link-banner .banner-sub {
+  font-size: 0.82rem;
+  color: var(--subtle);
+  margin-top: 0.2rem;
+}
+.link-banner .banner-arrow {
+  color: var(--gold);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
 /* STATS ROW */
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  margin: 4rem 0;
-  padding: 3rem 0;
+  margin: 2.5rem 0;
+  padding: 2.5rem 0;
   border-top: 1px solid rgba(99,155,141,0.15);
   border-bottom: 1px solid rgba(99,155,141,0.15);
 }
-
 .stat-number {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
@@ -261,7 +373,6 @@ p + p { margin-top: 1rem; }
   color: var(--teal);
   line-height: 1;
 }
-
 .stat-label {
   font-size: 0.85rem;
   color: var(--subtle);
@@ -271,26 +382,23 @@ p + p { margin-top: 1rem; }
 
 /* PIPELINE */
 .pipeline {
-  background: var(--navy-light);
-  border: 1px solid rgba(99,155,141,0.1);
-  padding: 3rem;
-  margin: 3rem 0;
+  border: 1px solid rgba(99,155,141,0.15);
+  border-radius: 10px;
+  padding: 2.5rem;
+  margin: 2rem 0;
+  background: rgba(40,45,55,0.5);
 }
-
 .pipeline-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
-
 .pipeline-stage {
   padding: 1.5rem;
   border-left: 2px solid var(--teal);
 }
-
 .pipeline-stage:first-child { border-left: 2px solid var(--gold); }
-
 .stage-num {
   font-size: 0.7rem;
   letter-spacing: 0.15em;
@@ -298,7 +406,6 @@ p + p { margin-top: 1rem; }
   color: var(--teal);
   margin-bottom: 0.5rem;
 }
-
 .stage-name {
   font-family: 'Playfair Display', serif;
   font-size: 1.1rem;
@@ -306,7 +413,6 @@ p + p { margin-top: 1rem; }
   margin-bottom: 0.75rem;
   font-weight: 600;
 }
-
 .stage-desc {
   font-size: 0.85rem;
   color: var(--subtle);
@@ -317,29 +423,27 @@ p + p { margin-top: 1rem; }
 .verticals {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin: 3rem 0;
+  gap: 1.5rem;
+  margin: 2rem 0;
 }
-
 .vertical-card {
   padding: 2.5rem;
   border: 1px solid rgba(99,155,141,0.15);
+  border-radius: 10px;
+  background: rgba(40,45,55,0.5);
   position: relative;
   transition: border-color 0.3s;
 }
-
 .vertical-card:hover { border-color: var(--teal); }
-
 .vertical-card::before {
   content: '';
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 3px;
   background: var(--teal);
+  border-radius: 10px 10px 0 0;
 }
-
 .vertical-card.legal::before { background: var(--gold); }
-
 .vertical-tag {
   font-size: 0.7rem;
   letter-spacing: 0.15em;
@@ -347,18 +451,17 @@ p + p { margin-top: 1rem; }
   color: var(--teal);
   margin-bottom: 1rem;
 }
-
 .vertical-card.legal .vertical-tag { color: var(--gold); }
 
 /* PILOT */
 .pilot-box {
-  background: var(--navy-light);
+  background: rgba(40,45,55,0.5);
   border: 1px solid rgba(212,160,23,0.2);
+  border-radius: 10px;
   padding: 3rem;
-  margin: 3rem 0;
+  margin: 2rem 0;
   text-align: center;
 }
-
 .pilot-price {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
@@ -366,7 +469,6 @@ p + p { margin-top: 1rem; }
   font-weight: 700;
   margin: 1rem 0;
 }
-
 .pilot-detail {
   font-size: 0.9rem;
   color: var(--subtle);
@@ -374,51 +476,31 @@ p + p { margin-top: 1rem; }
   margin: 0.5rem auto;
 }
 
-/* BENCHMARK TABLE */
-.bench-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2rem 0;
-}
-
-.bench-table th {
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--teal);
-  padding: 1rem 0.75rem;
-  text-align: left;
-  border-bottom: 1px solid rgba(99,155,141,0.2);
-}
-
-.bench-table td {
-  padding: 0.85rem 0.75rem;
-  font-size: 0.9rem;
-  border-bottom: 1px solid rgba(99,155,141,0.07);
-}
-
-.bench-table .model-name { color: var(--text-bright); font-weight: 500; }
-.bench-table .raw { color: #E07A5F; }
-.bench-table .combined { color: var(--teal); font-weight: 600; }
-
 /* CTA */
 .cta-section {
   text-align: center;
-  padding: 6rem 0;
+  padding: 4.5rem 0;
   border-top: 1px solid rgba(99,155,141,0.1);
 }
-
-.cta-email {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  color: var(--teal);
+.cta-btn {
+  display: inline-block;
   text-decoration: none;
-  border-bottom: 1px solid rgba(99,155,141,0.3);
-  padding-bottom: 2px;
-  transition: border-color 0.3s;
+  border: 1px solid rgba(212,160,23,0.3);
+  padding: 0.7em 2em;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+  font-family: 'Playfair Display', serif;
+  border-radius: 6px;
 }
-
-.cta-email:hover { border-color: var(--teal); }
+.cta-btn:hover {
+  background: rgba(212,160,23,0.08);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.cta-btn.primary { color: var(--gold); }
+.cta-btn.secondary { color: var(--teal); border-color: rgba(99,155,141,0.3); }
+.cta-btn.secondary:hover { border-color: var(--teal); color: var(--teal); background: rgba(99,155,141,0.08); }
 
 /* FOOTER */
 footer {
@@ -428,7 +510,6 @@ footer {
   font-size: 0.8rem;
   color: var(--subtle);
 }
-
 footer a { color: var(--teal); text-decoration: none; }
 
 /* RESPONSIVE */
@@ -436,11 +517,14 @@ footer a { color: var(--teal); text-decoration: none; }
   .pipeline-grid { grid-template-columns: 1fr; }
   .verticals { grid-template-columns: 1fr; }
   .stats { grid-template-columns: 1fr; gap: 1.5rem; }
-  section { padding: 4rem 0; }
+  section { padding: 3rem 0; }
+  .link-row { flex-direction: column; }
 }
 </style>
 </head>
-<body><header class="site-header">
+<body>
+
+<header class="site-header">
   <div class="nav-container">
     <a href="/" class="nav-logo"><img src="/assets/LKM_Constructs_web.svg" alt="LKM Constructs"></a>
     <button class="nav-toggle" onclick="document.querySelector('.site-header .nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
@@ -448,16 +532,20 @@ footer a { color: var(--teal); text-decoration: none; }
       <a href="/">Home</a>
       <a href="/about.html">About</a>
       <a href="/products.html">Products</a>
-      <a href="/aondor" class="active">Aondor</a>
+      <div class="nav-dropdown">
+        <a href="/aondor/" class="active">Aondor</a>
+        <div class="nav-dropdown-menu">
+          <a href="/aondor/">Overview</a>
+          <a href="/aondor/research/">Research</a>
+          <a href="/aondor/demo/">Demo Dashboard</a>
+        </div>
+      </div>
       <a href="/research.html">Research</a>
       <a href="/coming-soon.html">Coming Soon</a>
       <a href="/contact.html" class="nav-contact">Contact</a>
     </div>
   </div>
 </header>
-
-
-
 
 <section class="hero">
   <div class="container">
@@ -471,97 +559,95 @@ footer a { color: var(--teal); text-decoration: none; }
   </div>
 </section>
 
+<!-- RESEARCH + DEMO LINKS -->
+<section style="padding: 2rem 0;">
+  <div class="container">
+    <div class="link-row">
+      <a href="/aondor/research/" class="link-banner">
+        <div>
+          <div class="banner-label">Published Research</div>
+          <div class="banner-title">Benchmarks &amp; Papers</div>
+          <div class="banner-sub">3 frontier models, dual-pipeline results, Zenodo DOIs, SSRN submission</div>
+        </div>
+        <span class="banner-arrow">&rarr;</span>
+      </a>
+      <a href="/aondor/demo/" class="link-banner">
+        <div>
+          <div class="banner-label">Live Demo</div>
+          <div class="banner-title">Pilot Dashboard</div>
+          <div class="banner-sub">30-day simulation aligned to published benchmarks</div>
+        </div>
+        <span class="banner-arrow">&rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROBLEM -->
 <section>
   <div class="container">
-    <div class="section-label">The Problem</div>
-    <h2>Ungoverned AI outputs create unmeasured enterprise liability</h2>
-    <p>Organizations are deploying AI across clinical workflows, legal analysis, financial processing, and customer operations with no governance layer between the model and the human who acts on its output.</p>
-    <p>Most organizations cannot answer basic questions: How many AI outputs reached humans last month? How many were flagged? How many contained sensitive data? How many came from a model with zero native safety on adversarial prompts?</p>
-    <p>Without infrastructure, there is no visibility. Without visibility, there is no governance. Governance lives in a binder. The AI does whatever it wants.</p>
+    <div class="content-card">
+      <div class="section-label">The Problem</div>
+      <h2>Ungoverned AI outputs create unmeasured enterprise liability</h2>
+      <p>Organizations are deploying AI across clinical workflows, legal analysis, financial processing, and customer operations with no governance layer between the model and the human who acts on its output.</p>
+      <p>Most organizations cannot answer basic questions: How many AI outputs reached humans last month? How many were flagged? How many contained sensitive data? How many came from a model with zero native safety on adversarial prompts?</p>
+      <p>Without infrastructure, there is no visibility. Without visibility, there is no governance. Governance lives in a binder. The AI does whatever it wants.</p>
 
-    <div class="stats">
-      <div>
-        <div class="stat-number">0%</div>
-        <div class="stat-label">Native safety on Grok 4.1 against adversarial exploit prompts</div>
-      </div>
-      <div>
-        <div class="stat-number">74&ndash;100%</div>
-        <div class="stat-label">Of adversarial content reaching humans ungoverned across frontier models</div>
-      </div>
-      <div>
-        <div class="stat-number">95&ndash;98.3%</div>
-        <div class="stat-label">Detection rate with Aondor governance pipeline deployed</div>
+      <div class="stats">
+        <div>
+          <div class="stat-number">0%</div>
+          <div class="stat-label">Native safety on Grok 4.1 against adversarial exploit prompts</div>
+        </div>
+        <div>
+          <div class="stat-number">74&ndash;100%</div>
+          <div class="stat-label">Of adversarial content reaching humans ungoverned across frontier models</div>
+        </div>
+        <div>
+          <div class="stat-number">95&ndash;98.3%</div>
+          <div class="stat-label">Detection rate with Aondor governance pipeline deployed</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ARCHITECTURE -->
 <section>
   <div class="container">
-    <div class="section-label">Architecture</div>
-    <h2>A four-stage, defense-in-depth pipeline</h2>
-    <p>Dual-pipeline architecture with bidirectional feedback. What one layer misses, the next catches. The feedback loop recovers up to 5 additional adversarial turns per session. Combined detection rates of 76.7&ndash;98.3% across Claude Opus 4.6, GPT-5.2, and Grok 4.1. Model-agnostic. Deterministic. Auditable.</p>
+    <div class="content-card">
+      <div class="section-label">Architecture</div>
+      <h2>A four-stage, defense-in-depth pipeline</h2>
+      <p>Dual-pipeline architecture with bidirectional feedback. What one layer misses, the next catches. The feedback loop recovers up to 5 additional adversarial turns per session. Combined detection rates of 76.7&ndash;98.3% across Claude Opus 4.6, GPT-5.2, and Grok 4.1. Model-agnostic. Deterministic. Auditable.</p>
 
-    <div class="pipeline">
-      <div class="pipeline-grid">
-        <div class="pipeline-stage">
-          <div class="stage-num">Stage 01</div>
-          <div class="stage-name">PatternWall</div>
-          <div class="stage-desc">Pre-inference interception. Adversarial prompts blocked before the model processes them. 96.4% hard block rate. Deterministic pattern matching.</div>
-        </div>
-        <div class="pipeline-stage">
-          <div class="stage-num">Stage 02</div>
-          <div class="stage-name">Refusal Filter</div>
-          <div class="stage-desc">Response classification: COMPLIANT, REFUSAL, PARTIAL_REFUSAL, INFRA_ERROR. Prevents false governance signals from model-level refusals.</div>
-        </div>
-        <div class="pipeline-stage">
-          <div class="stage-num">Stage 03</div>
-          <div class="stage-name">Sensus</div>
-          <div class="stage-desc">Post-inference scoring across five weighted dimensions: Truth, Trajectory, Governance, Consistency, EQ. Multi-dimensional behavioral evaluation.</div>
-        </div>
-        <div class="pipeline-stage">
-          <div class="stage-num">Stage 04</div>
-          <div class="stage-name">Audit Trail</div>
-          <div class="stage-desc">Every decision logged with full attribution. PW_CAUGHT, SENSUS_CAUGHT, DOUBLE_MISS, CLEAN_PASS. Zero overlap between layers confirms complementary coverage. Real-time dashboard. Board-ready.</div>
+      <div class="pipeline">
+        <div class="pipeline-grid">
+          <div class="pipeline-stage">
+            <div class="stage-num">Stage 01</div>
+            <div class="stage-name">PatternWall</div>
+            <div class="stage-desc">Pre-inference interception. Adversarial prompts blocked before the model processes them. 96.4% hard block rate. Deterministic pattern matching.</div>
+          </div>
+          <div class="pipeline-stage">
+            <div class="stage-num">Stage 02</div>
+            <div class="stage-name">Refusal Filter</div>
+            <div class="stage-desc">Response classification: COMPLIANT, REFUSAL, PARTIAL_REFUSAL, INFRA_ERROR. Prevents false governance signals from model-level refusals.</div>
+          </div>
+          <div class="pipeline-stage">
+            <div class="stage-num">Stage 03</div>
+            <div class="stage-name">Sensus</div>
+            <div class="stage-desc">Post-inference scoring across five weighted dimensions: Truth, Trajectory, Governance, Consistency, EQ. Multi-dimensional behavioral evaluation.</div>
+          </div>
+          <div class="pipeline-stage">
+            <div class="stage-num">Stage 04</div>
+            <div class="stage-name">Audit Trail</div>
+            <div class="stage-desc">Every decision logged with full attribution. PW_CAUGHT, SENSUS_CAUGHT, DOUBLE_MISS, CLEAN_PASS. Zero overlap between layers confirms complementary coverage. Real-time dashboard. Board-ready.</div>
+          </div>
         </div>
       </div>
     </div>
-
-    <h3>Benchmark Results: v5 PatternWall + v4 Sensus</h3>
-    <table class="bench-table">
-      <thead>
-        <tr>
-          <th>Model</th>
-          <th>Raw (No Governance)</th>
-          <th>Combined Pipeline</th>
-          <th>True Misses</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="model-name">Claude Opus 4.6</td>
-          <td class="raw">5.7% / 3.3%</td>
-          <td class="combined">91.4%&dagger; / 98.3%</td>
-          <td>3 RT / 2 CG</td>
-        </tr>
-        <tr>
-          <td class="model-name">GPT-5.2</td>
-          <td class="raw">25.7% / 81.7%</td>
-          <td class="combined">82.9% / 98.3%*</td>
-          <td>6 RT / 2 CG</td>
-        </tr>
-        <tr>
-          <td class="model-name">Grok 4.1</td>
-          <td class="raw">0.0% / 3.3%</td>
-          <td class="combined">85.7%&dagger; / 93.9%*</td>
-          <td>5 RT / 6 CG</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="font-size:0.8rem;color:var(--subtle);margin-top:0.5rem;">*Adjusted for empty responses per Section 4.2.1 of joint paper. &dagger;With bidirectional feedback loop active (+14.3pp Opus, +2.8pp Grok). RT = Red Team (35 adversarial turns), CG = CyberGym (120 exploit tasks).</p>
   </div>
 </section>
 
+<!-- VERTICALS -->
 <section>
   <div class="container">
     <div class="section-label">Verticals</div>
@@ -585,44 +671,43 @@ footer a { color: var(--teal); text-decoration: none; }
   </div>
 </section>
 
+<!-- PILOT -->
 <section>
   <div class="container">
-    <div class="section-label">Pilot Program</div>
-    <h2>The first AI governance visibility report your board has ever seen</h2>
-    <p>30-day evaluation. API proxy deployment: route existing AI traffic through Aondor with no changes to your tools, workflows, or vendor relationships. Real-time dashboard access throughout. Compliance-ready report at conclusion.</p>
+    <div class="content-card">
+      <div class="section-label">Pilot Program</div>
+      <h2>The first AI governance visibility report your board has ever seen</h2>
+      <p>30-day evaluation. API proxy deployment: route existing AI traffic through Aondor with no changes to your tools, workflows, or vendor relationships. Real-time dashboard access throughout. Compliance-ready report at conclusion.</p>
 
-    <div class="pilot-box">
-      <div class="section-label">30-Day Pilot</div>
-      <div class="pilot-price">$2,500 &ndash; $5,000</div>
-      <p class="pilot-detail">Includes real-time governance dashboard, compliance report with gap analysis, and full audit trail of every AI interaction during the pilot period.</p>
-      <p class="pilot-detail">Converts to monthly SaaS licensing, tiered by volume of AI outputs processed.</p>
-      <p class="pilot-detail" style="margin-top:1.5rem;color:var(--text-bright);">A single discoverable AI document in litigation could cost millions.<br>A single ungoverned clinical output creates unmeasured liability.<br>This pilot costs a fraction of one senior partner billable hour.</p>
+      <div class="pilot-box">
+        <div class="section-label">30-Day Pilot</div>
+        <div class="pilot-price">$2,500 &ndash; $5,000</div>
+        <p class="pilot-detail">Includes real-time governance dashboard, compliance report with gap analysis, and full audit trail of every AI interaction during the pilot period.</p>
+        <p class="pilot-detail">Converts to monthly SaaS licensing, tiered by volume of AI outputs processed.</p>
+        <p class="pilot-detail" style="margin-top:1.5rem;color:var(--text-bright);">A single discoverable AI document in litigation could cost millions.<br>A single ungoverned clinical output creates unmeasured liability.<br>This pilot costs a fraction of one senior partner billable hour.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="container">
-    <div class="section-label">Research</div>
-    <h2>Published, benchmarked, patent pending</h2>
-    <p>PatternWall and Sensus are independently published with peer-reviewed benchmarks. The dual-pipeline governance architecture is protected by U.S. patent application filed February 2026.</p>
-    <p style="margin-top:1rem;">PatternWall: Zenodo DOI <a href="https://doi.org/10.5281/zenodo.18625575" style="color:var(--teal);">10.5281/zenodo.18625575</a></p>
-    <p>Sensus: Zenodo DOI <a href="https://doi.org/10.5281/zenodo.18795038" style="color:var(--teal);">10.5281/zenodo.18795038</a></p>
-    <p>Joint defense-in-depth paper: <a href="#" style="color:var(--teal);" title="Update with SSRN URL">SSRN (March 2026)</a> &mdash; 3 frontier models, bidirectional feedback loop, CyberGym + red team benchmarks</p>
-    <div class="demo-link-box"><div><div style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem;">Live Demo</div><p style="color:var(--text-bright);font-weight:500;">Aondor Pilot Dashboard</p><p style="font-size:0.85rem;color:var(--subtle);margin-top:0.3rem;">30-day pilot simulation aligned to published benchmarks.</p></div><a href="/demo/aondor-dashboard" style="color:var(--teal);font-size:0.85rem;white-space:nowrap;text-decoration:none;border-bottom:1px solid rgba(99,155,141,0.3);padding-bottom:2px;">View Dashboard &rarr;</a></div>
-  </div>
-</section>
-
+<!-- CTA -->
 <section class="cta-section">
   <div class="container">
     <div class="section-label">Contact</div>
     <h2>Ready to see what your AI is doing?</h2>
     <p style="margin-bottom:2rem;color:var(--subtle);">Healthcare compliance officers. General counsel. Litigation partners.<br>If you need governance infrastructure before your next board meeting or your next case, we should talk.</p>
-    <a href="/cdn-cgi/l/email-protection#e78b8e949486a78b8c8a84888994939592849394c984888a" class="cta-email"><span class="__cf_email__" data-cfemail="d8b4b1ababb998b4b3b5bbb7b6abacaaadbbacabf6bbb7b5">[email&#160;protected]</span></a>
+    <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
+      <a href="/contact.html" class="cta-btn primary">Get in Touch</a>
+      <a href="/products.html" class="cta-btn secondary">View Products</a>
+    </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
     <p>&copy; 2026 LKM Constructs LLC &mdash; Patent Pending</p>
-    <p style="margin-top:0.5rem;"><a href="https://doi.org/10.5281/z
+  </div>
+</footer>
+
+</body>
+</html>
