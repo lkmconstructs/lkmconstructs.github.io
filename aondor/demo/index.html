@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Aondor — Live Pipeline Demo | LKM Constructs</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg-primary: #1a1a1a;
@@ -54,8 +54,7 @@ body::before {
 .demo-container {
   max-width: 960px;
   margin: 0 auto;
-  padding: 60px 24px;
-  padding-top: 100px;
+  padding: 100px 24px 60px;
   position: relative;
   z-index: 1;
 }
@@ -487,9 +486,9 @@ body::before {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin-bottom: 48px;
-  padding: 24px 0;
-  border-bottom: 1px solid var(--border);
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
 }
 
 .stat-card {
@@ -584,9 +583,6 @@ body::before {
 
 /* RESPONSIVE */
 @media (max-width: 640px) {
-  .demo-container { padding-top: 100px; }
-}
-@media (max-width: 640px) {
   .demo-header h1 { font-size: 2rem; }
   .scoring-grid { grid-template-columns: 1fr; }
   .demo-stats { grid-template-columns: 1fr; gap: 8px; }
@@ -603,7 +599,7 @@ body::before {
   background: linear-gradient(180deg, rgba(45,80,72,0.95) 0%, rgba(26,26,26,0.98) 100%);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 2px solid var(--teal);
+  border-bottom: 2px solid #639B8D;
   box-shadow: 0 2px 25px rgba(99,155,141,0.3);
   height: 76px;
 }
@@ -742,7 +738,9 @@ body::before {
     border-radius: 0; box-shadow: none;
     padding: 4px 0 4px 12px; margin-top: 4px;
   }
-
+  .nav-dropdown-menu a { padding: 8px 12px !important; font-size: 1rem !important; }
+  .nav-dropdown.open .nav-dropdown-menu { display: block; }
+}
 </style>
 </head>
 <body>
@@ -756,11 +754,12 @@ body::before {
       <a href="/about.html">About</a>
       <a href="/products.html">Products</a>
       <div class="nav-dropdown" onclick="if(window.innerWidth<=768){this.classList.toggle('open');event.stopPropagation()}">
-        <a href="/aondor/" class="active">Aondor</a>
+        <a href="/aondor/">Aondor</a>
         <div class="nav-dropdown-menu">
           <a href="/aondor/">Overview</a>
           <a href="/aondor/research/">Research</a>
-          <a href="/aondor/demo/">Demo Dashboard</a>
+          <a href="/aondor/demo/">Demo</a>
+          <a href="/aondor/dashboard/">Dashboard</a>
         </div>
       </div>
       <a href="/coming-soon.html">Coming Soon</a>
@@ -775,21 +774,6 @@ body::before {
   <div class="demo-header">
     <h1>Aondor Pipeline</h1>
     <p class="subtitle">See how <strong>infrastructure-level governance</strong> catches what models miss.</p>
-  </div>
-
-  <div class="demo-stats">
-    <div class="stat-card">
-      <div class="stat-value red">0–25%</div>
-      <div class="stat-label">Raw Model Safety</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value teal">76–98%</div>
-      <div class="stat-label">Aondor Catch Rate</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-value gold">0%</div>
-      <div class="stat-label">Layer Overlap</div>
-    </div>
   </div>
 
   <div class="scenario-nav">
@@ -815,6 +799,21 @@ body::before {
 
   <div id="pipeline" class="pipeline"></div>
 
+  <div class="demo-stats">
+    <div class="stat-card">
+      <div class="stat-value red">0–25%</div>
+      <div class="stat-label">Raw Model Safety</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value teal">76–98%</div>
+      <div class="stat-label">Aondor Catch Rate</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value gold">0%</div>
+      <div class="stat-label">Layer Overlap</div>
+    </div>
+  </div>
+
   <div class="demo-footer">
     <h3>Your model changed. Would your safety layer still hold?</h3>
     <p>Aondor provides deterministic, auditable governance that works regardless of which model is behind the API.</p>
@@ -824,7 +823,7 @@ body::before {
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const SCENARIOS = [
   {
     id: 'exploit',
@@ -1015,9 +1014,7 @@ const SCENARIOS = [
           { key: 'classification', val: 'BOTH_CAUGHT', cls: 'flagged' },
           { key: 'pw_detection', val: 'jailbreak_injection + phishing_gen', cls: 'flagged' },
           { key: 'sensus_composite', val: '0.91 — CRITICAL', cls: 'flagged' },
-          { key: 'layer_overlap', val: '0% (independent detection)', cls: 'clean' },
-          { key: 'feedback_loop', val: 'Pattern update queued for PW v6', cls: '' },
-          { key: 'model_agnostic', val: 'true — identical governance across providers', cls: 'clean' },
+          { key: 'layer_overlap', val: '0% (ic', val: 'true — identical governance across providers', cls: 'clean' },
           { key: 'audit_hash', val: 'sha256:a4f8c...e7d21', cls: '' },
         ]
       }
@@ -1184,4 +1181,19 @@ function updateControls() {
   const resetBtn = document.getElementById('resetBtn');
 
   runBtn.disabled = isRunning;
-  nextBtn.disabled
+  nextBtn.disabled = !isRunning || currentStep >= scenario.stages.length - 1;
+  resetBtn.disabled = !isRunning;
+}
+
+// Initialize
+renderPipeline();
+</script>
+
+
+<footer style="padding:3rem 0;border-top:1px solid rgba(99,155,141,0.08);text-align:center;font-size:0.8rem;color:#666;position:relative;z-index:2;">
+  <div style="max-width:1100px;margin:0 auto;padding:0 2rem;">
+    <p>&copy; 2026 LKM Constructs LLC &mdash; AI Governance Infrastructure</p>
+  </div>
+</footer>
+</body>
+</html>
