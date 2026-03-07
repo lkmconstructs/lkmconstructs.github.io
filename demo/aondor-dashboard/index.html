@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aondor Pilot Dashboard Demo | LKM Constructs</title>
+  <meta name="description" content="30-day pilot simulation of Aondor AI governance engine. Curated data aligned to published benchmarks.">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- React -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
+  
+  <!-- Recharts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.12.7/Recharts.min.js"></script>
+  
+  <!-- Lucide React -->
+  <script src="https://unpkg.com/lucide-react@0.263.1/dist/umd/lucide-react.min.js"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Inter, -apple-system, sans-serif;
+      background: #0a0e17;
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+    #dashboard-root {
+      padding-top: 64px; /* fixed nav clearance */
+    }
+    /* Loading state */
+    .dash-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100vh - 64px);
+      color: #8896ab;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+    .dash-loading::after {
+      content: "Loading dashboard...";
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+    /* SLIM BRANDED NAV */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(33,34,37,0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212,160,23,0.25);
+  height: 64px;
+}
+.site-header .nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.site-header .nav-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.site-header .nav-logo img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+.site-header .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+}
+.site-header .nav-links a {
+  color: #E8E6E3;
+  text-decoration: none;
+  font-family: Inter, -apple-system, sans-serif;
+  font-weight: 500;
+  font-size: 0.85rem;
+  padding: 8px 14px;
+  transition: all 0.3s ease;
+  position: relative;
+  white-space: nowrap;
+}
+.site-header .nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px; left: 14px; right: 14px;
+  height: 2px;
+  background: linear-gradient(90deg, #639B8D, #D4A017);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.site-header .nav-links a:hover {
+  color: #D4A017;
+}
+.site-header .nav-links a:hover::after {
+  transform: scaleX(1);
+}
+.site-header .nav-links a.active {
+  color: #D4A017;
+}
+.site-header .nav-links a.active::after {
+  transform: scaleX(1);
+}
+.site-header .nav-links a.nav-contact {
+  color: #D4A017;
+  border: 1px solid rgba(212,160,23,0.3);
+  border-radius: 6px;
+  padding: 6px 16px;
+  margin-left: 8px;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+.site-header .nav-links a.nav-contact::after { display: none; }
+.site-header .nav-links a.nav-contact:hover {
+  border-color: #D4A017;
+  background: rgba(212,160,23,0.08);
+}
+.site-header .nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: #E8E6E3;
+  font-size: 1.5rem;
+}
+@media(max-width:768px) {
+  .site-header .nav-toggle { display: block; }
+  .site-header .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: rgba(33,34,37,0.97);
+    backdrop-filter: blur(12px);
+    flex-direction: column;
+    padding: 16px 20px;
+    gap: 4px;
+    border-bottom: 1px solid rgba(212,160,23,0.25);
+  }
+  .site-header .nav-links.open { display: flex; }
+  .site-header .nav-links a { padding: 10px 0; font-size: 1rem; }
+  .site-header .nav-links a::after { display: none; }
+  .site-header .nav-links a.nav-contact { margin-left: 0; margin-top: 8px; text-align: center; }
+}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+  <div class="nav-container">
+    <a href="/" class="nav-logo"><img src="/assets/LKM_Constructs_web.svg" alt="LKM Constructs"></a>
+    <button class="nav-toggle" onclick="document.querySelector('.site-header .nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/products.html">Products</a>
+      <a href="/aondor" class="active">Aondor</a>
+      <a href="/research.html">Research</a>
+      <a href="/coming-soon.html">Coming Soon</a>
+      <a href="/contact.html" class="nav-contact">Contact</a>
+    </div>
+  </div>
+</header>
+  
+  <div id="dashboard-root">
+    <div class="dash-loading"></div>
+  </div>
+
+  <script type="text/babel">
+const {useState, useEffect, createElement} = React;
+const {LineChart,Line,AreaChart,Area,BarChart,Bar,PieChart,Pie,Cell,XAxis,YAxis,CartesianGrid,Tooltip,ResponsiveContainer} = Recharts;
+const {Shield,AlertTriangle,Eye,XCircle,Clock,Download,Activity,Zap,FileText,Lock,Scale,Heart,TrendingUp} = lucideReact;
+
+
+// CURATED DEMO DATA - PatternWall v5.0 + Sensus v4.0
+// Aligned with joint paper (SSRN, March 2026)
+
+const DEMO_TIMELINE = (() => {
+  const base = [162,178,195,188,201,174,168,192,205,187,196,183,210,198,176,189,203,191,184,207,195,186,172,199,208,193,181,197,204,188];
+  const rates = [0.18,0.16,0.15,0.14,0.13,0.12,0.13,0.11,0.10,0.11,0.09,0.10,0.08,0.09,0.08,0.07,0.08,0.07,0.06,0.07,0.06,0.05,0.06,0.05,0.05,0.04,0.05,0.04,0.04,0.03];
+  const now = new Date();
+  return base.map((total, i) => {
+    const date = new Date(now); date.setDate(date.getDate() - (29 - i));
+    const flagged = Math.round(total * rates[i]);
+    const blocked = Math.round(flagged * 0.58);
+    return { date: date.toLocaleDateString("en-US",{month:"short",day:"numeric"}), total, flagged, blocked, clean: total - flagged };
+  });
+})();
+
+const DEMO_MODELS = [
+  { model: "Claude Opus 4.6", total: 1620, flagged: 49, rate: "3.0" },
+  { model: "GPT-5.2", total: 1480, flagged: 104, rate: "7.0" },
+  { model: "Grok 4.1", total: 1350, flagged: 243, rate: "18.0" },
+  { model: "Mistral Large", total: 980, flagged: 88, rate: "9.0" },
+];
+
+const DEMO_PIPELINE = { pw: 286, sensus: 178, both: 0, miss: 15, clean: 4951, total: 5430 };
+
+const DEMO_HOURLY = [
+  {hour:"00:00",flags:1,label:0},{hour:"01:00",flags:0,label:1},{hour:"02:00",flags:0,label:2},{hour:"03:00",flags:1,label:3},
+  {hour:"04:00",flags:0,label:4},{hour:"05:00",flags:1,label:5},{hour:"06:00",flags:2,label:6},{hour:"07:00",flags:4,label:7},
+  {hour:"08:00",flags:8,label:8},{hour:"09:00",flags:11,label:9},{hour:"10:00",flags:9,label:10},{hour:"11:00",flags:7,label:11},
+  {hour:"12:00",flags:5,label:12},{hour:"13:00",flags:10,label:13},{hour:"14:00",flags:12,label:14},{hour:"15:00",flags:8,label:15},
+  {hour:"16:00",flags:6,label:16},{hour:"17:00",flags:4,label:17},{hour:"18:00",flags:3,label:18},{hour:"19:00",flags:2,label:19},
+  {hour:"20:00",flags:1,label:20},{hour:"21:00",flags:2,label:21},{hour:"22:00",flags:1,label:22},{hour:"23:00",flags:0,label:23},
+];
+
+const DEMO_HEALTHCARE = {
+  phiEvents: 31, hipaaScore: 96.8, consentGates: 14,
+  sensitiveFlags: { mentalHealth: 8, substanceAbuse: 4, reproductiveHealth: 6 },
+  hipaaTimeline: [{day:"Mon",score:91.2},{day:"Tue",score:92.8},{day:"Wed",score:93.5},{day:"Thu",score:94.1},{day:"Fri",score:95.7},{day:"Sat",score:96.3},{day:"Sun",score:96.8}],
+};
+
+const DEMO_LEGAL = {
+  attestationRate: 94.7, privilegeCoverage: 96.2, conflictFlags: 6, unattested: 11,
+  attestationTimeline: [{day:"Mon",rate:84.2},{day:"Tue",rate:87.1},{day:"Wed",rate:89.5},{day:"Thu",rate:91.3},{day:"Fri",rate:93.0},{day:"Sat",rate:94.1},{day:"Sun",rate:94.7}],
+};
+
+const C = {
+  bg:"#0a0e17",surface:"#111827",surfaceLight:"#1a2234",border:"#1e2d45",borderLight:"#2a3a54",
+  text:"#e2e8f0",textMuted:"#8896ab",textDim:"#4a5568",
+  accent:"#3b82f6",accentGlow:"rgba(59,130,246,0.15)",
+  green:"#10b981",greenDim:"rgba(16,185,129,0.15)",
+  red:"#ef4444",redDim:"rgba(239,68,68,0.12)",
+  amber:"#f59e0b",amberDim:"rgba(245,158,11,0.12)",
+  purple:"#8b5cf6",purpleDim:"rgba(139,92,246,0.12)",
+  cyan:"#06b6d4",cyanDim:"rgba(6,182,212,0.12)",
+};
+
+function StatCard({icon:Icon,label,value,sub,color,bg:bgColor}){
+  return(<div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:10,padding:"20px 22px",display:"flex",alignItems:"flex-start",gap:14,minWidth:0,transition:"border-color 0.2s"}} onMouseEnter={e=>e.currentTarget.style.borderColor=color||C.accent} onMouseLeave={e=>e.currentTarget.style.borderColor=C.border}>
+    <div style={{width:40,height:40,borderRadius:8,background:bgColor||C.accentGlow,display:"flex",alignItems:"center",justifyContent:"center",flexShrink:0}}><Icon size={18} color={color||C.accent}/></div>
+    <div style={{minWidth:0}}>
+      <div style={{fontSize:12,color:C.textMuted,letterSpacing:"0.05em",textTransform:"uppercase",marginBottom:4}}>{label}</div>
+      <div style={{fontSize:26,fontWeight:700,color:C.text,lineHeight:1.1,fontFamily:"'JetBrains Mono','SF Mono',monospace"}}>{value}</div>
+      {sub&&<div style={{fontSize:12,color:C.textMuted,marginTop:4}}>{sub}</div>}
+    </div>
+  </div>);
+}
+
+function SectionHeader({icon:Icon,title,color,children}){
+  return(<div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:16}}>
+    <div style={{display:"flex",alignItems:"center",gap:10}}>
+      <div style={{width:3,height:20,background:color||C.accent,borderRadius:2}}/>
+      {Icon&&<Icon size={16} color={color||C.accent}/>}
+      <span style={{fontSize:14,fontWeight:600,color:C.text,letterSpacing:"0.03em",textTransform:"uppercase"}}>{title}</span>
+    </div>{children}
+  </div>);
+}
+
+function Panel({children,style}){
+  return <div style={{background:C.surface,border:`1px solid ${C.border}`,borderRadius:10,padding:24,...style}}>{children}</div>;
+}
+
+function CustomTooltip({active,payload,label}){
+  if(!active||!payload?.length)return null;
+  return(<div style={{background:C.surfaceLight,border:`1px solid ${C.borderLight}`,borderRadius:6,padding:"10px 14px",fontSize:12}}>
+    <div style={{color:C.textMuted,marginBottom:6}}>{label}</div>
+    {payload.map((p,i)=>(<div key={i} style={{color:p.color,display:"flex",justifyContent:"space-between",gap:16,lineHeight:1.6}}>
+      <span>{p.name}</span><span style={{fontFamily:"'JetBrains Mono',monospace",fontWeight:600}}>{typeof p.value==="number"&&p.value%1!==0?p.value.toFixed(1):p.value}</span>
+    </div>))}
+  </div>);
+}
+
+function AondorDashboard(){
+  const[vertical,setVertical]=useState("healthcare");
+  const[timeRange,setTimeRange]=useState("30d");
+  const[now,setNow]=useState(new Date());
+  useEffect(()=>{const t=setInterval(()=>setNow(new Date()),1000);return()=>clearInterval(t);},[]);
+
+  const pipeline=DEMO_PIPELINE;
+  const pipeTotal=pipeline.total;
+  const pipeData=[
+    {name:"PW_CAUGHT",value:pipeline.pw,color:C.accent},
+    {name:"SENSUS_CAUGHT",value:pipeline.sensus,color:C.purple},
+    {name:"DOUBLE_MISS",value:pipeline.miss,color:C.red},
+    {name:"CLEAN_PASS",value:pipeline.clean,color:C.green},
+  ];
+  const allPipeData=[
+    {name:"PW_CAUGHT",value:pipeline.pw,color:C.accent},
+    {name:"SENSUS_CAUGHT",value:pipeline.sensus,color:C.purple},
+    {name:"BOTH_CAUGHT",value:pipeline.both,color:C.cyan},
+    {name:"DOUBLE_MISS",value:pipeline.miss,color:C.red},
+    {name:"CLEAN_PASS",value:pipeline.clean,color:C.green},
+  ];
+
+  const catchRate=(((pipeline.pw+pipeline.sensus+pipeline.both)/(pipeline.pw+pipeline.sensus+pipeline.both+pipeline.miss))*100).toFixed(1);
+  const totalProcessed=DEMO_TIMELINE.reduce((s,d)=>s+d.total,0);
+  const totalFlagged=DEMO_TIMELINE.reduce((s,d)=>s+d.flagged,0);
+  const totalBlocked=DEMO_TIMELINE.reduce((s,d)=>s+d.blocked,0);
+  const filteredTimeline=timeRange==="7d"?DEMO_TIMELINE.slice(-7):timeRange==="14d"?DEMO_TIMELINE.slice(-14):DEMO_TIMELINE;
+
+  return(
+    <div style={{background:C.bg,minHeight:"100vh",color:C.text,fontFamily:"'Inter',-apple-system,sans-serif"}}>
+      {/* Top bar */}
+      <div style={{background:C.surface,borderBottom:`1px solid ${C.border}`,padding:"14px 28px",display:"flex",alignItems:"center",justifyContent:"space-between",position:"sticky",top:0,zIndex:50}}>
+        <div style={{display:"flex",alignItems:"center",gap:14}}>
+          <div style={{display:"flex",alignItems:"center",gap:8}}>
+            <Shield size={22} color={C.accent}/>
+            <span style={{fontSize:18,fontWeight:700,letterSpacing:"-0.02em"}}>
+              <span style={{color:C.accent}}>AONDOR</span>
+              <span style={{color:C.textMuted,fontWeight:400,marginLeft:8,fontSize:13}}>Pilot Dashboard</span>
+            </span>
+          </div>
+          <div style={{width:1,height:24,background:C.border,margin:"0 8px"}}/>
+          <div style={{display:"flex",alignItems:"center",gap:6}}>
+            <div style={{width:7,height:7,borderRadius:"50%",background:C.green,boxShadow:`0 0 8px ${C.green}`}}/>
+            <span style={{fontSize:12,color:C.green,fontWeight:500}}>LIVE</span>
+          </div>
+          <div style={{width:1,height:24,background:C.border,margin:"0 4px"}}/>
+          <span style={{fontSize:11,color:C.textDim,fontStyle:"italic"}}>Demo Environment</span>
+        </div>
+        <div style={{display:"flex",alignItems:"center",gap:16}}>
+          <span style={{fontSize:12,color:C.textMuted,fontFamily:"'JetBrains Mono',monospace"}}>{now.toLocaleTimeString("en-US",{hour12:false})} UTC</span>
+          <button onClick={()=>alert("PDF export triggered - generates board-ready compliance report from current dashboard state.")} style={{background:C.accent,color:"#fff",border:"none",borderRadius:6,padding:"8px 16px",fontSize:12,fontWeight:600,cursor:"pointer",display:"flex",alignItems:"center",gap:6,letterSpacing:"0.03em",textTransform:"uppercase"}}>
+            <Download size={13}/>Export Report
+          </button>
+        </div>
+      </div>
+
+      <div style={{maxWidth:1400,margin:"0 auto",padding:"24px 28px 60px"}}>
+        {/* Narrative Banner */}
+        <div style={{background:`linear-gradient(135deg,${C.accentGlow},${C.purpleDim})`,border:`1px solid ${C.borderLight}`,borderRadius:10,padding:"16px 24px",marginBottom:24,display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+          <div>
+            <div style={{fontSize:14,fontWeight:600,color:C.text,marginBottom:4}}>30-Day Pilot Simulation — Mid-Size Healthcare Organization</div>
+            <div style={{fontSize:12,color:C.textMuted}}>4 AI models monitored · Governance flags decreased 83% from Day 1 to Day 30 · Combined catch rate: {catchRate}%</div>
+          </div>
+          <div style={{display:"flex",alignItems:"center",gap:6,fontSize:11,color:C.textMuted}}>
+            <TrendingUp size={13} color={C.green}/><span>Governance effectiveness trending positive</span>
+          </div>
+        </div>
+
+        {/* KPI Row */}
+        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:16,marginBottom:28}}>
+          <StatCard icon={Activity} label="Total Processed" value={totalProcessed.toLocaleString()} sub="30-day pilot window" color={C.accent} bg={C.accentGlow}/>
+          <StatCard icon={AlertTriangle} label="Flagged" value={totalFlagged.toLocaleString()} sub={`${((totalFlagged/totalProcessed)*100).toFixed(1)}% of traffic`} color={C.amber} bg={C.amberDim}/>
+          <StatCard icon={XCircle} label="Blocked" value={totalBlocked.toLocaleString()} sub="Pre-inference blocks" color={C.red} bg={C.redDim}/>
+          <StatCard icon={Shield} label="Catch Rate" value={`${catchRate}%`} sub="Combined pipeline effectiveness" color={C.green} bg={C.greenDim}/>
+        </div>
+
+        {/* Pipeline + Timeline */}
+        <div style={{display:"grid",gridTemplateColumns:"340px 1fr",gap:16,marginBottom:28}}>
+          <Panel>
+            <SectionHeader icon={Zap} title="Pipeline Breakdown" color={C.purple}/>
+            <div style={{display:"flex",justifyContent:"center",margin:"8px 0"}}>
+              <ResponsiveContainer width={200} height={200}>
+                <PieChart><Pie data={pipeData} cx="50%" cy="50%" innerRadius={55} outerRadius={85} paddingAngle={2} dataKey="value" stroke="none">
+                  {pipeData.map((d,i)=>(<Cell key={i} fill={d.color}/>))}
+                </Pie><Tooltip content={<CustomTooltip/>}/></PieChart>
+              </ResponsiveContainer>
+            </div>
+            <div style={{display:"flex",flexDirection:"column",gap:8,marginTop:4}}>
+              {allPipeData.map(d=>(
+                <div key={d.name} style={{display:"flex",alignItems:"center",justifyContent:"space-between",fontSize:12}}>
+                  <div style={{display:"flex",alignItems:"center",gap:8}}>
+                    <div style={{width:10,height:10,borderRadius:2,background:d.color,opacity:d.value===0?0.3:1}}/>
+                    <span style={{color:d.value===0?C.textDim:C.textMuted}}>
+                      {d.name}{d.name==="BOTH_CAUGHT"&&d.value===0&&<span style={{fontSize:10,marginLeft:4,color:C.textDim}}>— complementary layers</span>}
+                    </span>
+                  </div>
+                  <div style={{display:"flex",gap:12}}>
+                    <span style={{fontFamily:"'JetBrains Mono',monospace",color:d.value===0?C.textDim:C.text,fontWeight:600}}>{d.value}</span>
+                    <span style={{fontFamily:"'JetBrains Mono',monospace",color:C.textDim,width:44,textAlign:"right"}}>{((d.value/pipeTotal)*100).toFixed(1)}%</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{marginTop:14,padding:"10px 14px",background:C.surfaceLight,borderRadius:6,fontSize:11,color:C.textMuted,lineHeight:1.5}}>
+              Zero overlap between layers confirms complementary coverage — each system catches threats the other cannot.
+            </div>
+          </Panel>
+
+          <Panel>
+            <SectionHeader icon={Clock} title="Threat Timeline" color={C.amber}>
+              <div style={{display:"flex",gap:4}}>
+                {["7d","14d","30d"].map(r=>(
+                  <button key={r} onClick={()=>setTimeRange(r)} style={{background:timeRange===r?C.accent:"transparent",color:timeRange===r?"#fff":C.textMuted,border:`1px solid ${timeRange===r?C.accent:C.border}`,borderRadius:4,padding:"4px 10px",fontSize:11,cursor:"pointer",fontWeight:500}}>{r}</button>
+                ))}
+              </div>
+            </SectionHeader>
+            <ResponsiveContainer width="100%" height={240}>
+              <AreaChart data={filteredTimeline} margin={{top:8,right:8,left:-10,bottom:0}}>
+                <defs>
+                  <linearGradient id="flagGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={C.amber} stopOpacity={0.3}/><stop offset="100%" stopColor={C.amber} stopOpacity={0}/></linearGradient>
+                  <linearGradient id="blockGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={C.red} stopOpacity={0.25}/><stop offset="100%" stopColor={C.red} stopOpacity={0}/></linearGradient>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" stroke={C.border}/>
+                <XAxis dataKey="date" tick={{fill:C.textDim,fontSize:11}} axisLine={{stroke:C.border}} tickLine={false}/>
+                <YAxis tick={{fill:C.textDim,fontSize:11}} axisLine={false} tickLine={false}/>
+                <Tooltip content={<CustomTooltip/>}/>
+                <Area type="monotone" dataKey="flagged" name="Flagged" stroke={C.amber} fill="url(#flagGrad)" strokeWidth={2}/>
+                <Area type="monotone" dataKey="blocked" name="Blocked" stroke={C.red} fill="url(#blockGrad)" strokeWidth={2}/>
+                <Line type="monotone" dataKey="total" name="Total" stroke={C.textDim} strokeWidth={1} strokeDasharray="4 4" dot={false}/>
+              </AreaChart>
+            </ResponsiveContainer>
+          </Panel>
+        </div>
+
+        {/* Model + Hourly */}
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:28}}>
+          <Panel>
+            <SectionHeader icon={Eye} title="Model Source Breakdown" color={C.cyan}/>
+            <div style={{display:"flex",flexDirection:"column",gap:10}}>
+              {[...DEMO_MODELS].sort((a,b)=>parseFloat(b.rate)-parseFloat(a.rate)).map(m=>(
+                <div key={m.model}>
+                  <div style={{display:"flex",justifyContent:"space-between",marginBottom:6,fontSize:13}}>
+                    <span style={{color:C.text,fontWeight:500}}>{m.model}</span>
+                    <div style={{display:"flex",gap:16}}>
+                      <span style={{color:C.textMuted,fontSize:12}}>{m.flagged}/{m.total} requests</span>
+                      <span style={{fontFamily:"'JetBrains Mono',monospace",fontWeight:700,fontSize:13,color:parseFloat(m.rate)>10?C.red:parseFloat(m.rate)>5?C.amber:C.green}}>{m.rate}%</span>
+                    </div>
+                  </div>
+                  <div style={{height:6,background:C.surfaceLight,borderRadius:3,overflow:"hidden"}}>
+                    <div style={{height:"100%",width:`${Math.min(parseFloat(m.rate)*3,100)}%`,background:parseFloat(m.rate)>10?C.red:parseFloat(m.rate)>5?C.amber:C.green,borderRadius:3,transition:"width 0.6s ease"}}/>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div style={{marginTop:16,padding:"10px 14px",background:C.surfaceLight,borderRadius:6,fontSize:11,color:C.textMuted,lineHeight:1.5}}>
+              Grok 4.1 generates the most governance events — 0% native safety on exploit generation. Without Aondor, 100% of adversarial content reaches end users.
+            </div>
+          </Panel>
+
+          <Panel>
+            <SectionHeader icon={Clock} title="Hourly Flag Distribution" color={C.amber}/>
+            <ResponsiveContainer width="100%" height={220}>
+              <BarChart data={DEMO_HOURLY} margin={{top:8,right:8,left:-10,bottom:0}}>
+                <CartesianGrid strokeDasharray="3 3" stroke={C.border} vertical={false}/>
+                <XAxis dataKey="label" tick={{fill:C.textDim,fontSize:10}} axisLine={{stroke:C.border}} tickLine={false} tickFormatter={v=>v%4===0?`${v}:00`:""}/>
+                <YAxis tick={{fill:C.textDim,fontSize:11}} axisLine={false} tickLine={false}/>
+                <Tooltip content={<CustomTooltip/>}/>
+                <Bar dataKey="flags" name="Flags" fill={C.amber} radius={[2,2,0,0]}/>
+              </BarChart>
+            </ResponsiveContainer>
+            <div style={{marginTop:12,padding:"10px 14px",background:C.surfaceLight,borderRadius:6,fontSize:11,color:C.textMuted,lineHeight:1.5}}>
+              Peak adversarial activity during business hours (9AM-3PM) — consistent with insider risk and active-use windows.
+            </div>
+          </Panel>
+        </div>
+
+        {/* Vertical Toggle */}
+        <div style={{display:"flex",alignItems:"center",gap:12,marginBottom:16}}>
+          <span style={{fontSize:12,color:C.textMuted,letterSpacing:"0.05em",textTransform:"uppercase"}}>Vertical Module</span>
+          <div style={{display:"flex",gap:4}}>
+            {[{id:"healthcare",label:"Healthcare",icon:Heart},{id:"legal",label:"Legal",icon:Scale}].map(({id,label,icon:Ic})=>(
+              <button key={id} onClick={()=>setVertical(id)} style={{background:vertical===id?C.surfaceLight:"transparent",color:vertical===id?C.text:C.textMuted,border:`1px solid ${vertical===id?C.borderLight:C.border}`,borderRadius:6,padding:"8px 16px",fontSize:12,fontWeight:500,cursor:"pointer",display:"flex",alignItems:"center",gap:6}}>
+                <Ic size={13}/>{label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Healthcare */}
+        {vertical==="healthcare"&&(
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
+            <Panel>
+              <SectionHeader icon={Heart} title="PHI & Compliance" color={C.red}/>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginBottom:20}}>
+                <div style={{background:C.surfaceLight,borderRadius:8,padding:16,textAlign:"center"}}>
+                  <div style={{fontSize:11,color:C.textMuted,textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:6}}>PHI Detection Events</div>
+                  <div style={{fontSize:30,fontWeight:700,color:C.red,fontFamily:"'JetBrains Mono',monospace"}}>{DEMO_HEALTHCARE.phiEvents}</div>
+                </div>
+                <div style={{background:C.surfaceLight,borderRadius:8,padding:16,textAlign:"center"}}>
+                  <div style={{fontSize:11,color:C.textMuted,textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:6}}>Consent Gate Triggers</div>
+                  <div style={{fontSize:30,fontWeight:700,color:C.amber,fontFamily:"'JetBrains Mono',monospace"}}>{DEMO_HEALTHCARE.consentGates}</div>
+                </div>
+              </div>
+              <div style={{fontSize:12,color:C.textMuted,marginBottom:10,fontWeight:500}}>Sensitive Category Flags</div>
+              {Object.entries(DEMO_HEALTHCARE.sensitiveFlags).map(([key,val])=>{
+                const labels={mentalHealth:"Mental Health",substanceAbuse:"Substance Abuse",reproductiveHealth:"Reproductive Health"};
+                return(<div key={key} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 0",borderBottom:`1px solid ${C.border}`,fontSize:13}}>
+                  <span style={{color:C.textMuted}}>{labels[key]}</span>
+                  <span style={{fontFamily:"'JetBrains Mono',monospace",fontWeight:600,color:C.red}}>{val}</span>
+                </div>);
+              })}
+            </Panel>
+            <Panel>
+              <SectionHeader icon={Shield} title="HIPAA Compliance Trend" color={C.green}/>
+              <div style={{textAlign:"center",marginBottom:16}}>
+                <span style={{fontSize:42,fontWeight:700,fontFamily:"'JetBrains Mono',monospace",color:C.green}}>{DEMO_HEALTHCARE.hipaaScore.toFixed(1)}%</span>
+                <div style={{fontSize:12,color:C.textMuted,marginTop:4}}>Current HIPAA Compliance Score</div>
+              </div>
+              <ResponsiveContainer width="100%" height={180}>
+                <LineChart data={DEMO_HEALTHCARE.hipaaTimeline} margin={{top:8,right:8,left:-10,bottom:0}}>
+                  <CartesianGrid strokeDasharray="3 3" stroke={C.border}/>
+                  <XAxis dataKey="day" tick={{fill:C.textDim,fontSize:11}} axisLine={{stroke:C.border}} tickLine={false}/>
+                  <YAxis domain={[85,100]} tick={{fill:C.textDim,fontSize:11}} axisLine={false} tickLine={false}/>
+                  <Tooltip content={<CustomTooltip/>}/>
+                  <Line type="monotone" dataKey="score" name="HIPAA Score" stroke={C.green} strokeWidth={2} dot={{fill:C.green,r:3}}/>
+                </LineChart>
+              </ResponsiveContainer>
+              <div style={{marginTop:12,padding:"10px 14px",background:C.greenDim,borderRadius:6,fontSize:11,color:C.green,lineHeight:1.5,border:`1px solid ${C.green}33`}}>
+                Compliance score improved 5.6 points over 7 days — governance layer actively improving PHI protection posture.
+              </div>
+            </Panel>
+          </div>
+        )}
+
+        {/* Legal */}
+        {vertical==="legal"&&(
+          <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
+            <Panel>
+              <SectionHeader icon={Scale} title="Attorney Oversight" color={C.purple}/>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginBottom:20}}>
+                <div style={{background:C.surfaceLight,borderRadius:8,padding:16,textAlign:"center"}}>
+                  <div style={{fontSize:11,color:C.textMuted,textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:6}}>Attestation Rate</div>
+                  <div style={{fontSize:30,fontWeight:700,color:C.green,fontFamily:"'JetBrains Mono',monospace"}}>{DEMO_LEGAL.attestationRate.toFixed(1)}%</div>
+                </div>
+                <div style={{background:C.surfaceLight,borderRadius:8,padding:16,textAlign:"center"}}>
+                  <div style={{fontSize:11,color:C.textMuted,textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:6}}>Privilege Coverage</div>
+                  <div style={{fontSize:30,fontWeight:700,color:C.green,fontFamily:"'JetBrains Mono',monospace"}}>{DEMO_LEGAL.privilegeCoverage.toFixed(1)}%</div>
+                </div>
+              </div>
+              <div style={{display:"flex",flexDirection:"column",gap:10}}>
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 14px",background:C.redDim,borderRadius:6,border:`1px solid ${C.red}33`}}>
+                  <div style={{display:"flex",alignItems:"center",gap:8}}><AlertTriangle size={14} color={C.red}/><span style={{fontSize:13,color:C.text}}>Conflict Detection Flags</span></div>
+                  <span style={{fontFamily:"'JetBrains Mono',monospace",fontWeight:700,color:C.red,fontSize:16}}>{DEMO_LEGAL.conflictFlags}</span>
+                </div>
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 14px",background:C.amberDim,borderRadius:6,border:`1px solid ${C.amber}33`}}>
+                  <div style={{display:"flex",alignItems:"center",gap:8}}><FileText size={14} color={C.amber}/><span style={{fontSize:13,color:C.text}}>Unattested AI Interactions</span></div>
+                  <span style={{fontFamily:"'JetBrains Mono',monospace",fontWeight:700,color:C.amber,fontSize:16}}>{DEMO_LEGAL.unattested}</span>
+                </div>
+              </div>
+              <div style={{marginTop:14,padding:"10px 14px",background:C.surfaceLight,borderRadius:6,fontSize:11,color:C.textMuted,lineHeight:1.5}}>
+                Per U.S. v. Heppner (S.D.N.Y. 2026) — AI outputs without documented counsel direction are not privilege-protected. Each unattested interaction is a discoverable document.
+              </div>
+            </Panel>
+            <Panel>
+              <SectionHeader icon={Lock} title="Attestation Trend" color={C.purple}/>
+              <div style={{textAlign:"center",marginBottom:16}}>
+                <span style={{fontSize:12,color:C.textMuted}}>Attorney oversight documentation rate — climbing toward full compliance</span>
+              </div>
+              <ResponsiveContainer width="100%" height={220}>
+                <AreaChart data={DEMO_LEGAL.attestationTimeline} margin={{top:8,right:8,left:-10,bottom:0}}>
+                  <defs><linearGradient id="attestGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor={C.purple} stopOpacity={0.3}/><stop offset="100%" stopColor={C.purple} stopOpacity={0}/></linearGradient></defs>
+                  <CartesianGrid strokeDasharray="3 3" stroke={C.border}/>
+                  <XAxis dataKey="day" tick={{fill:C.textDim,fontSize:11}} axisLine={{stroke:C.border}} tickLine={false}/>
+                  <YAxis domain={[75,100]} tick={{fill:C.textDim,fontSize:11}} axisLine={false} tickLine={false}/>
+                  <Tooltip content={<CustomTooltip/>}/>
+                  <Area type="monotone" dataKey="rate" name="Attestation Rate" stroke={C.purple} fill="url(#attestGrad)" strokeWidth={2}/>
+                </AreaChart>
+              </ResponsiveContainer>
+              <div style={{marginTop:12,padding:"10px 14px",background:C.purpleDim,borderRadius:6,fontSize:11,color:C.purple,lineHeight:1.5,border:`1px solid ${C.purple}33`}}>
+                Attestation rate improved 10.5 points over 7 days — counsel direction documentation approaching full coverage.
+              </div>
+            </Panel>
+          </div>
+        )}
+
+        {/* Footer */}
+        <div style={{marginTop:32,paddingTop:16,borderTop:`1px solid ${C.border}`,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+          <div style={{fontSize:11,color:C.textDim}}>AONDOR Governance Engine · PatternWall v5.0 · Sensus v4.0 · LKM Constructs LLC</div>
+          <div style={{fontSize:11,color:C.textDim}}>Patent Pending · LKM-2026-001</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+    // Mount
+    const root = ReactDOM.createRoot(document.getElementById("dashboard-root"));
+    root.render(<AondorDashboard />);
+  </script>
+</body>
+</html>
