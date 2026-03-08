@@ -444,6 +444,16 @@ body::before {
   justify-content: center;
   gap: 16px;
   margin-top: 40px;
+  position: sticky;
+  top: 84px;
+  z-index: 100;
+  background: rgba(26,26,26,0.95);
+  backdrop-filter: blur(8px);
+  padding: 16px 0;
+  margin-left: -24px;
+  margin-right: -24px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .ctrl-btn {
@@ -481,14 +491,14 @@ body::before {
   cursor: not-allowed;
 }
 
-/* BOTTOM STATS */
+/* STATS ROW */
 .demo-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
-  margin-top: 56px;
-  padding-top: 40px;
-  border-top: 1px solid var(--border);
+  margin-bottom: 8px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
 }
 
 .stat-card {
@@ -791,14 +801,6 @@ body::before {
     </button>
   </div>
 
-  <div class="demo-controls">
-    <button class="ctrl-btn" id="resetBtn" onclick="resetDemo()" disabled>Reset</button>
-    <button class="ctrl-btn primary" id="runBtn" onclick="runDemo()">Run Pipeline</button>
-    <button class="ctrl-btn" id="nextBtn" onclick="nextStep()" disabled>Next Step →</button>
-  </div>
-
-  <div id="pipeline" class="pipeline"></div>
-
   <div class="demo-stats">
     <div class="stat-card">
       <div class="stat-value red">0–25%</div>
@@ -813,6 +815,14 @@ body::before {
       <div class="stat-label">Layer Overlap</div>
     </div>
   </div>
+
+  <div class="demo-controls">
+    <button class="ctrl-btn" id="resetBtn" onclick="resetDemo()" disabled>Reset</button>
+    <button class="ctrl-btn primary" id="runBtn" onclick="runDemo()">Run Pipeline</button>
+    <button class="ctrl-btn" id="nextBtn" onclick="nextStep()" disabled>Next Step →</button>
+  </div>
+
+  <div id="pipeline" class="pipeline"></div>
 
   <div class="demo-footer">
     <h3>Your model changed. Would your safety layer still hold?</h3>
