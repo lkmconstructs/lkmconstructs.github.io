@@ -237,7 +237,7 @@ header, section, footer { position: relative; z-index: 2; }
 .hero {
   background: linear-gradient(180deg, rgba(14,16,18,0.92) 0%, rgba(14,16,18,0.7) 40%, rgba(14,16,18,0.4) 75%, transparent 100%);
   min-height: 80vh;
-  padding-top: 100px;
+  padding-top: 76px;
   display: flex;
   align-items: center;
   position: relative;
@@ -543,6 +543,8 @@ footer a { color: var(--teal); text-decoration: none; }
 .product-badge { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; padding: 4px 14px; border-radius: 4px; margin-bottom: 16px; }
 .badge-beta { background: rgba(99,155,141,0.2); color: var(--teal); border: 1px solid rgba(99,155,141,0.35); }
 .badge-pilot { background: rgba(212,160,23,0.15); color: var(--gold); border: 1px solid rgba(212,160,23,0.3); }
+.badge-early { background: rgba(99,155,141,0.12); color: var(--teal); border: 1px solid rgba(99,155,141,0.25); }
+.badge-coming { background: rgba(138,133,128,0.1); color: var(--subtle); border: 1px solid rgba(138,133,128,0.2); }
 .product-tagline { font-size: 0.9rem; color: var(--gold); margin-bottom: 1rem; font-weight: 500; }
 .features { display: flex; gap: 10px; flex-wrap: wrap; margin: 1.5rem 0; }
 .feature { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--subtle); background: rgba(30,32,36,0.8); padding: 5px 12px; border-radius: 5px; border: 1px solid rgba(99,155,141,0.15); }
@@ -583,7 +585,7 @@ footer a { color: var(--teal); text-decoration: none; }
         </div>
       </div>
       <a href="/parallax/">Parallax</a>
-      <a href="/coming-soon.html">Coming Soon</a>
+      <a href="/aondor/research/">Research</a>
       <a href="/contact.html" class="nav-contact">Contact</a>
     </div>
   </div>
@@ -593,19 +595,22 @@ footer a { color: var(--teal); text-decoration: none; }
   <div class="container">
     <div class="hero-content">
       <h1><span>Products</span></h1>
-      <p class="subtitle">Governance, Context, and Authorship Infrastructure</p>
-      <p class="lead">Three independent products built on shared infrastructure principles: model-agnostic, auditable, and designed for real workflows.</p>
+      <p class="subtitle">AI tools for governance, professional workflows, health, and creative systems.</p>
+      <p class="lead">All built on governance-grade architecture.</p>
     </div>
   </div>
 </section>
 
+<!-- GOVERNANCE & SAFETY -->
 <section>
   <div class="container">
-    <div class="content-card" style="margin-bottom:2rem;">
-      <span class="product-badge badge-pilot">Patent Pending</span>
-      <h3>Aondor &mdash; Governance Layer</h3>
-      <div class="product-tagline">Runtime governance for live AI workflows</div>
-      <p>Aondor is a dual-pipeline middleware layer. PatternWall intercepts adversarial prompts before inference. Sensus evaluates outputs after. What one layer misses, the other catches. A bidirectional feedback loop recovers additional threats in real time. Model-agnostic, deterministic, and auditable across every AI tool in your stack.</p>
+    <div class="section-label">Governance &amp; Safety</div>
+
+    <div class="content-card" style="margin-bottom:2rem;border-color:rgba(212,160,23,0.4);">
+      <span class="product-badge badge-pilot">Pilot &middot; Now Accepting</span>
+      <h3>Aondor</h3>
+      <div class="product-tagline">Constitutional AI governance middleware</div>
+      <p>Dual-pipeline (PatternWall + Sensus). Model-agnostic. Audit-ready. Every AI interaction governed, logged, and explainable. Currently accepting pilot applications.</p>
       <div class="features">
         <span class="feature">Model-Agnostic</span>
         <span class="feature">Pre &amp; Post Inference</span>
@@ -625,12 +630,19 @@ footer a { color: var(--teal); text-decoration: none; }
         </form>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- COGNITIVE INFRASTRUCTURE -->
+<section>
+  <div class="container">
+    <div class="section-label">Cognitive Infrastructure</div>
 
     <div class="content-card" style="margin-bottom:2rem;">
-      <span class="product-badge badge-pilot">Patent Pending</span>
-      <h3>Parallax &mdash; Context Layer (COL)</h3>
-      <div class="product-tagline">Cognitive Operations Layer &mdash; reduces user steering burden</div>
-      <p>Parallax is a 16-module inference pipeline that shapes how AI reasons before the answer reaches you. Benchmarked across 8 models, Parallax demonstrated near-frontier performance lift on mid-tier models. Stop prompt engineering. Start thinking.</p>
+      <span class="product-badge badge-early">Early Access</span>
+      <h3>Parallax</h3>
+      <div class="product-tagline">Cognitive Operations Layer &mdash; improves AI reasoning without changing the model</div>
+      <p>16-module inference pipeline. Benchmarked across 8 models with near-frontier performance lift on mid-tier models. Patent pending.</p>
       <div class="features">
         <span class="feature">16-Module Pipeline</span>
         <span class="feature">8-Model Benchmark</span>
@@ -645,12 +657,19 @@ footer a { color: var(--teal); text-decoration: none; }
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- PROFESSIONAL TOOLS -->
+<section>
+  <div class="container">
+    <div class="section-label">Professional Tools</div>
 
     <div id="voiceprint" class="content-card" style="margin-bottom:2rem;">
       <span class="product-badge badge-beta">Beta &middot; Now Accepting</span>
-      <h3>Voiceprint &mdash; Authorship Layer</h3>
+      <h3>Voiceprint</h3>
       <div class="product-tagline">Preserves recognizable writing voice under AI assistance</div>
-      <p>Voiceprint captures and maintains your voice fingerprint across AI-assisted content. It doesn&rsquo;t replace your voice &mdash; it ensures AI assistance doesn&rsquo;t flatten it. Runs locally with no cloud dependency. Currently in beta.</p>
+      <p>Captures and maintains your voice fingerprint across AI-assisted content. It doesn&rsquo;t replace your voice &mdash; it ensures AI assistance doesn&rsquo;t flatten it. Runs locally with no cloud dependency.</p>
       <div class="features">
         <span class="feature">Voice Fingerprinting</span>
         <span class="feature">Writing Preservation</span>
@@ -670,8 +689,43 @@ footer a { color: var(--teal); text-decoration: none; }
       </div>
     </div>
 
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;">
+      <div class="content-card" style="padding:1.8rem;opacity:0.8;">
+        <span class="product-badge badge-coming">Coming 2026</span>
+        <h3 style="font-size:1.1rem;">Inkline</h3>
+        <p style="font-size:0.88rem;">Writing and editing companion for self-publishing authors. Voice-matched feedback.</p>
+      </div>
+      <div class="content-card" style="padding:1.8rem;opacity:0.8;">
+        <span class="product-badge badge-coming">Coming 2026</span>
+        <h3 style="font-size:1.1rem;">SteelForm</h3>
+        <p style="font-size:0.88rem;">AI-powered fitness planning. Adaptive programming that evolves with your goals.</p>
+      </div>
+      <div class="content-card" style="padding:1.8rem;opacity:0.8;">
+        <span class="product-badge badge-coming">Coming 2026</span>
+        <h3 style="font-size:1.1rem;">LEXI</h3>
+        <p style="font-size:0.88rem;">AI reading companion. Track, discuss, and explore books with an AI that remembers your library.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HEALTH & WELLNESS -->
+<section>
+  <div class="container">
+    <div class="section-label">Health &amp; Wellness</div>
+
+    <div class="content-card" style="padding:1.8rem;opacity:0.8;max-width:400px;">
+      <span class="product-badge badge-coming">Coming 2026</span>
+      <h3 style="font-size:1.1rem;">Nevara</h3>
+      <p style="font-size:0.88rem;">Women&rsquo;s health AI. Fertility, postpartum, menopause. In development.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
     <div class="governance-note">
-      <strong>Aondor, Parallax, and Voiceprint are independent products built on shared infrastructure principles:</strong> model-agnostic, auditable, and designed for real workflows. Read our <a href="/aondor/research/">published research</a> for benchmark results and methodology.
+      <strong>All LKM products are built on governance-grade architecture.</strong> PatternWall and Sensus &mdash; our published governance engines &mdash; form the foundation of everything we ship. Read our <a href="/aondor/research/">published research</a> for benchmark results and methodology.
     </div>
   </div>
 </section>
@@ -679,10 +733,10 @@ footer a { color: var(--teal); text-decoration: none; }
 <section class="cta-section">
   <div class="container">
     <div class="section-label">Get Started</div>
-    <h2>Ready to govern your AI stack?</h2>
-    <p style="margin-bottom:2rem;color:var(--subtle);">If your team deploys AI in any workflow where outputs need to be trusted, explained, or audited &mdash; we should talk.</p>
+    <h2>Ready to build with governed AI?</h2>
+    <p style="margin-bottom:2rem;color:var(--subtle);">If you&rsquo;re building with AI and want infrastructure that governs itself, we should talk.</p>
     <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
-      <a href="/contact.html" class="cta-btn primary">Talk to Us About Fit</a>
+      <a href="/contact.html" class="cta-btn primary">Get in Touch</a>
       <a href="/aondor/" class="cta-btn secondary">Explore Aondor</a>
     </div>
   </div>
@@ -690,7 +744,7 @@ footer a { color: var(--teal); text-decoration: none; }
 
 <footer>
   <div class="container">
-    <p>&copy; 2026 LKM Constructs LLC &mdash; AI Infrastructure for Governance, Context, and Authorship</p>
+    <p>&copy; 2026 LKM Constructs LLC &mdash; AI Infrastructure, Governed by Design</p>
   </div>
 </footer>
 
