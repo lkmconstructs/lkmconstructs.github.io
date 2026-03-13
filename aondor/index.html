@@ -546,6 +546,7 @@ footer a { color: var(--teal); text-decoration: none; }
           <a href="/aondor/dashboard/">Dashboard</a>
         </div>
       </div>
+      <a href="/parallax/">Parallax</a>
       <a href="/coming-soon.html">Coming Soon</a>
       <a href="/contact.html" class="nav-contact">Contact</a>
     </div>
@@ -655,21 +656,36 @@ footer a { color: var(--teal); text-decoration: none; }
 <!-- VERTICALS -->
 <section>
   <div class="container">
-    <div class="section-label">Verticals</div>
+    <div class="section-label">Where Aondor Deploys</div>
     <h2>Deployed where governance is not optional</h2>
-    <div class="verticals">
+    <p style="margin-bottom:2rem;">Aondor is built for any AI workflow where outputs need to be trusted, explained, or audited. We deploy across risk conditions, not just verticals.</p>
+    <div class="verticals" style="grid-template-columns:1fr 1fr 1fr;">
       <div class="vertical-card">
-        <div class="vertical-tag">Healthcare</div>
-        <h3>Aondor for Healthcare</h3>
-        <p>Clinical AI operates blindly without an audit trail. Health systems are deploying documentation assistants, clinical decision support, and patient-facing chatbots with no governance layer between the model and the clinician.</p>
-        <p style="margin-top:1rem;">B3 HIPAA configuration: all 18 identifiers, PHI detection, de-identification triggers, consent verification gates, compliance scoring 0&ndash;100.</p>
-        <p style="margin-top:1rem;font-size:0.85rem;color:var(--subtle);">EU AI Act high-risk obligations: August 2026. Texas, California, Illinois AI transparency laws: already in effect.</p>
+        <div class="vertical-tag">Customer-Facing AI</div>
+        <h3>Chatbots, Support, Onboarding</h3>
+        <p>Any AI interaction that reaches a customer without human review. Governance ensures outputs meet brand, compliance, and accuracy standards before delivery.</p>
+      </div>
+      <div class="vertical-card">
+        <div class="vertical-tag">Decision Support</div>
+        <h3>Analysis, Recommendations, Triage</h3>
+        <p>Internal AI that informs human decisions. Clinical decision support, legal analysis, financial triage &mdash; anywhere AI outputs influence action.</p>
       </div>
       <div class="vertical-card legal">
-        <div class="vertical-tag">Legal</div>
-        <h3>Aondor for Legal</h3>
+        <div class="vertical-tag">Compliance-Sensitive</div>
+        <h3>Regulated Industries &amp; Audit Requirements</h3>
+        <p>Healthcare (HIPAA, EU AI Act), legal (privilege, work product doctrine), financial services &mdash; any workflow under regulatory oversight.</p>
+      </div>
+    </div>
+    <div class="verticals" style="grid-template-columns:1fr 1fr;margin-top:0;">
+      <div class="vertical-card">
+        <div class="vertical-tag">High-Review Environments</div>
+        <h3>Legal, Clinical, Financial</h3>
+        <p>Environments where every AI output may need to be explained later. Full audit trail with attribution, scoring, and tamper-evident logging.</p>
+      </div>
+      <div class="vertical-card legal">
+        <div class="vertical-tag">Precedent</div>
+        <h3>The Privilege Question Is Already Decided</h3>
         <p>On February 10, 2026, Judge Rakoff ruled that AI-generated documents created without direct counsel direction were not protected by privilege. Every law firm using AI tools has ungoverned, discoverable outputs right now.</p>
-        <p style="margin-top:1rem;">Counsel direction attestation on every AI interaction. Work product doctrine compliance logging. Conflict of interest detection. SHA-256 content hashing for tamper evidence.</p>
         <p style="margin-top:1rem;font-size:0.85rem;color:var(--subtle);font-style:italic;">United States v. Heppner, No. 25-cr-00503-JSR (S.D.N.Y. Feb. 10, 2026)</p>
       </div>
     </div>
@@ -682,14 +698,16 @@ footer a { color: var(--teal); text-decoration: none; }
     <div class="content-card">
       <div class="section-label">Pilot Program</div>
       <h2>The first AI governance visibility report your board has ever seen</h2>
-      <p>30-day evaluation. API proxy deployment: route existing AI traffic through Aondor with no changes to your tools, workflows, or vendor relationships. Real-time dashboard access throughout. Compliance-ready report at conclusion.</p>
+      <p>API proxy deployment: route existing AI traffic through Aondor with no changes to your tools, workflows, or vendor relationships. Real-time dashboard access throughout. Compliance-ready report at conclusion.</p>
 
       <div class="pilot-box">
-        <div class="section-label">30-Day Pilot</div>
-        <div class="pilot-price">$2,500 &ndash; $5,000</div>
+        <div class="section-label">Scoped to Your Deployment</div>
+        <p class="pilot-detail" style="font-size:1.1rem;color:var(--text-bright);margin-bottom:1rem;">Pilot structure and pricing are scoped to your deployment.</p>
         <p class="pilot-detail">Includes real-time governance dashboard, compliance report with gap analysis, and full audit trail of every AI interaction during the pilot period.</p>
-        <p class="pilot-detail">Converts to monthly SaaS licensing, tiered by volume of AI outputs processed.</p>
-        <p class="pilot-detail" style="margin-top:1.5rem;color:var(--text-bright);">A single discoverable AI document in litigation could cost millions.<br>A single ungoverned clinical output creates unmeasured liability.<br>This pilot costs a fraction of one senior partner billable hour.</p>
+        <p class="pilot-detail">Governance visibility. Board-ready reporting. Audit trail from day one.</p>
+        <div style="margin-top:2rem;">
+          <a href="/contact.html" class="cta-btn primary">Talk to Us About Fit</a>
+        </div>
       </div>
     </div>
   </div>
@@ -700,17 +718,17 @@ footer a { color: var(--teal); text-decoration: none; }
   <div class="container">
     <div class="section-label">Contact</div>
     <h2>Ready to see what your AI is doing?</h2>
-    <p style="margin-bottom:2rem;color:var(--subtle);">Healthcare compliance officers. General counsel. Litigation partners.<br>If you need governance infrastructure before your next board meeting or your next case, we should talk.</p>
+    <p style="margin-bottom:2rem;color:var(--subtle);">If your team deploys AI in any workflow where outputs need to be trusted, explained, or audited &mdash; we should talk.</p>
     <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
-      <a href="/contact.html" class="cta-btn primary">Get in Touch</a>
-      <a href="/products.html" class="cta-btn secondary">View Products</a>
+      <a href="/contact.html" class="cta-btn primary">Talk to Us About Fit</a>
+      <a href="/products.html" class="cta-btn secondary">Explore Products</a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    <p>&copy; 2026 LKM Constructs LLC &mdash; Patent Pending</p>
+    <p>&copy; 2026 LKM Constructs LLC &mdash; AI Infrastructure for Governance, Context, and Authorship</p>
   </div>
 </footer>
 

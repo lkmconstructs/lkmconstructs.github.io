@@ -582,6 +582,7 @@ footer a { color: var(--teal); text-decoration: none; }
           <a href="/aondor/dashboard/">Dashboard</a>
         </div>
       </div>
+      <a href="/parallax/">Parallax</a>
       <a href="/coming-soon.html">Coming Soon</a>
       <a href="/contact.html" class="nav-contact">Contact</a>
     </div>
@@ -592,8 +593,8 @@ footer a { color: var(--teal); text-decoration: none; }
   <div class="container">
     <div class="hero-content">
       <h1><span>Products</span></h1>
-      <p class="subtitle">Governance Infrastructure &amp; AI Tools</p>
-      <p class="lead">Built for regulated industries. Currently accepting beta and pilot applications.</p>
+      <p class="subtitle">Governance, Context, and Authorship Infrastructure</p>
+      <p class="lead">Three independent products built on shared infrastructure principles: model-agnostic, auditable, and designed for real workflows.</p>
     </div>
   </div>
 </section>
@@ -601,40 +602,16 @@ footer a { color: var(--teal); text-decoration: none; }
 <section>
   <div class="container">
     <div class="content-card" style="margin-bottom:2rem;">
-      <span class="product-badge badge-beta">Beta &middot; Now Accepting</span>
-      <h3>Voiceprint</h3>
-      <div class="product-tagline">AI-powered voice matching and synthesis verification</div>
-      <p>Voiceprint analyzes and matches voice characteristics across audio inputs, providing verification scoring for identity confirmation, content authentication, and voice consistency monitoring. Built for organizations that need auditable voice intelligence without third-party dependency.</p>
-      <div class="features">
-        <span class="feature">Voice Matching</span>
-        <span class="feature">Identity Verification</span>
-        <span class="feature">Content Authentication</span>
-        <span class="feature">Local Processing</span>
-      </div>
-      <div class="signup-form">
-        <h4>Join the Beta</h4>
-        <form action="https://formspree.io/f/mzddpqao" method="POST">
-          <input type="hidden" name="_subject" value="Voiceprint Beta Signup">
-          <input type="hidden" name="product" value="Voiceprint Beta">
-          <div class="form-row"><input type="text" name="name" placeholder="Name" required><input type="email" name="email" placeholder="Email" required></div>
-          <div class="form-row"><input type="text" name="organization" placeholder="Organization (optional)"></div>
-          <div class="form-row"><textarea name="use_case" placeholder="How would you use Voiceprint? (optional)"></textarea></div>
-          <button type="submit" class="submit-btn">Apply for Beta Access</button>
-        </form>
-      </div>
-    </div>
-
-    <div class="content-card">
-      <span class="product-badge badge-pilot">Pilot &middot; Coming Soon</span>
-      <h3>Aondor</h3>
-      <div class="product-tagline">Constitutional AI governance for regulated industries</div>
-      <p>Aondor provides infrastructure-level governance for organizations deploying AI in regulated environments. Combining PatternWall pre-inference detection with Sensus post-inference evaluation, Aondor delivers model-agnostic safety that works regardless of which foundation model is behind your API. Designed for legal, healthcare, and enterprise compliance requirements.</p>
+      <span class="product-badge badge-pilot">Patent Pending</span>
+      <h3>Aondor &mdash; Governance Layer</h3>
+      <div class="product-tagline">Runtime governance for live AI workflows</div>
+      <p>Aondor is a dual-pipeline middleware layer. PatternWall intercepts adversarial prompts before inference. Sensus evaluates outputs after. What one layer misses, the other catches. A bidirectional feedback loop recovers additional threats in real time. Model-agnostic, deterministic, and auditable across every AI tool in your stack.</p>
       <div class="features">
         <span class="feature">Model-Agnostic</span>
         <span class="feature">Pre &amp; Post Inference</span>
         <span class="feature">Audit-Ready</span>
-        <span class="feature">EU AI Act Aligned</span>
-        <span class="feature">NIST RMF Compatible</span>
+        <span class="feature">Deterministic</span>
+        <span class="feature">Patent Pending</span>
       </div>
       <div class="signup-form">
         <h4>Request Pilot Access</h4>
@@ -649,9 +626,52 @@ footer a { color: var(--teal); text-decoration: none; }
       </div>
     </div>
 
+    <div class="content-card" style="margin-bottom:2rem;">
+      <span class="product-badge badge-pilot">Patent Pending</span>
+      <h3>Parallax &mdash; Context Layer (COL)</h3>
+      <div class="product-tagline">Cognitive Operations Layer &mdash; reduces user steering burden</div>
+      <p>Parallax is a 16-module inference pipeline that shapes how AI reasons before the answer reaches you. Benchmarked across 8 models, Parallax demonstrated near-frontier performance lift on mid-tier models. Stop prompt engineering. Start thinking.</p>
+      <div class="features">
+        <span class="feature">16-Module Pipeline</span>
+        <span class="feature">8-Model Benchmark</span>
+        <span class="feature">Near-Frontier Lift</span>
+        <span class="feature">Model-Agnostic</span>
+        <span class="feature">Patent Pending</span>
+      </div>
+      <div class="signup-form">
+        <h4>Learn More</h4>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="/parallax/" class="cta-btn primary" style="flex:1;text-align:center;">Explore Parallax &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="voiceprint" class="content-card" style="margin-bottom:2rem;">
+      <span class="product-badge badge-beta">Beta &middot; Now Accepting</span>
+      <h3>Voiceprint &mdash; Authorship Layer</h3>
+      <div class="product-tagline">Preserves recognizable writing voice under AI assistance</div>
+      <p>Voiceprint captures and maintains your voice fingerprint across AI-assisted content. It doesn&rsquo;t replace your voice &mdash; it ensures AI assistance doesn&rsquo;t flatten it. Runs locally with no cloud dependency. Currently in beta.</p>
+      <div class="features">
+        <span class="feature">Voice Fingerprinting</span>
+        <span class="feature">Writing Preservation</span>
+        <span class="feature">Local Processing</span>
+        <span class="feature">No Cloud Dependency</span>
+      </div>
+      <div class="signup-form">
+        <h4>Request Beta Access</h4>
+        <form action="https://formspree.io/f/mzddpqao" method="POST">
+          <input type="hidden" name="_subject" value="Voiceprint Beta Signup">
+          <input type="hidden" name="product" value="Voiceprint Beta">
+          <div class="form-row"><input type="text" name="name" placeholder="Name" required><input type="email" name="email" placeholder="Email" required></div>
+          <div class="form-row"><input type="text" name="organization" placeholder="Organization (optional)"></div>
+          <div class="form-row"><textarea name="use_case" placeholder="What kind of writing do you do? How would voice preservation help? (optional)"></textarea></div>
+          <button type="submit" class="submit-btn">Request Beta Access</button>
+        </form>
+      </div>
+    </div>
+
     <div class="governance-note">
-      <strong>All LKM products are built on governance-grade architecture.</strong><br>
-      PatternWall and Sensus &mdash; our published governance engines &mdash; form the foundation of everything we ship. Read our <a href="/aondor/research/">published research</a> for benchmark results and methodology.
+      <strong>Aondor, Parallax, and Voiceprint are independent products built on shared infrastructure principles:</strong> model-agnostic, auditable, and designed for real workflows. Read our <a href="/aondor/research/">published research</a> for benchmark results and methodology.
     </div>
   </div>
 </section>
@@ -659,9 +679,10 @@ footer a { color: var(--teal); text-decoration: none; }
 <section class="cta-section">
   <div class="container">
     <div class="section-label">Get Started</div>
-    <h2>Ready to govern your AI?</h2>
+    <h2>Ready to govern your AI stack?</h2>
+    <p style="margin-bottom:2rem;color:var(--subtle);">If your team deploys AI in any workflow where outputs need to be trusted, explained, or audited &mdash; we should talk.</p>
     <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-top:2rem;">
-      <a href="/contact.html" class="cta-btn primary">Contact Us</a>
+      <a href="/contact.html" class="cta-btn primary">Talk to Us About Fit</a>
       <a href="/aondor/" class="cta-btn secondary">Explore Aondor</a>
     </div>
   </div>
@@ -669,7 +690,7 @@ footer a { color: var(--teal); text-decoration: none; }
 
 <footer>
   <div class="container">
-    <p>&copy; 2026 LKM Constructs LLC &mdash; AI Governance Infrastructure</p>
+    <p>&copy; 2026 LKM Constructs LLC &mdash; AI Infrastructure for Governance, Context, and Authorship</p>
   </div>
 </footer>
 
