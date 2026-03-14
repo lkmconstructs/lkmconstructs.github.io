@@ -22,9 +22,9 @@
   --red-glow: rgba(239,68,68,0.35);
   --green: #22c55e;
   --green-dim: rgba(34,197,94,0.12);
-  --text-primary: #e8e8e8;
-  --text-secondary: #999;
-  --text-dim: #666;
+  --text-primary: #f0ece4;
+  --text-secondary: #d4cfc6;
+  --text-dim: #b0a99e;
   --border: #2a2a2a;
 }
 
@@ -751,6 +751,16 @@ body::before {
   .nav-dropdown-menu a { padding: 8px 12px !important; font-size: 1rem !important; }
   .nav-dropdown.open .nav-dropdown-menu { display: block; }
 }
+
+/* MOBILE TABLE & CARD OVERFLOW FIX */
+table { max-width: 100%; width: 100%; }
+.table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+.content-card, .link-banner, .vertical-card { max-width: 100%; box-sizing: border-box; }
+@media (max-width: 768px) {
+  .content-card, .link-banner, .vertical-card { max-width: 100%; overflow-x: hidden; }
+  .link-row { flex-direction: column; }
+}
+
 </style>
 </head>
 <body>
@@ -767,7 +777,6 @@ body::before {
         <a href="/aondor/">Aondor</a>
         <div class="nav-dropdown-menu">
           <a href="/aondor/">Overview</a>
-          <a href="/aondor/research/">Research</a>
           <a href="/aondor/demo/">Demo</a>
           <a href="/aondor/dashboard/">Dashboard</a>
         </div>

@@ -552,6 +552,16 @@ footer a { color: var(--teal); text-decoration: none; }
 .card-links a.primary { background: linear-gradient(135deg, var(--teal), rgba(99,155,141,0.8)); border-color: var(--teal); color: #fff; }
 .card-links a.primary:hover { opacity: 0.9; }
 
+
+/* MOBILE TABLE & CARD OVERFLOW FIX */
+table { max-width: 100%; width: 100%; }
+.table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+.content-card, .link-banner, .vertical-card { max-width: 100%; box-sizing: border-box; }
+@media (max-width: 768px) {
+  .content-card, .link-banner, .vertical-card { max-width: 100%; overflow-x: hidden; }
+  .link-row { flex-direction: column; }
+}
+
 </style>
 </head>
 <body>

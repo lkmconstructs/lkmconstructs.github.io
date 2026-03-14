@@ -590,6 +590,16 @@ footer a { color: var(--teal); text-decoration: none; }
   .bench-table th, .bench-table td { padding: 0.6rem 0.5rem; }
 }
 
+
+/* MOBILE TABLE & CARD OVERFLOW FIX */
+table { max-width: 100%; width: 100%; }
+.table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+.content-card, .link-banner, .vertical-card { max-width: 100%; box-sizing: border-box; }
+@media (max-width: 768px) {
+  .content-card, .link-banner, .vertical-card { max-width: 100%; overflow-x: hidden; }
+  .link-row { flex-direction: column; }
+}
+
 </style>
 </head>
 <body>
@@ -606,7 +616,6 @@ footer a { color: var(--teal); text-decoration: none; }
         <a href="/aondor/" class="active">Aondor</a>
         <div class="nav-dropdown-menu">
           <a href="/aondor/">Overview</a>
-          <a href="/aondor/research/">Research</a>
           <a href="/aondor/demo/">Demo</a>
           <a href="/aondor/dashboard/">Dashboard</a>
         </div>

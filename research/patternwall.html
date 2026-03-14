@@ -99,7 +99,17 @@ footer{background:var(--bg);border-top:1px solid rgba(212,160,23,0.25);padding:5
 footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--teal),var(--gold),transparent)}
 footer p{margin-bottom:12px;color:var(--text-dim)} footer a{color:var(--teal-link);text-decoration:none;transition:color .3s} footer a:hover{color:var(--gold-soft)}
 @media(max-width:768px){.logo img{height:60px}.hero h1{font-size:2.4rem}.section h2{font-size:2rem}.section h3{font-size:1.4rem}.stats-grid{grid-template-columns:1fr 1fr}.three-cards,.layers-grid{grid-template-columns:1fr}.arch-flow{flex-direction:column}.arch-step::after{display:none}.result-meta{grid-template-columns:1fr}.demo-actions{flex-direction:column;align-items:stretch}.presets{margin-left:0}nav{display:none!important;flex-direction:column;background:rgba(26,26,26,0.95);border-bottom:1px solid rgba(212,160,23,0.3);width:100%;padding:20px 0}#menu-toggle:checked+nav{display:flex!important}.mobile-toggle{display:block}nav a{margin:12px 0!important;font-size:1.2rem}}
-    </style>
+    
+/* MOBILE TABLE & CARD OVERFLOW FIX */
+table { max-width: 100%; width: 100%; }
+.table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+.content-card, .link-banner, .vertical-card { max-width: 100%; box-sizing: border-box; }
+@media (max-width: 768px) {
+  .content-card, .link-banner, .vertical-card { max-width: 100%; overflow-x: hidden; }
+  .link-row { flex-direction: column; }
+}
+
+</style>
 </head>
 <body>
     <header>

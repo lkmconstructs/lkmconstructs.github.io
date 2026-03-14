@@ -246,7 +246,17 @@
   .nav-dropdown-menu a { padding: 8px 12px !important; font-size: 1rem !important; }
   .nav-dropdown.open .nav-dropdown-menu { display: block; }
 }
-  </style>
+  
+/* MOBILE TABLE & CARD OVERFLOW FIX */
+table { max-width: 100%; width: 100%; }
+.table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+.content-card, .link-banner, .vertical-card { max-width: 100%; box-sizing: border-box; }
+@media (max-width: 768px) {
+  .content-card, .link-banner, .vertical-card { max-width: 100%; overflow-x: hidden; }
+  .link-row { flex-direction: column; }
+}
+
+</style>
 </head>
 <body>
 <header class="site-header">

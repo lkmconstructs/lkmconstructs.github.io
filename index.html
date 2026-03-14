@@ -553,6 +553,10 @@ footer a { color: var(--teal); text-decoration: none; }
   section { padding: 3rem 0; }
   .link-row { flex-direction: column; }
   .hero { padding-top: 100px; min-height: 60vh; }
+  [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns: 1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
+  [style*="grid-template-columns:1fr 1fr 1fr"] { grid-template-columns: 1fr !important; }
 }
 
 
@@ -662,6 +666,16 @@ footer a { color: var(--teal); text-decoration: none; }
   border-color: var(--gold);
 }
 
+
+/* MOBILE TABLE & CARD OVERFLOW FIX */
+table { max-width: 100%; width: 100%; }
+.table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100%; }
+.content-card, .link-banner, .vertical-card { max-width: 100%; box-sizing: border-box; }
+@media (max-width: 768px) {
+  .content-card, .link-banner, .vertical-card { max-width: 100%; overflow-x: hidden; }
+  .link-row { flex-direction: column; }
+}
+
 </style>
 </head>
 <body>
@@ -678,7 +692,6 @@ footer a { color: var(--teal); text-decoration: none; }
         <a href="/aondor/">Aondor</a>
         <div class="nav-dropdown-menu">
           <a href="/aondor/">Overview</a>
-          <a href="/aondor/research/">Research</a>
           <a href="/aondor/demo/">Demo</a>
           <a href="/aondor/dashboard/">Dashboard</a>
         </div>
@@ -695,8 +708,8 @@ footer a { color: var(--teal); text-decoration: none; }
     <div class="hero-content">
       <div class="headline">GOVERNED BY <span class="gold">DESIGN</span>.</div>
       <div class="subline">BUILT FOR EVERYTHING ELSE.</div>
-      <div class="tagline">AI infrastructure for governance, professional tools, health, and creative systems &mdash; all running on the same constitutional core.</div>
       <div class="hero-divider"></div>
+      <p style="font-size:clamp(0.9rem,1.8vw,1.05rem);color:var(--text);max-width:640px;margin:0 auto 2.5rem;text-align:center;line-height:1.7;letter-spacing:0.01em;">AI infrastructure for governance, professional tools, health, and creative systems &mdash; all running on the same constitutional core.</p>
       <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
         <a href="/products.html" class="cta-btn primary">Explore Products</a>
         <a href="/aondor/research/" class="cta-btn secondary">See the Research</a>
@@ -757,7 +770,7 @@ footer a { color: var(--teal); text-decoration: none; }
             <div class="banner-label" style="color:var(--subtle);">Professional Tools</div>
             <div class="banner-title" style="font-size:0.9rem;">Inkline &middot; SteelForm &middot; LEXI</div>
             <div class="banner-sub" style="font-size:0.78rem;">Writing, fitness, and reading companions.</div>
-            <span style="display:inline-block;margin-top:0.5rem;color:var(--subtle);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;">Coming 2026</span>
+            <span style="display:inline-block;margin-top:0.5rem;color:var(--subtle);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;">Coming Soon</span>
           </div>
         </div>
         <div class="link-banner" style="padding:1.5rem;border-color:rgba(99,155,141,0.12);opacity:0.75;">
@@ -765,15 +778,15 @@ footer a { color: var(--teal); text-decoration: none; }
             <div class="banner-label" style="color:var(--subtle);">Health &amp; Wellness</div>
             <div class="banner-title" style="font-size:0.9rem;">Nevara</div>
             <div class="banner-sub" style="font-size:0.78rem;">Women&rsquo;s health AI. Fertility, postpartum, menopause.</div>
-            <span style="display:inline-block;margin-top:0.5rem;color:var(--subtle);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;">Coming 2026</span>
+            <span style="display:inline-block;margin-top:0.5rem;color:var(--subtle);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;">In Development</span>
           </div>
         </div>
         <div class="link-banner" style="padding:1.5rem;border-color:rgba(99,155,141,0.12);opacity:0.75;">
           <div>
             <div class="banner-label" style="color:var(--subtle);">Creative &amp; Consumer</div>
             <div class="banner-title" style="font-size:0.9rem;">Writing &middot; Fitness &middot; Reading</div>
-            <div class="banner-sub" style="font-size:0.78rem;">Creative tools and AI companions. Launching 2026.</div>
-            <span style="display:inline-block;margin-top:0.5rem;color:var(--subtle);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;">Coming 2026</span>
+            <div class="banner-sub" style="font-size:0.78rem;">Creative tools and AI companions. Coming soon.</div>
+            <span style="display:inline-block;margin-top:0.5rem;color:var(--subtle);font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;">Coming Soon</span>
           </div>
         </div>
       </div>
@@ -800,7 +813,7 @@ footer a { color: var(--teal); text-decoration: none; }
         </div>
         <div>
           <div class="stat-number">2</div>
-          <div class="stat-label">Provisional patents filed (2026)</div>
+          <div class="stat-label">Provisional patents filed</div>
         </div>
       </div>
 
@@ -818,7 +831,7 @@ footer a { color: var(--teal); text-decoration: none; }
       <div class="section-label">Who We Are</div>
       <h2>Built for those who run ahead.</h2>
       <p>LKM Constructs builds AI infrastructure &mdash; the systems, tools, and governance layers that sit between the model and the decision. We don&rsquo;t build general-purpose chatbots. We build domain-specific AI that knows its boundaries, serves its user, and can prove what it did.</p>
-      <p style="margin-top:1.5rem;color:var(--gold);font-weight:500;">Women-owned. Governance-first. Shipping products in 2026.</p>
+      <p style="margin-top:1.5rem;color:var(--gold);font-weight:500;">Women-owned. Governance-first. Shipping now.</p>
     </div>
   </div>
 </section>
