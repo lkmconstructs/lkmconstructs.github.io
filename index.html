@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LKM Constructs — Governed by Design. Built for Everything Else.</title>
+<title>LKM Constructs — The operating layer between humans and AI systems</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<meta name="description" content="AI infrastructure for governance, professional tools, health, and creative systems. Governed by design. Built for everything else.">
+<meta name="description" content="We build the infrastructure so critical behavior doesn't depend on the model alone. Enterprise governance, cognitive optimization, open infrastructure.">
 <link rel="canonical" href="https://lkmconstructs.com/">
 <meta name="author" content="LKM Constructs, LLC">
 <meta name="theme-color" content="#060a14">
-<meta property="og:title" content="LKM Constructs — Governed by Design. Built for Everything Else.">
-<meta property="og:description" content="AI infrastructure for governance, professional tools, health, and creative systems. Governed by design. Built for everything else.">
+<meta property="og:title" content="LKM Constructs — The operating layer between humans and AI systems">
+<meta property="og:description" content="We build the infrastructure so critical behavior doesn't depend on the model alone. Enterprise governance, cognitive optimization, open infrastructure.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://lkmconstructs.com/">
 <meta property="og:image" content="https://lkmconstructs.com/assets/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="LKM Constructs — Governed by Design. Built for Everything Else.">
-<meta name="twitter:description" content="AI infrastructure for governance, professional tools, health, and creative systems. Governed by design. Built for everything else.">
+<meta name="twitter:title" content="LKM Constructs — The operating layer between humans and AI systems">
+<meta name="twitter:description" content="We build the infrastructure so critical behavior doesn't depend on the model alone.">
 <meta name="twitter:image" content="https://lkmconstructs.com/assets/og-card.png">
 <style>
 :root {
@@ -178,10 +178,7 @@ a { color: inherit; }
 }
 
 /* NAV DROPDOWN */
-.nav-dropdown {
-  position: relative;
-  display: inline-block;
-}
+.nav-dropdown { position: relative; display: inline-block; }
 .nav-dropdown-menu {
   display: none;
   position: absolute;
@@ -251,6 +248,7 @@ a { color: inherit; }
 /* CONTENT */
 main, section, footer { position: relative; z-index: 10; }
 .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+.container-wide { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
 
 /* HERO */
 .hero {
@@ -303,7 +301,11 @@ main, section, footer { position: relative; z-index: 10; }
 .hero .lead {
   font-family: var(--sans); font-weight: 300;
   font-size: 1.05rem; color: var(--text-secondary);
-  line-height: 1.8; max-width: 680px;
+  line-height: 1.8; max-width: 680px; margin: 0 auto;
+}
+.hero-cta {
+  display: flex; gap: 1.5rem; justify-content: center;
+  flex-wrap: wrap; margin-top: 2.5rem;
 }
 
 /* DIVIDER */
@@ -332,56 +334,138 @@ main, section, footer { position: relative; z-index: 10; }
   background-clip: text;
 }
 
-/* CONTENT CARDS */
-.content-card {
-  background: rgba(12, 18, 40, 0.45);
-  backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(197, 165, 90, 0.08);
-  border-left: 2px solid rgba(197, 165, 90, 0.2);
-  border-radius: 2px; padding: 2.5rem;
-  transition: border-color 0.3s, transform 0.3s;
+/* THESIS */
+.thesis-section {
+  padding: 5rem 0 3rem;
+  text-align: center;
 }
-.content-card:hover {
-  border-color: rgba(197, 165, 90, 0.25);
-  border-left-color: var(--gold);
-  transform: translateY(-4px);
-}
-
-/* LINK BANNERS */
-.link-row { display: flex; gap: 1rem; flex-wrap: wrap; }
-.link-banner {
-  flex: 1; min-width: 260px;
-  background: rgba(12, 18, 40, 0.45);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(197, 165, 90, 0.08);
-  border-radius: 2px; padding: 1.5rem 2rem;
-  display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem; text-decoration: none;
-  transition: border-color 0.3s, transform 0.3s;
-}
-.link-banner:hover {
-  border-color: rgba(197, 165, 90, 0.3);
-  transform: translateY(-2px);
-}
-.banner-label {
-  font-family: var(--mono); font-size: 0.65rem;
-  letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--teal-bright); margin-bottom: 0.3rem;
-}
-.banner-title {
-  font-family: var(--sans); font-weight: 500;
-  color: var(--text-primary); font-size: 1rem;
-}
-.banner-sub {
+.thesis-text {
   font-family: var(--sans); font-weight: 300;
-  font-size: 0.82rem; color: var(--text-dim); margin-top: 0.2rem;
+  font-size: 1.15rem; color: var(--text-secondary);
+  line-height: 1.9; max-width: 780px; margin: 0 auto;
 }
-.banner-arrow { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; }
+.thesis-text strong {
+  font-weight: 400;
+  background: linear-gradient(135deg, var(--gold-light), var(--teal-bright), var(--violet));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-/* CTA */
+/* PRODUCT ROWS — FULL WIDTH ALTERNATING */
+.product-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 3.5rem 0;
+  border-bottom: 1px solid rgba(197, 165, 90, 0.06);
+  transition: all 0.4s ease;
+  position: relative;
+}
+.product-row::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -4rem; right: -4rem; bottom: 0;
+  background: transparent;
+  transition: background 0.4s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+.product-row:hover::before {
+  background: linear-gradient(90deg, rgba(197,165,90,0.03), transparent 20%, transparent 80%, rgba(197,165,90,0.03));
+}
+.product-row.alt:hover::before {
+  background: linear-gradient(90deg, transparent 0%, transparent 80%, rgba(90,184,197,0.03) 100%);
+}
+.product-number {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(4rem, 8vw, 7rem);
+  color: rgba(197, 165, 90, 0.08);
+  line-height: 1; flex-shrink: 0;
+  min-width: 120px;
+}
+.product-info {
+  max-width: 650px;
+}
+.product-label {
+  font-family: var(--mono); font-size: 0.65rem;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--teal-bright); margin-bottom: 0.4rem;
+}
+.product-name {
+  font-family: var(--display); font-weight: 500;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--text-primary); margin-bottom: 0.75rem;
+}
+.product-desc {
+  font-family: var(--sans); font-weight: 300;
+  font-size: 0.95rem; color: var(--text-secondary);
+  line-height: 1.8;
+}
+.product-row.alt {
+  flex-direction: row-reverse;
+}
+.product-row.alt .product-number {
+  text-align: right;
+}
+
+/* PROOF / STATS */
+.proof-section { padding: 5rem 0; }
+.proof-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem; margin: 3rem 0 2rem;
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(197, 165, 90, 0.08);
+  border-bottom: 1px solid rgba(197, 165, 90, 0.08);
+}
+.proof-grid-row2 {
+  display: flex; justify-content: center; gap: 4rem;
+  padding: 2rem 0;
+}
+.proof-item { text-align: center; }
+.proof-number {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--gold-light); line-height: 1;
+}
+.proof-label {
+  font-family: var(--sans); font-weight: 300;
+  font-size: 0.85rem; color: var(--text-dim); margin-top: 0.6rem;
+}
+
+/* URGENCY BAND */
+.urgency-band {
+  padding: 4rem 0;
+  border-top: 1px solid rgba(197, 165, 90, 0.1);
+  border-bottom: 1px solid rgba(197, 165, 90, 0.1);
+  text-align: center;
+}
+.urgency-label {
+  font-family: var(--mono); font-size: 0.68rem;
+  letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--teal-bright); margin-bottom: 1rem;
+}
+.urgency-date {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: var(--text-primary); line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.urgency-subline {
+  font-family: var(--serif); font-style: italic;
+  font-size: 1.1rem; color: var(--gold-light);
+  margin-bottom: 1.5rem;
+}
+.urgency-body {
+  font-family: var(--sans); font-weight: 300;
+  font-size: 0.95rem; color: var(--text-secondary);
+  max-width: 700px; margin: 0 auto 2rem; line-height: 1.8;
+}
+
+/* CTA SECTION */
 .cta-section {
-  text-align: center; padding: 4.5rem 0;
-  border-top: 1px solid var(--slate-teal-dim);
+  text-align: center; padding: 5rem 0;
+}
+.cta-buttons {
+  display: flex; gap: 1.5rem; justify-content: center;
+  flex-wrap: wrap; margin-top: 2rem;
 }
 .btn-teal {
   display: inline-block; text-decoration: none;
@@ -397,6 +481,20 @@ main, section, footer { position: relative; z-index: 10; }
   border-color: var(--teal-bright);
   box-shadow: 0 0 20px var(--teal-glow);
 }
+.btn-ghost-teal {
+  display: inline-block; text-decoration: none;
+  background: transparent;
+  border: 1px solid rgba(90, 184, 197, 0.15);
+  color: var(--teal-bright);
+  font-family: var(--mono); font-size: 0.75rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 1rem 2.4rem; border-radius: 2px;
+  transition: all 0.3s;
+}
+.btn-ghost-teal:hover {
+  border-color: rgba(90, 184, 197, 0.4);
+  background: rgba(90, 184, 197, 0.05);
+}
 .btn-ghost {
   display: inline-block; text-decoration: none;
   background: transparent;
@@ -411,6 +509,13 @@ main, section, footer { position: relative; z-index: 10; }
   border-color: rgba(255,255,255,0.15);
   color: var(--text-secondary);
 }
+.cta-textlink {
+  display: block; margin-top: 1.5rem;
+  font-family: var(--sans); font-size: 0.85rem;
+  color: var(--text-dim); text-decoration: none;
+  transition: color 0.3s;
+}
+.cta-textlink:hover { color: var(--gold-light); }
 
 /* FOOTER */
 .footer {
@@ -442,75 +547,6 @@ main, section, footer { position: relative; z-index: 10; }
 section { padding: 4rem 0; }
 p + p { margin-top: 1rem; }
 
-/* STATS */
-.stats {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 2rem; margin: 2rem 0; padding: 2rem 0;
-  border-top: 1px solid rgba(197, 165, 90, 0.08);
-  border-bottom: 1px solid rgba(197, 165, 90, 0.08);
-}
-.stat-number {
-  font-family: var(--display); font-weight: 400;
-  font-size: 2.5rem; color: var(--gold-light); line-height: 1;
-}
-.stat-label {
-  font-family: var(--sans); font-weight: 300;
-  font-size: 0.85rem; color: var(--text-dim); margin-top: 0.5rem;
-}
-
-/* FORMS */
-.form-group { margin-bottom: 1.5rem; }
-.form-group label {
-  display: block; margin-bottom: 0.5rem;
-  color: var(--gold-light); font-size: 0.8rem;
-  font-family: var(--mono); letter-spacing: 0.08em;
-}
-.form-group input:not([type="checkbox"]),
-.form-group textarea {
-  width: 100%; padding: 0.75rem;
-  border: 1px solid rgba(90, 184, 197, 0.2);
-  background: rgba(12, 18, 40, 0.4);
-  color: var(--text-primary);
-  font-family: var(--sans); font-size: 0.9rem;
-  transition: border-color 0.3s;
-}
-.form-group input:not([type="checkbox"]):focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--gold-light);
-}
-.form-group textarea { min-height: 120px; resize: vertical; }
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: rgba(180, 180, 190, 0.4);
-}
-
-.checkbox-group label {
-  display: flex; align-items: center; padding: 0.75rem 0;
-  color: var(--text-secondary); cursor: pointer;
-  font-family: var(--sans); font-size: 0.9rem;
-}
-.checkbox-group input[type="checkbox"] {
-  flex-shrink: 0; width: 18px; height: 18px;
-  margin-right: 0.75rem; accent-color: var(--teal-bright);
-  cursor: pointer;
-}
-
-.form-submit {
-  width: 100%; padding: 1rem;
-  background: rgba(90, 184, 197, 0.15);
-  border: 1px solid rgba(90, 184, 197, 0.3);
-  color: var(--teal-bright);
-  font-family: var(--mono); font-size: 0.75rem;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  cursor: pointer; transition: all 0.3s; border-radius: 2px;
-}
-.form-submit:hover {
-  background: rgba(90, 184, 197, 0.25);
-  border-color: var(--teal-bright);
-  box-shadow: 0 0 20px var(--teal-glow);
-}
-
 /* SCROLL ANIMATIONS */
 [data-animate] {
   opacity: 0; transform: translateY(25px);
@@ -522,10 +558,14 @@ p + p { margin-top: 1rem; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .stats { grid-template-columns: 1fr; }
-  .link-row { flex-direction: column; }
+  .product-row, .product-row.alt { flex-direction: column; text-align: center; gap: 1rem; }
+  .product-number { min-width: auto; }
+  .product-row.alt .product-number { text-align: center; }
+  .proof-grid { grid-template-columns: 1fr; }
+  .proof-grid-row2 { flex-direction: column; align-items: center; gap: 2rem; }
   .hero { padding-top: 80px; min-height: 80vh; }
   section { padding: 3rem 0; }
+  .cta-buttons { flex-direction: column; align-items: center; }
 }
 
 /* REDUCED MOTION */
@@ -567,8 +607,8 @@ p + p { margin-top: 1rem; }
   <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
   <ul class="nav-links" id="nav-links">
     <li><a href="/" class="active">Home</a></li>
+    <li><a href="/about.html">About</a></li>
     <li><a href="/products.html">Products</a></li>
-    <li><a href="/research/">Research</a></li>
     <li class="nav-dropdown" id="aondor-dropdown">
       <a href="/aondor/">Aondor</a>
       <div class="nav-dropdown-menu">
@@ -577,6 +617,7 @@ p + p { margin-top: 1rem; }
         <a href="/aondor/dashboard/">Dashboard</a>
       </div>
     </li>
+    <li><a href="/research/">Research</a></li>
     <li><a href="/contact/" class="nav-contact-btn">Contact</a></li>
   </ul>
 </nav>
@@ -588,12 +629,63 @@ p + p { margin-top: 1rem; }
 <section class="hero">
   <div class="container">
     <div class="hero-content" data-animate>
-      <h1>Governed by <em>Design</em>. Built for <em>Everything Else</em>.</h1>
-      <div class="subtitle">AI Infrastructure &amp; Governance</div>
-      <p class="lead">AI infrastructure for governance, professional tools, health, and creative systems &mdash; all running on the same constitutional core.</p>
-      <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 2.5rem;">
-        <a href="/products.html" class="btn-teal">Explore Products</a>
-        <a href="/research/" class="btn-ghost">See the Research</a>
+      <div class="subtitle">LKM Constructs &mdash; AI Infrastructure</div>
+      <h1>The operating layer between humans and <em>AI systems</em></h1>
+      <p class="lead">We build the infrastructure so critical behavior doesn&rsquo;t depend on the model alone.</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn-teal">Explore Products &rarr;</a>
+        <a href="/aondor/demo/" class="btn-ghost">See the Demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THESIS -->
+<section class="thesis-section">
+  <div class="container" data-animate>
+    <p class="thesis-text">AI systems fail unpredictably, vary across providers, and leave your team holding the risk. Most companies add governance after something breaks. <strong>We build it in before it ships.</strong></p>
+  </div>
+</section>
+
+<div class="container"><div class="divider"></div></div>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="container">
+    <div class="section-header" data-animate>
+      <div class="section-overline">What We Build</div>
+      <h2 class="section-title">One architecture. Every <em>domain</em>.</h2>
+    </div>
+  </div>
+
+  <div class="container-wide">
+    <!-- Product 01 — Aondor -->
+    <div class="product-row" data-animate>
+      <div class="product-number">01</div>
+      <div class="product-info">
+        <div class="product-label">Enterprise Governance</div>
+        <h3 class="product-name">Aondor</h3>
+        <p class="product-desc">Governance infrastructure that catches risky behavior before and after inference, so teams can see what happened, why, and what to do next. Model-agnostic. Audit-ready. Pilot available.</p>
+      </div>
+    </div>
+
+    <!-- Product 02 — Parallax -->
+    <div class="product-row alt" data-animate>
+      <div class="product-number">02</div>
+      <div class="product-info">
+        <div class="product-label">Cognitive Infrastructure</div>
+        <h3 class="product-name">Parallax</h3>
+        <p class="product-desc">Improves output quality without changing the model. 47% lift on mid-tier models, benchmarked and published.</p>
+      </div>
+    </div>
+
+    <!-- Product 03 — The Fleet -->
+    <div class="product-row" data-animate>
+      <div class="product-number">03</div>
+      <div class="product-info">
+        <div class="product-label">Domain Products</div>
+        <h3 class="product-name">The Fleet</h3>
+        <p class="product-desc">Domain-specific AI systems and open infrastructure, built from the same foundation.</p>
       </div>
     </div>
   </div>
@@ -601,153 +693,65 @@ p + p { margin-top: 1rem; }
 
 <div class="container"><div class="divider"></div></div>
 
-<!-- WHAT WE BUILD -->
-<section>
+<!-- PROOF -->
+<section class="proof-section">
   <div class="container">
     <div class="section-header" data-animate>
-      <div class="section-overline">What We Build</div>
-      <h2 class="section-title">One architecture. <em>Every domain.</em></h2>
+      <div class="section-overline">Published. Patented. Shipping.</div>
+      <h2 class="section-title">The numbers don&rsquo;t negotiate</h2>
     </div>
 
-    <div class="content-card" data-animate data-delay="100">
-      <p>Every product we ship runs on the same governance-grade infrastructure. Different domains, different workflows, same constitutional core underneath.</p>
-
-      <!-- GOVERNANCE — PROMINENT -->
-      <a href="/aondor/" class="link-banner" style="margin-top: 2rem; border-color: rgba(197, 165, 90, 0.25); padding: 2rem;">
-        <div>
-          <div class="banner-label" style="color: var(--gold-light);">Governance &amp; Safety</div>
-          <div class="banner-title" style="font-size: 1.2rem;">Aondor</div>
-          <div class="banner-sub">Dual-pipeline AI governance middleware. Model-agnostic. Audit-ready. Currently in pilot.</div>
-        </div>
-        <span class="banner-arrow">&rarr;</span>
-      </a>
-
-      <!-- ACTIVE PRODUCTS -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
-        <a href="https://parallax-ai.net" target="_blank" rel="noopener noreferrer" class="link-banner">
-          <div>
-            <div class="banner-label">Cognitive Infrastructure</div>
-            <div class="banner-title">Parallax</div>
-            <div class="banner-sub">Cognitive Operations Layer. Patent pending.</div>
-          </div>
-          <span class="banner-arrow">&rarr;</span>
-        </a>
-        <a href="/products.html" class="link-banner">
-          <div>
-            <div class="banner-label">Professional Tools</div>
-            <div class="banner-title">Voiceprint</div>
-            <div class="banner-sub">Preserves writing voice under AI assistance. Local. No cloud.</div>
-          </div>
-          <span class="banner-arrow">&rarr;</span>
-        </a>
+    <div class="proof-grid" data-animate>
+      <div class="proof-item">
+        <div class="proof-number" data-count="99.1" data-suffix="%">0%</div>
+        <div class="proof-label">Combined governance detection rate</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-number" data-count="47" data-suffix="%">0%</div>
+        <div class="proof-label">Cognitive lift on mid-tier models</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-number" data-count-range="0-96" data-suffix="%">0&ndash;96%</div>
+        <div class="proof-label">Model-native refusal rate variance</div>
+      </div>
+    </div>
+    <div class="proof-grid-row2" data-animate>
+      <div class="proof-item">
+        <div class="proof-number" data-count="3" data-suffix="">0</div>
+        <div class="proof-label">Patents filed or pending</div>
+      </div>
+      <div class="proof-item">
+        <div class="proof-number" data-count="4" data-suffix="">0</div>
+        <div class="proof-label">Published research papers</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THE FOUNDATION -->
-<section>
-  <div class="container">
-    <div class="content-card" data-animate data-delay="100">
-      <div class="section-overline">The Foundation</div>
-      <h2 class="section-title">Governance isn&rsquo;t a product. It&rsquo;s the <em>foundation.</em></h2>
-      <p>Every AI system we build starts with the same question: what should this model never do? PatternWall catches adversarial inputs before inference. Sensus evaluates outputs after. Constitutional gates enforce policy at every layer. This isn&rsquo;t a feature we bolt on &mdash; it&rsquo;s the architecture everything else is built on.</p>
+<div class="container"><div class="divider"></div></div>
 
-      <div class="stats">
-        <div>
-          <div class="stat-number">98.3%</div>
-          <div class="stat-label">Combined detection rate across frontier models</div>
-        </div>
-        <div>
-          <div class="stat-number">4</div>
-          <div class="stat-label">Pipeline stages, defense-in-depth</div>
-        </div>
-        <div>
-          <div class="stat-number">2</div>
-          <div class="stat-label">Provisional patents filed</div>
-        </div>
-      </div>
-
-      <div style="text-align: center; margin-top: 2rem;">
-        <a href="/research/" class="btn-teal">Read the Research</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- WHO WE ARE -->
-<section>
-  <div class="container">
-    <div class="content-card" data-animate>
-      <div class="section-overline">Who We Are</div>
-      <h2 class="section-title">Built for those who run <em>ahead.</em></h2>
-      <p>LKM Constructs builds AI infrastructure &mdash; the systems, tools, and governance layers that sit between the model and the decision. We don&rsquo;t build general-purpose chatbots. We build domain-specific AI that knows its boundaries, serves its user, and can prove what it did.</p>
-      <p style="margin-top: 1.5rem; color: var(--gold-light); font-weight: 400;">Women-owned. Governance-first. Shipping now.</p>
-    </div>
-  </div>
-</section>
-
-<!-- EARLY ACCESS FORM -->
-<section>
-  <div class="container">
-    <div class="content-card" style="max-width: 700px; margin: 0 auto;" data-animate>
-      <div class="section-overline">Early Access</div>
-      <h2 class="section-title" style="text-align: center;">Get in early.</h2>
-      <p style="text-align: center; margin-bottom: 2rem;">Beta access, pilot programs, and priority pricing for early adopters. Tell us what you need &mdash; we&rsquo;ll tell you when it&rsquo;s ready.</p>
-
-      <form action="https://formspree.io/f/mlggrkwo" method="POST">
-        <input type="hidden" name="_subject" value="Early Access — LKM Constructs Homepage">
-
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
-        </div>
-
-        <div class="form-group">
-          <label>Products of Interest</label>
-          <div class="checkbox-group">
-            <label><input type="checkbox" name="products" value="Aondor"> Aondor &mdash; AI Governance (pilot)</label>
-            <label><input type="checkbox" name="products" value="Voiceprint"> Voiceprint &mdash; Writing Voice (beta)</label>
-            <label><input type="checkbox" name="products" value="Parallax"> Parallax &mdash; Cognitive Operations (early access)</label>
-            <label><input type="checkbox" name="products" value="SteelForm"> SteelForm &mdash; Fitness AI</label>
-            <label><input type="checkbox" name="products" value="Inkline"> Inkline &mdash; Writing Companion</label>
-            <label><input type="checkbox" name="products" value="LEXI"> LEXI &mdash; Reading Companion</label>
-            <label><input type="checkbox" name="products" value="Nevara"> Nevara &mdash; Women&rsquo;s Health AI</label>
-            <label><input type="checkbox" name="products" value="Other"> Other</label>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="industry">Industry / Role (Optional)</label>
-          <input type="text" id="industry" name="industry" placeholder="e.g., Author, Education, Legal, Content Creation">
-        </div>
-
-        <div class="form-group">
-          <label for="use-case">What are you building? (Optional)</label>
-          <textarea id="use-case" name="use-case" placeholder="Tell us about your workflow or specific needs"></textarea>
-        </div>
-
-        <button type="submit" class="form-submit">Request Access</button>
-      </form>
-    </div>
+<!-- URGENCY BAND -->
+<section class="urgency-band">
+  <div class="container" data-animate>
+    <div class="urgency-label">EU AI Act Enforcement</div>
+    <div class="urgency-date">August 2026</div>
+    <div class="urgency-subline">The compliance window is closing</div>
+    <p class="urgency-body">Model-native refusal rates range from 0% to 96% on identical prompts. Compliance audits are coming. &ldquo;We trust the model&rdquo; is not an answer regulators will accept.</p>
+    <a href="/research/" class="btn-teal">Read the Research &rarr;</a>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
   <div class="container" data-animate>
-    <div class="section-overline">Connect</div>
-    <h2 class="section-title">Ready to build with <em>governed AI?</em></h2>
-    <p style="margin-bottom: 2rem; color: var(--text-secondary);">If you&rsquo;re building with AI and want infrastructure that governs itself, we should talk.</p>
-    <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-      <a href="/contact/" class="btn-teal">Get in Touch</a>
-      <a href="/research/" class="btn-ghost">See the Research</a>
+    <h2 class="section-title">Choose your <em>path</em></h2>
+    <p style="margin: 1rem auto 0; color: var(--text-secondary); max-width: 600px;">Enterprise governance. Cognitive optimization. Open infrastructure. Domain systems.</p>
+    <div class="cta-buttons">
+      <a href="/aondor/" class="btn-teal">Explore Aondor</a>
+      <a href="https://parallax-ai.net" target="_blank" rel="noopener noreferrer" class="btn-ghost-teal">Explore Parallax</a>
+      <a href="https://github.com/lkmconstructs" target="_blank" rel="noopener noreferrer" class="btn-ghost">Open Source</a>
     </div>
+    <a href="/contact/" class="cta-textlink">or get in touch &rarr;</a>
   </div>
 </section>
 
@@ -757,6 +761,7 @@ p + p { margin-top: 1rem; }
 <footer class="footer">
   <div class="footer-logo">LKM Constructs</div>
   <div class="footer-links">
+    <a href="/about.html">About</a>
     <a href="/products.html">Products</a>
     <a href="/research/">Research</a>
     <a href="https://github.com/lkmconstructs" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -799,6 +804,62 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+// === COUNTER ANIMATION ===
+function animateCounters() {
+  document.querySelectorAll('.proof-number[data-count]').forEach(el => {
+    const target = parseFloat(el.dataset.count);
+    const suffix = el.dataset.suffix || '';
+    const isDecimal = String(target).includes('.');
+    const duration = 2000;
+    const start = performance.now();
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = target * eased;
+
+      if (isDecimal) {
+        el.textContent = current.toFixed(1) + suffix;
+      } else {
+        el.textContent = Math.round(current) + suffix;
+      }
+
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  });
+
+  // Handle the range counter (0-96%)
+  document.querySelectorAll('.proof-number[data-count-range]').forEach(el => {
+    const suffix = el.dataset.suffix || '';
+    const duration = 2000;
+    const start = performance.now();
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(96 * eased);
+      el.textContent = '0\u2013' + current + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  });
+}
+
+// Trigger counters on scroll
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounters();
+      counterObserver.disconnect();
+    }
+  });
+}, { threshold: 0.2 });
+const proofGrid = document.querySelector('.proof-grid');
+if (proofGrid) counterObserver.observe(proofGrid);
 
 // === PARTICLE CANVAS ===
 class ParticleSystem {
