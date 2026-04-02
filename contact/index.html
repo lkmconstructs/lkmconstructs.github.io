@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | LKM Constructs</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<meta name="description" content="Get in touch with LKM Constructs for governance infrastructure, product access, open-source collaboration, or research partnerships.">
+<link rel="canonical" href="https://lkmconstructs.com/contact/">
+<meta name="author" content="LKM Constructs, LLC">
+<meta name="theme-color" content="#060a14">
+<meta property="og:title" content="Contact | LKM Constructs">
+<meta property="og:description" content="Get in touch with LKM Constructs for governance infrastructure, product access, open-source collaboration, or research partnerships.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lkmconstructs.com/contact/">
+<meta property="og:image" content="https://lkmconstructs.com/assets/og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Contact | LKM Constructs">
+<meta name="twitter:description" content="Get in touch with LKM Constructs for governance infrastructure, product access, open-source collaboration, or research partnerships.">
+<meta name="twitter:image" content="https://lkmconstructs.com/assets/og-card.png">
+<style>
+:root {
+  --cosmos-deep: #060a14;
+  --cosmos-navy: #0a1020;
+  --slate-teal-deep: #0d2e2e;
+  --slate-teal: #1a5c5a;
+  --slate-teal-mid: #16504e;
+  --slate-teal-dim: rgba(26, 92, 90, 0.15);
+  --gold-deep: #9a7b32;
+  --gold: #C5A55A;
+  --gold-light: #d4ba78;
+  --gold-pale: #e2d1a0;
+  --gold-dim: rgba(197, 165, 90, 0.12);
+  --gold-glow: rgba(197, 165, 90, 0.2);
+  --teal-bright: #5ab8c5;
+  --teal-accent: #4dd4c4;
+  --teal-glow: rgba(90, 184, 197, 0.2);
+  --violet: #6b4fa0;
+  --violet-dim: rgba(107, 79, 160, 0.15);
+  --violet-glow: rgba(107, 79, 160, 0.12);
+  --text-primary: #eceae4;
+  --text-secondary: #b8b4be;
+  --text-dim: #8a8694;
+  --display: 'Playfair Display', Georgia, serif;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: var(--cosmos-deep);
+  color: var(--text-secondary);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a { color: inherit; }
+
+/* SKIP LINK */
+.skip-link {
+  position: absolute; top: -100%; left: 50%; transform: translateX(-50%);
+  background: var(--cosmos-deep); color: var(--teal-bright);
+  padding: 0.5rem 1.5rem; z-index: 9999;
+  font-family: var(--mono); font-size: 0.75rem;
+  text-decoration: none;
+}
+.skip-link:focus { top: 0; }
+
+/* BACKGROUND LAYERS */
+#particle-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+.cosmic-wash, .cosmic-wash-2 {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
+}
+.cosmic-wash {
+  z-index: 1;
+  background: radial-gradient(ellipse at 20% 30%, rgba(26,92,90,0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 70%, rgba(26,92,90,0.06) 0%, transparent 45%);
+  animation: wash-drift 30s ease-in-out infinite alternate;
+}
+.cosmic-wash-2 {
+  z-index: 1;
+  background: radial-gradient(ellipse at 70% 20%, rgba(10,16,32,0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 30% 80%, rgba(26,92,90,0.05) 0%, transparent 40%);
+  animation: wash-drift-2 25s ease-in-out infinite alternate;
+}
+.gold-dust {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 15% 25%, rgba(197,165,90,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 65%, rgba(90,184,197,0.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 75% 35%, rgba(197,165,90,0.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 85%, rgba(107,79,160,0.15) 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 55%, rgba(197,165,90,0.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 75%, rgba(90,184,197,0.15) 0%, transparent 100%);
+}
+#circuit-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 3; pointer-events: none; }
+
+@keyframes wash-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, -20px) scale(1.05); }
+}
+@keyframes wash-drift-2 {
+  0% { transform: translate(0, 0) scale(1.02); }
+  100% { transform: translate(-25px, 15px) scale(1); }
+}
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: linear-gradient(90deg, #0a1a3a, #0d2040, #0a1535, #0e1d3d, #0a1a3a);
+  background-size: 300% 100%;
+  animation: nav-gradient-shift 12s ease-in-out infinite;
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(80, 130, 200, 0.1);
+  padding: 0 2rem; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.nav.scrolled {
+  background: linear-gradient(90deg, rgba(10,26,58,0.97), rgba(13,32,64,0.97), rgba(10,21,53,0.97));
+  box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
+@keyframes nav-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.nav-logo {
+  display: flex; align-items: baseline; gap: 0.4rem;
+  text-decoration: none; flex-shrink: 0;
+}
+.nav-logo-lkm {
+  font-family: var(--display); font-weight: 600; font-size: 1.3rem;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.nav-logo-sub {
+  font-family: var(--serif); font-weight: 300; font-style: italic;
+  font-size: 0.85rem; color: var(--text-dim);
+}
+.nav-links {
+  display: flex; align-items: center; gap: 0; list-style: none;
+}
+.nav-links a {
+  color: var(--text-dim); text-decoration: none;
+  font-family: var(--mono); font-size: 0.7rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.5rem 1rem; position: relative;
+  transition: color 0.3s;
+}
+.nav-links a::after {
+  content: ''; position: absolute;
+  bottom: 0; left: 1rem; right: 1rem; height: 1px;
+  background: var(--gold-light); transform: scaleX(0);
+  transition: transform 0.3s;
+}
+.nav-links a:hover { color: var(--text-primary); }
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--gold-light); }
+.nav-links a.active::after { transform: scaleX(1); }
+.nav-contact-btn {
+  padding: 0.45rem 1.2rem !important;
+  border: 1px solid rgba(90, 184, 197, 0.3);
+  color: var(--teal-bright) !important;
+  border-radius: 2px; margin-left: 0.5rem;
+  transition: all 0.3s;
+}
+.nav-contact-btn::after { display: none !important; }
+.nav-contact-btn:hover {
+  background: rgba(90, 184, 197, 0.08);
+  border-color: var(--teal-bright);
+}
+.nav-toggle {
+  display: none; background: none; border: none;
+  color: var(--text-primary); font-size: 1.4rem;
+  cursor: pointer; padding: 0.5rem;
+}
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none; position: absolute;
+    top: 64px; left: 0; right: 0;
+    background: rgba(6, 10, 20, 0.97);
+    backdrop-filter: blur(20px);
+    flex-direction: column; padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(80, 130, 200, 0.1);
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a { padding: 0.75rem 0; font-size: 0.8rem; }
+  .nav-links a::after { display: none; }
+  .nav-contact-btn { margin-left: 0; margin-top: 0.5rem; display: inline-block; text-align: center; }
+}
+
+/* CONTENT */
+main, section, footer { position: relative; z-index: 10; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+/* HERO */
+.hero {
+  min-height: 60vh; padding-top: 100px; padding-bottom: 2rem;
+  display: flex; align-items: center;
+}
+.hero-content { max-width: 800px; }
+.hero h1 {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--text-primary); line-height: 1.1;
+  margin-bottom: 0.4em;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--gold-light), var(--teal-bright), var(--violet));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero .subtitle {
+  font-family: var(--mono); font-size: 0.68rem;
+  letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--text-dim); margin-bottom: 1rem;
+}
+.hero .lead {
+  font-family: var(--sans); font-weight: 300;
+  font-size: 1.1rem; color: var(--text-secondary);
+  line-height: 1.8; max-width: 680px;
+}
+
+/* DIVIDER */
+.divider {
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--slate-teal-dim), var(--gold-dim), var(--slate-teal-dim), transparent);
+  margin: 1rem 0;
+}
+
+/* SECTION HEADERS */
+.section-header { margin-bottom: 2rem; }
+.section-overline {
+  font-family: var(--mono); font-size: 0.68rem;
+  letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--teal-bright); margin-bottom: 0.75rem;
+}
+.section-title {
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: var(--text-primary); line-height: 1.25;
+}
+.section-title em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--gold-light), var(--teal-bright), var(--violet));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* TWO-COLUMN CONTACT LAYOUT */
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; margin: 3rem 0; padding: 2rem 0;
+}
+.contact-info {
+  display: flex; flex-direction: column; gap: 2.5rem;
+}
+.info-block {
+  padding: 0; border: none;
+  border-bottom: 1px solid var(--slate-teal-dim);
+  padding-bottom: 2rem;
+}
+.info-block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.info-block-label {
+  font-family: var(--mono); font-size: 0.65rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--teal-bright); margin-bottom: 0.5rem;
+}
+.info-block-title {
+  font-family: var(--display); font-weight: 500;
+  font-size: 1.4rem; color: var(--gold-light);
+  margin-bottom: 0.75rem; line-height: 1.25;
+}
+.info-block-body {
+  font-family: var(--sans); font-weight: 300;
+  font-size: 0.92rem; color: var(--text-secondary);
+  line-height: 1.7;
+}
+.info-block-body a {
+  color: var(--teal-bright); text-decoration: none;
+  transition: color 0.3s;
+}
+.info-block-body a:hover {
+  color: var(--teal-accent);
+}
+
+/* FORM STYLING */
+.contact-form-wrapper {
+  display: flex; flex-direction: column;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+}
+.form-group label {
+  display: block; margin-bottom: 0.5rem;
+  font-family: var(--mono); font-size: 0.65rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-dim);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: 0.9rem 1rem;
+  border: 1px solid rgba(26, 92, 90, 0.2);
+  border-radius: 2px;
+  background: rgba(10, 14, 26, 0.8);
+  color: var(--text-primary);
+  font-family: var(--sans); font-weight: 300;
+  font-size: 0.92rem;
+  transition: all 0.3s;
+  placeholder-shown: rgba(184, 180, 190, 0.3);
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(184, 180, 190, 0.3);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--gold-light);
+  box-shadow: 0 0 16px var(--gold-glow);
+}
+.form-group textarea {
+  min-height: 140px; resize: vertical;
+}
+.submit-btn {
+  align-self: flex-start;
+  padding: 1rem 2.4rem;
+  background: rgba(90, 184, 197, 0.08);
+  border: 1px solid rgba(90, 184, 197, 0.3);
+  color: var(--teal-bright);
+  font-family: var(--mono); font-size: 0.75rem;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 1rem;
+}
+.submit-btn:hover {
+  background: rgba(90, 184, 197, 0.15);
+  border-color: var(--teal-bright);
+  box-shadow: 0 0 16px var(--teal-glow);
+}
+.submit-btn:active {
+  transform: translateY(1px);
+}
+
+/* LINK BANNERS */
+.link-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 3rem; }
+.link-banner {
+  flex: 1; min-width: 260px;
+  background: rgba(12, 18, 40, 0.45);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(197, 165, 90, 0.08);
+  border-radius: 2px; padding: 1.5rem 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; text-decoration: none;
+  transition: all 0.3s;
+}
+.link-banner:hover {
+  border-color: rgba(197, 165, 90, 0.25);
+  transform: translateY(-4px);
+}
+.link-banner-content {
+  flex: 1;
+}
+.link-banner-label {
+  font-family: var(--mono); font-size: 0.65rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--teal-bright); margin-bottom: 0.3rem;
+}
+.link-banner-title {
+  font-family: var(--display); font-weight: 500;
+  font-size: 1.1rem; color: var(--text-primary);
+  margin-bottom: 0.3rem;
+}
+.link-banner-sub {
+  font-family: var(--sans); font-weight: 300;
+  font-size: 0.82rem; color: var(--text-dim);
+}
+.link-banner-arrow {
+  color: var(--gold-light); font-size: 1.2rem; flex-shrink: 0;
+}
+
+/* FOOTER */
+.footer {
+  border-top: 1px solid rgba(26, 92, 90, 0.08);
+  padding: 2rem 0; margin-top: 4rem;
+  text-align: center;
+}
+.footer-logo {
+  font-family: var(--display); font-weight: 500; font-size: 1.1rem;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1.5rem;
+}
+.footer-links {
+  display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.footer-links a {
+  font-family: var(--mono); font-size: 0.6rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-dim); text-decoration: none;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--teal-bright); }
+.footer-copy {
+  font-family: var(--mono); font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .hero { min-height: 50vh; }
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: 45vh; padding-top: 90px; }
+  .container { padding: 0 1.5rem; }
+  .contact-grid { gap: 2rem; padding: 1.5rem 0; }
+  .link-row { flex-direction: column; }
+  .link-banner { min-width: 100%; }
+}
+
+/* ACCESSIBILITY */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Breach Signal -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Background Layers -->
+<canvas id="particle-canvas"></canvas>
+<div class="cosmic-wash"></div>
+<div class="cosmic-wash-2"></div>
+<div class="gold-dust"></div>
+<canvas id="circuit-canvas"></canvas>
+
+<!-- Navigation -->
+<nav class="nav" id="nav" aria-label="Main navigation">
+  <a href="/" class="nav-logo" aria-label="LKM Constructs home">
+    <span class="nav-logo-lkm">LKM</span>
+    <span class="nav-logo-sub">Constructs</span>
+  </a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/products.html">Products</a></li>
+    <li><a href="/research/">Research</a></li>
+    <li><a href="/contact/" class="nav-contact-btn active">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Main Content -->
+<main id="main">
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Tell us what you're <em>building</em>.</h1>
+      <p class="subtitle">We'll route you to the right place</p>
+      <p class="lead">Whether you're evaluating governance infrastructure, cognitive optimization, voice-preserving writing tools, open-source infrastructure, or a research collaboration — start here.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section>
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Left: Info Blocks -->
+      <div class="contact-info">
+        <!-- Enterprise -->
+        <div class="info-block">
+          <div class="info-block-label">Enterprise</div>
+          <div class="info-block-title">Aondor Governance Pilot</div>
+          <div class="info-block-body">90-day cloud-hosted deployment. Container-first for healthcare, legal, and regulated environments. Parallax cognitive optimization available for early access.</div>
+        </div>
+
+        <!-- Product Access -->
+        <div class="info-block">
+          <div class="info-block-label">Product Access</div>
+          <div class="info-block-title">Voiceprint &amp; Tools in Development</div>
+          <div class="info-block-body">Voiceprint writing infrastructure in beta. Sylvie, Lexi, and Nevara in development — tell us what you need and we'll flag you for early access.</div>
+        </div>
+
+        <!-- Open Infrastructure -->
+        <div class="info-block">
+          <div class="info-block-label">Open Infrastructure</div>
+          <div class="info-block-title">Available Now</div>
+          <div class="info-block-body">Revien (AI memory), PatternWall Lite (adversarial detection), and OpenLatch (real estate transactions) are available now on <a href="https://github.com/lkmconstructs" target="_blank">GitHub</a>. No pilot required.</div>
+        </div>
+
+        <!-- Direct Contact -->
+        <div class="info-block">
+          <div class="info-block-label">Direct Contact</div>
+          <div class="info-block-title">Reach Out</div>
+          <div class="info-block-body">
+            <div style="margin-bottom: 0.8rem;"><a href="mailto:melissa@lkmconstructs.com">melissa@lkmconstructs.com</a></div>
+            <div><a href="https://www.linkedin.com/company/lkm-constructs" target="_blank">LinkedIn: LKM Constructs</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="contact-form-wrapper">
+        <form action="https://formspree.io/f/mqeezody" method="POST">
+          <input type="hidden" name="_subject" value="Contact Inquiry — LKM Constructs">
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="interest">Interest Area</label>
+            <select id="interest" name="interest" required>
+              <option value="">Select an option</option>
+              <option value="Aondor — Governance Pilot">Aondor — Governance Pilot</option>
+              <option value="Parallax — Cognitive Operations Layer">Parallax — Cognitive Operations Layer</option>
+              <option value="Voiceprint — Beta Access">Voiceprint — Beta Access</option>
+              <option value="Sylvie — Real Estate AI">Sylvie — Real Estate AI</option>
+              <option value="Lexi — Reading Companion">Lexi — Reading Companion</option>
+              <option value="Revien / PatternWall Lite / Open Infrastructure">Revien / PatternWall Lite / Open Infrastructure</option>
+              <option value="Research / Collaboration">Research / Collaboration</option>
+              <option value="General Inquiry">General Inquiry</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom Links -->
+    <div class="link-row">
+      <a href="/products.html" class="link-banner">
+        <div class="link-banner-content">
+          <div class="link-banner-label">Explore</div>
+          <div class="link-banner-title">Full Product Ecosystem</div>
+          <div class="link-banner-sub">Aondor, Parallax, Voiceprint, and more</div>
+        </div>
+        <span class="link-banner-arrow">→</span>
+      </a>
+      <a href="/research/" class="link-banner">
+        <div class="link-banner-content">
+          <div class="link-banner-label">Research</div>
+          <div class="link-banner-title">Published Papers &amp; Benchmarks</div>
+          <div class="link-banner-sub">Governance frameworks, cognitive science</div>
+        </div>
+        <span class="link-banner-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">LKM Constructs</div>
+    <div class="footer-links">
+      <a href="/products.html">Products</a>
+      <a href="/research/">Research</a>
+      <a href="https://github.com/lkmconstructs" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/company/lkm-constructs" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 LKM Constructs LLC · Built in NC</div>
+  </div>
+</footer>
+
+<script>
+/*
+  Every filter starts with a signal.
+  |-/
+*/
+
+// Console Breach Signal
+console.log("%c|-/", "color: #C5A55A; font-size: 14px; font-weight: bold;");
+console.log("%cThe map is not the territory.", "color: #6B7280; font-size: 11px; font-style: italic;");
+
+// Nav scroll behavior
+let lastScrollTop = 0;
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', function() {
+  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  if (scrollTop > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+  lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+});
+
+// Mobile nav toggle
+document.querySelector('.nav-toggle').addEventListener('click', function(e) {
+  const navLinks = document.querySelector('.nav-links');
+  navLinks.classList.toggle('open');
+});
+
+// Close mobile nav when link clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+
+// URL parameter support: ?subject=aondor → auto-select matching dropdown option
+document.addEventListener('DOMContentLoaded', function() {
+  const params = new URLSearchParams(window.location.search);
+  const subject = params.get('subject');
+  if (subject) {
+    const select = document.getElementById('interest');
+    const lowerSubject = subject.toLowerCase();
+
+    // Map URL params to dropdown options
+    if (lowerSubject.includes('aondor')) {
+      select.value = 'Aondor — Governance Pilot';
+    } else if (lowerSubject.includes('parallax')) {
+      select.value = 'Parallax — Cognitive Operations Layer';
+    } else if (lowerSubject.includes('voiceprint')) {
+      select.value = 'Voiceprint — Beta Access';
+    } else if (lowerSubject.includes('sylvie')) {
+      select.value = 'Sylvie — Real Estate AI';
+    } else if (lowerSubject.includes('lexi')) {
+      select.value = 'Lexi — Reading Companion';
+    } else if (lowerSubject.includes('revien') || lowerSubject.includes('open')) {
+      select.value = 'Revien / PatternWall Lite / Open Infrastructure';
+    } else if (lowerSubject.includes('research')) {
+      select.value = 'Research / Collaboration';
+    }
+  }
+});
+</script>
+</body>
+</html>

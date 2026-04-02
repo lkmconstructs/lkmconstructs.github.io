@@ -3,17 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aondor | AI Governance Infrastructure</title>
+<title>Research | LKM Constructs</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<meta name="description" content="Aondor AI governance infrastructure — dual-pipeline defense-in-depth for regulated industries. Patent pending.">
+<meta name="description" content="Published research for LKM products where formal validation is part of the product itself. Governance benchmarks and cognitive augmentation results.">
+<link rel="canonical" href="https://lkmconstructs.com/research/">
 <meta name="author" content="LKM Constructs, LLC">
 <meta name="theme-color" content="#060a14">
-<meta property="og:title" content="Aondor | LKM Constructs">
-<meta property="og:description" content="Aondor AI governance infrastructure — dual-pipeline defense-in-depth for regulated industries. Patent pending.">
+<meta property="og:title" content="Research | LKM Constructs">
+<meta property="og:description" content="Published research for LKM products where formal validation is part of the product itself. Governance benchmarks and cognitive augmentation results.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://lkmconstructs.com/aondor/">
+<meta property="og:url" content="https://lkmconstructs.com/research/">
 <meta property="og:image" content="https://lkmconstructs.com/assets/og-card.png">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Research | LKM Constructs">
+<meta name="twitter:description" content="Published research for LKM products where formal validation is part of the product itself. Governance benchmarks and cognitive augmentation results.">
+<meta name="twitter:image" content="https://lkmconstructs.com/assets/og-card.png">
 <style>
 :root {
   --cosmos-deep: #060a14;
@@ -177,47 +181,7 @@ a { color: inherit; }
   color: var(--text-primary); font-size: 1.4rem;
   cursor: pointer; padding: 0.5rem;
 }
-
-/* AONDOR DROPDOWN */
-.nav-dropdown { position: relative; display: inline-block; }
-.nav-dropdown > a { cursor: pointer; }
-.nav-dropdown-menu {
-  display: none;
-  position: absolute;
-  top: 100%; left: 0;
-  min-width: 200px;
-  background: rgba(10, 16, 32, 0.95);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(90, 184, 197, 0.1);
-  border-top: 2px solid var(--gold);
-  border-radius: 0 0 4px 4px;
-  padding: 8px 0;
-  z-index: 200;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
-}
-.nav-dropdown:hover .nav-dropdown-menu { display: block; }
-.nav-dropdown-menu a {
-  display: block !important;
-  padding: 10px 20px !important;
-  margin: 0 !important;
-  font-size: 0.7rem !important;
-  letter-spacing: 0.12em !important;
-  text-transform: uppercase !important;
-  color: var(--text-dim) !important;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-.nav-dropdown-menu a:hover {
-  color: var(--gold-light) !important;
-  background: rgba(197, 165, 90, 0.08);
-  padding-left: 24px !important;
-}
-.nav-dropdown-menu a.active {
-  color: var(--gold-light) !important;
-}
-.nav-dropdown-menu a::after { display: none !important; }
-@media(max-width:768px) {
+@media (max-width: 768px) {
   .nav-toggle { display: block; }
   .nav-links {
     display: none; position: absolute;
@@ -231,16 +195,6 @@ a { color: inherit; }
   .nav-links a { padding: 0.75rem 0; font-size: 0.8rem; }
   .nav-links a::after { display: none; }
   .nav-contact-btn { margin-left: 0; margin-top: 0.5rem; display: inline-block; text-align: center; }
-  .nav-dropdown-menu {
-    position: static;
-    background: rgba(26, 26, 26, 0.5);
-    border: none; border-top: none;
-    border-left: 2px solid rgba(197, 165, 90, 0.2);
-    border-radius: 0; box-shadow: none;
-    padding: 4px 0 4px 12px; margin-top: 4px;
-  }
-  .nav-dropdown-menu a { padding: 8px 12px !important; font-size: 0.75rem !important; }
-  .nav-dropdown.open .nav-dropdown-menu { display: block; }
 }
 
 /* CONTENT */
@@ -249,30 +203,15 @@ main, section, footer { position: relative; z-index: 10; }
 
 /* HERO */
 .hero {
-  background: linear-gradient(180deg, rgba(6,10,20,0.92) 0%, rgba(6,10,20,0.7) 40%, rgba(6,10,20,0.4) 75%, transparent 100%);
-  min-height: 80vh;
-  padding-top: 100px;
-  display: flex;
-  align-items: center;
-  position: relative;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 200px; height: 1px;
-  background: linear-gradient(90deg, transparent, var(--teal-bright), transparent);
+  min-height: 70vh; padding-top: 100px;
+  display: flex; align-items: center;
 }
 .hero-content { max-width: 800px; }
 .hero h1 {
-  font-family: var(--display);
-  font-size: clamp(2.8rem, 6vw, 4.5rem);
-  font-weight: 400;
-  color: var(--text-primary);
-  letter-spacing: 0.08em;
-  margin-bottom: 0.3em;
-  line-height: 1.1;
+  font-family: var(--display); font-weight: 400;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--text-primary); line-height: 1.1;
+  margin-bottom: 0.4em;
 }
 .hero h1 em {
   font-style: normal;
@@ -281,38 +220,21 @@ main, section, footer { position: relative; z-index: 10; }
   background-clip: text;
 }
 .hero .subtitle {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--text-dim);
-  margin-bottom: 1.5rem;
+  font-family: var(--mono); font-size: 0.68rem;
+  letter-spacing: 0.4em; text-transform: uppercase;
+  color: var(--text-dim); margin-bottom: 1.5rem;
 }
 .hero .lead {
-  font-family: var(--sans);
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 1rem;
-}
-.patent-badge {
-  display: inline-block;
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid rgba(197, 165, 90, 0.3);
-  padding: 0.5rem 1.2rem;
-  margin-top: 1rem;
-  border-radius: 2px;
+  font-family: var(--sans); font-weight: 300;
+  font-size: 1.15rem; color: var(--text-secondary);
+  line-height: 1.8; max-width: 680px;
 }
 
 /* DIVIDER */
 .divider {
   width: 100%; height: 1px;
   background: linear-gradient(90deg, transparent, var(--slate-teal-dim), var(--gold-dim), var(--slate-teal-dim), transparent);
-  margin: 1rem 0;
+  margin: 4rem 0;
 }
 
 /* SECTION HEADERS */
@@ -321,14 +243,6 @@ main, section, footer { position: relative; z-index: 10; }
   font-family: var(--mono); font-size: 0.68rem;
   letter-spacing: 0.4em; text-transform: uppercase;
   color: var(--teal-bright); margin-bottom: 0.75rem;
-}
-.section-label {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--teal-bright);
-  margin-bottom: 1.5rem;
 }
 .section-title {
   font-family: var(--display); font-weight: 400;
@@ -350,6 +264,7 @@ main, section, footer { position: relative; z-index: 10; }
   border-left: 2px solid rgba(197, 165, 90, 0.2);
   border-radius: 2px; padding: 2.5rem;
   transition: border-color 0.3s, transform 0.3s;
+  margin-bottom: 2.5rem;
 }
 .content-card:hover {
   border-color: rgba(197, 165, 90, 0.25);
@@ -357,26 +272,127 @@ main, section, footer { position: relative; z-index: 10; }
   transform: translateY(-4px);
 }
 
+/* CARD LABELS & META */
+.card-label {
+  font-family: var(--mono); font-size: 0.68rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--teal-bright); margin-bottom: 0.75rem;
+}
+.card-meta {
+  font-family: var(--mono); font-size: 0.75rem;
+  color: var(--text-dim); margin-bottom: 1.25rem;
+}
+.content-card h3 {
+  font-family: var(--display); font-weight: 500;
+  font-size: 1.4rem; color: var(--text-primary);
+  margin-bottom: 1rem; line-height: 1.3;
+}
+.content-card p {
+  color: var(--text-secondary); margin-bottom: 1.25rem;
+}
+.content-card p:last-of-type { margin-bottom: 1.5rem; }
+
+/* STATS */
+.card-stats {
+  display: flex; gap: 2.5rem; flex-wrap: wrap;
+  margin: 2rem 0; padding: 2rem 0;
+  border-top: 1px solid var(--slate-teal-dim);
+  border-bottom: 1px solid var(--slate-teal-dim);
+}
+.card-stat {
+  font-family: var(--mono); font-size: 0.75rem;
+  flex: 0 0 auto;
+}
+.card-stat .num {
+  font-family: var(--display); font-size: 1.8rem; font-weight: 400;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block; margin-bottom: 0.5rem;
+}
+.card-stat .label {
+  color: var(--text-dim);
+  text-transform: uppercase; letter-spacing: 0.1em;
+  font-size: 0.65rem;
+}
+
+/* LINKS */
+.card-links {
+  display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;
+}
+.card-links a {
+  display: inline-block; text-decoration: none;
+  font-family: var(--mono); font-size: 0.75rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 0.85rem 1.5rem;
+  border: 1px solid rgba(90, 184, 197, 0.3);
+  background: rgba(90, 184, 197, 0.08);
+  color: var(--teal-bright);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+.card-links a:hover {
+  border-color: var(--teal-bright);
+  background: rgba(90, 184, 197, 0.15);
+  box-shadow: 0 0 15px var(--teal-glow);
+}
+
+/* BENCHMARK TABLE */
+.bench-table {
+  width: 100%; border-collapse: collapse;
+  margin: 2rem 0; font-size: 0.85rem;
+}
+.bench-table th {
+  font-family: var(--mono); font-size: 0.68rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--teal-bright);
+  padding: 1.25rem 0.75rem; text-align: left;
+  border-bottom: 1px solid var(--slate-teal-dim);
+  font-weight: 500;
+}
+.bench-table td {
+  padding: 1rem 0.75rem;
+  border-bottom: 1px solid rgba(197, 165, 90, 0.08);
+  color: var(--text-secondary);
+}
+.bench-table .model-name {
+  color: var(--text-primary); font-weight: 500;
+}
+.bench-table .raw {
+  color: #e9755f;
+  font-weight: 400;
+}
+.bench-table .combined {
+  color: var(--teal-bright); font-weight: 600;
+}
+.bench-table-note {
+  font-size: 0.75rem; color: var(--text-dim);
+  margin-top: 1rem; font-style: italic;
+}
+
 /* LINK BANNERS */
-.link-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.link-row {
+  display: flex; gap: 1.5rem; flex-wrap: wrap;
+  margin: 3rem 0;
+}
 .link-banner {
-  flex: 1; min-width: 260px;
+  flex: 1; min-width: 280px;
   background: rgba(12, 18, 40, 0.45);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(197, 165, 90, 0.08);
-  border-radius: 2px; padding: 1.5rem 2rem;
+  border-radius: 2px; padding: 2rem;
   display: flex; align-items: center; justify-content: space-between;
-  gap: 1rem; text-decoration: none;
+  gap: 1.5rem; text-decoration: none;
   transition: border-color 0.3s, transform 0.3s;
 }
 .link-banner:hover {
-  border-color: rgba(197, 165, 90, 0.3);
-  transform: translateY(-2px);
+  border-color: rgba(197, 165, 90, 0.25);
+  transform: translateY(-4px);
 }
 .banner-label {
   font-family: var(--mono); font-size: 0.65rem;
   letter-spacing: 0.15em; text-transform: uppercase;
-  color: var(--teal-bright); margin-bottom: 0.3rem;
+  color: var(--teal-bright); margin-bottom: 0.4rem;
 }
 .banner-title {
   font-family: var(--sans); font-weight: 500;
@@ -384,186 +400,30 @@ main, section, footer { position: relative; z-index: 10; }
 }
 .banner-sub {
   font-family: var(--sans); font-weight: 300;
-  font-size: 0.82rem; color: var(--text-dim); margin-top: 0.2rem;
+  font-size: 0.8rem; color: var(--text-dim); margin-top: 0.25rem;
 }
-.banner-arrow { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; }
-
-/* STATS ROW */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin: 2.5rem 0;
-  padding: 2.5rem 0;
-  border-top: 1px solid var(--slate-teal-dim);
-  border-bottom: 1px solid var(--slate-teal-dim);
-}
-.stat-number {
-  font-family: var(--display);
-  font-size: 3rem;
-  font-weight: 400;
-  background: linear-gradient(135deg, var(--gold-light), var(--gold));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1;
-}
-.stat-label {
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  color: var(--text-dim);
-  margin-top: 0.5rem;
-  line-height: 1.4;
+.banner-arrow {
+  color: var(--gold); font-size: 1.2rem; flex-shrink: 0;
 }
 
-/* PIPELINE */
-.pipeline {
-  border: 1px solid var(--slate-teal-dim);
-  border-radius: 2px;
-  padding: 2.5rem;
-  margin: 2rem 0;
-  background: rgba(10, 16, 32, 0.3);
+/* IP NOTE SECTION */
+.ip-note {
+  text-align: center; padding: 3rem 2rem;
+  color: var(--text-dim); font-size: 0.9rem;
 }
-.pipeline-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  margin-top: 1.5rem;
+.ip-note-bottom-links {
+  margin-top: 2rem; display: flex;
+  gap: 2rem; justify-content: center; flex-wrap: wrap;
 }
-.pipeline-stage {
-  padding: 1.5rem;
-  border-left: 2px solid var(--teal-bright);
+.ip-note-bottom-links a {
+  color: var(--teal-bright); text-decoration: none;
+  border-bottom: 1px solid rgba(90, 184, 197, 0.3);
+  padding-bottom: 2px;
+  transition: color 0.3s, border-color 0.3s;
 }
-.pipeline-stage:first-child { border-left: 2px solid var(--gold); }
-.stage-num {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--teal-bright);
-  margin-bottom: 0.5rem;
-}
-.stage-name {
-  font-family: var(--display);
-  font-size: 1.1rem;
-  color: var(--text-primary);
-  margin-bottom: 0.75rem;
-  font-weight: 400;
-}
-.stage-desc {
-  font-family: var(--sans);
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-/* VERTICALS */
-.verticals {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-.vertical-card {
-  padding: 2.5rem;
-  border: 1px solid var(--slate-teal-dim);
-  border-radius: 2px;
-  background: rgba(10, 16, 32, 0.3);
-  position: relative;
-  transition: border-color 0.3s;
-}
-.vertical-card:hover { border-color: var(--teal-bright); }
-.vertical-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 2px;
-  background: var(--teal-bright);
-  border-radius: 2px 2px 0 0;
-}
-.vertical-card.legal::before { background: var(--gold); }
-.vertical-tag {
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--teal-bright);
-  margin-bottom: 1rem;
-}
-.vertical-card.legal .vertical-tag { color: var(--gold); }
-.vertical-card h3 {
-  font-family: var(--display);
-  font-size: 1.2rem;
-  font-weight: 400;
-  color: var(--text-primary);
-  margin-bottom: 0.75rem;
-}
-.vertical-card p {
-  font-family: var(--sans);
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-  line-height: 1.7;
-}
-
-/* PILOT */
-.pilot-box {
-  background: rgba(12, 18, 40, 0.45);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(197, 165, 90, 0.1);
-  border-radius: 2px;
-  padding: 3rem;
-  margin: 2rem 0;
-  text-align: center;
-}
-.pilot-price {
-  font-family: var(--display);
-  font-size: 2.5rem;
+.ip-note-bottom-links a:hover {
   color: var(--gold);
-  font-weight: 400;
-  margin: 1rem 0;
-}
-.pilot-detail {
-  font-family: var(--sans);
-  font-size: 0.92rem;
-  color: var(--text-secondary);
-  max-width: 600px;
-  margin: 0.5rem auto;
-}
-
-/* CTA */
-.cta-section {
-  background: linear-gradient(180deg, transparent 0%, rgba(6, 10, 20, 0.4) 15%, rgba(6, 10, 20, 0.4) 85%, transparent 100%);
-  text-align: center;
-  padding: 4.5rem 0;
-  border-top: 1px solid var(--slate-teal-dim);
-}
-.cta-btn {
-  display: inline-block;
-  text-decoration: none;
-  background: rgba(90, 184, 197, 0.08);
-  border: 1px solid rgba(90, 184, 197, 0.3);
-  color: var(--teal-bright);
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 1rem 2.4rem;
-  border-radius: 2px;
-  transition: all 0.3s;
-  margin: 0 0.75rem;
-}
-.cta-btn:hover {
-  border-color: var(--teal-bright);
-  box-shadow: 0 0 20px var(--teal-glow);
-}
-.cta-btn.secondary {
-  background: transparent;
-  border-color: rgba(255,255,255,0.07);
-  color: var(--text-dim);
-}
-.cta-btn.secondary:hover {
-  border-color: rgba(255,255,255,0.15);
-  color: var(--text-secondary);
+  border-color: rgba(197, 165, 90, 0.5);
 }
 
 /* FOOTER */
@@ -607,13 +467,16 @@ p + p { margin-top: 1rem; }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .pipeline-grid { grid-template-columns: 1fr; }
-  .verticals { grid-template-columns: 1fr; }
-  .stats { grid-template-columns: 1fr; gap: 1.5rem; }
-  section { padding: 3rem 0; }
   .link-row { flex-direction: column; }
+  .link-banner { flex-direction: column; text-align: center; }
+  .banner-arrow { order: -1; margin-bottom: 0.5rem; }
+  .card-stats { gap: 1.5rem; }
   .hero { padding-top: 90px; min-height: 60vh; }
-  .cta-btn { display: block; margin: 0.5rem 0; }
+  section { padding: 3rem 0; }
+  .bench-table { font-size: 0.75rem; }
+  .bench-table th, .bench-table td { padding: 0.75rem 0.5rem; }
+  .content-card { padding: 1.75rem; }
+  .ip-note-bottom-links { flex-direction: column; gap: 1rem; }
 }
 
 /* REDUCED MOTION */
@@ -654,18 +517,7 @@ p + p { margin-top: 1rem; }
   <ul class="nav-links" id="nav-links">
     <li><a href="/">Home</a></li>
     <li><a href="/products.html">Products</a></li>
-    <li>
-      <div class="nav-dropdown" onclick="if(window.innerWidth<=768){this.classList.toggle('open');event.stopPropagation()}">
-        <a href="/aondor/" class="active">Aondor</a>
-        <div class="nav-dropdown-menu">
-          <a href="/aondor/" class="active">Overview</a>
-          <a href="/aondor/demo/">Demo</a>
-          <a href="/aondor/dashboard/">Dashboard</a>
-        </div>
-      </div>
-    </li>
-    <li><a href="https://parallax-ai.net" target="_blank" rel="noopener noreferrer">Parallax</a></li>
-    <li><a href="/research/">Research</a></li>
+    <li><a href="/research/" class="active">Research</a></li>
     <li><a href="/contact/" class="nav-contact-btn">Contact</a></li>
   </ul>
 </nav>
@@ -677,172 +529,155 @@ p + p { margin-top: 1rem; }
 <section class="hero">
   <div class="container">
     <div class="hero-content" data-animate>
-      <h1><em>Aondor</em></h1>
-      <div class="subtitle">AI Governance Infrastructure</div>
-      <p class="lead">You deployed AI across your organization. You have no idea what it is doing. Aondor sits between your AI tools and your humans, evaluating every output before it reaches a clinician, attorney, or analyst. Real-time visibility. Deterministic enforcement. Board-ready reporting.</p>
-      <p class="lead">It does not replace your AI tools. It governs them.</p>
-      <div class="patent-badge">Patent Pending</div>
+      <h1><em>Research</em></h1>
+      <div class="subtitle">Published Work</div>
+      <p class="lead">Published research for LKM products where formal validation is part of the product itself. Governance benchmarks, cognitive augmentation results, and related infrastructure work.</p>
     </div>
   </div>
 </section>
 
-<!-- RESEARCH + DEMO LINKS -->
-<section style="padding: 2rem 0;">
-  <div class="container">
-    <div class="link-row" data-animate>
-      <a href="/research/" class="link-banner">
-        <div>
-          <div class="banner-label">Published Research</div>
-          <div class="banner-title">Benchmarks &amp; Papers</div>
-          <div class="banner-sub">3 frontier models, dual-pipeline results, Zenodo DOIs, SSRN submission</div>
-        </div>
-        <span class="banner-arrow">&rarr;</span>
-      </a>
-      <a href="/aondor/demo/" class="link-banner">
-        <div>
-          <div class="banner-label">Live Demo</div>
-          <div class="banner-title">Pilot Dashboard</div>
-          <div class="banner-sub">30-day simulation aligned to published benchmarks</div>
-        </div>
-        <span class="banner-arrow">&rarr;</span>
-      </a>
-    </div>
-  </div>
-</section>
+<div class="container"><div class="divider"></div></div>
 
-<!-- THE PROBLEM -->
+<!-- GOVERNANCE INFRASTRUCTURE SECTION -->
 <section>
   <div class="container">
-    <div class="content-card" data-animate>
-      <div class="section-label">The Problem</div>
-      <h2>Ungoverned AI outputs create unmeasured enterprise liability</h2>
-      <p>Organizations are deploying AI across clinical workflows, legal analysis, financial processing, and customer operations with no governance layer between the model and the human who acts on its output.</p>
-      <p>Most organizations cannot answer basic questions: How many AI outputs reached humans last month? How many were flagged? How many contained sensitive data? How many came from a model with zero native safety on adversarial prompts?</p>
-      <p>Without infrastructure, there is no visibility. Without visibility, there is no governance. Governance lives in a binder. The AI does whatever it wants.</p>
+    <div class="section-header" data-animate>
+      <div class="section-overline">Governance Infrastructure</div>
+      <h2 class="section-title">Defense in <em>Depth</em></h2>
+    </div>
 
-      <div class="stats">
-        <div>
-          <div class="stat-number">0%</div>
-          <div class="stat-label">Native safety on Grok 4.1 against adversarial exploit prompts</div>
-        </div>
-        <div>
-          <div class="stat-number">74–100%</div>
-          <div class="stat-label">Of adversarial content reaching humans ungoverned across frontier models</div>
-        </div>
-        <div>
-          <div class="stat-number">95–98.3%</div>
-          <div class="stat-label">Detection rate with Aondor governance pipeline deployed</div>
-        </div>
+    <!-- JOINT PAPER CARD -->
+    <div class="content-card" data-animate data-delay="100">
+      <div class="card-label">Joint Paper · March 2026</div>
+      <h3>Defense in Depth: AI Governance Through Dual-Pipeline Architecture</h3>
+      <div class="card-meta">Melissa K. Pinkston · LKM Constructs · Patent Pending</div>
+      <p>Combines PatternWall v5.0 pre-inference interception with Sensus v4.0 post-inference evaluation into a bidirectional feedback loop. Tested across Claude Opus 4.6, GPT-5.2, and Grok 4.1 on 35 adversarial red team turns and 120 CyberGym exploit tasks. Zero overlap between layers (BOTH_CAUGHT = 0) confirms complementary coverage across non-overlapping threat surfaces.</p>
+      <div class="card-stats">
+        <div class="card-stat"><span class="num">76.7&ndash;98.3%</span><span class="label">Combined Detection</span></div>
+        <div class="card-stat"><span class="num">3</span><span class="label">Frontier Models</span></div>
+        <div class="card-stat"><span class="num">0</span><span class="label">BOTH_CAUGHT Overlap</span></div>
+        <div class="card-stat"><span class="num">+14.3pp</span><span class="label">Feedback Loop Gain</span></div>
+      </div>
+      <div class="card-links">
+        <a href="https://doi.org/10.5281/zenodo.18940959" target="_blank" rel="noopener noreferrer">View on Zenodo</a>
+      </div>
+    </div>
+
+    <!-- BENCHMARK TABLE -->
+    <div class="content-card" data-animate data-delay="150">
+      <div class="card-label">Benchmark Results</div>
+      <h3>v5 PatternWall + v4 Sensus</h3>
+      <table class="bench-table">
+        <thead>
+          <tr>
+            <th>Model</th>
+            <th>Raw (No Governance)</th>
+            <th>Combined Pipeline</th>
+            <th>True Misses</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="model-name">Claude Opus 4.6</td>
+            <td class="raw">5.7% / 3.3%</td>
+            <td class="combined">91.4%&dagger; / 98.3%</td>
+            <td>3 RT / 2 CG</td>
+          </tr>
+          <tr>
+            <td class="model-name">GPT-5.2</td>
+            <td class="raw">25.7% / 81.7%</td>
+            <td class="combined">82.9% / 98.3%*</td>
+            <td>6 RT / 2 CG</td>
+          </tr>
+          <tr>
+            <td class="model-name">Grok 4.1</td>
+            <td class="raw">0.0% / 3.3%</td>
+            <td class="combined">85.7%&dagger; / 93.9%*</td>
+            <td>5 RT / 6 CG</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="bench-table-note">*Adjusted for empty responses per Section 4.2.1 of joint paper. &dagger;With bidirectional feedback loop active (+14.3pp Opus, +2.8pp Grok). RT = Red Team (35 adversarial turns), CG = CyberGym (120 exploit tasks).</div>
+    </div>
+
+    <!-- PATTERNWALL CARD -->
+    <div class="content-card" data-animate data-delay="200">
+      <div class="card-label">Preprint · February 2026</div>
+      <h3>PatternWall: Constitutional Governance Middleware for AI Safety</h3>
+      <div class="card-meta">Melissa Pinkston · LKM Constructs</div>
+      <p>A pre-filter architecture for model-agnostic adversarial detection. PatternWall intercepts prompts before they reach an AI model, enforcing governance as deterministic infrastructure rather than relying on model-level training or provider-specific tuning.</p>
+      <div class="card-stats">
+        <div class="card-stat"><span class="num">100%</span><span class="label">Attack Detection</span></div>
+        <div class="card-stat"><span class="num">96.4%</span><span class="label">Hard Block</span></div>
+        <div class="card-stat"><span class="num">5</span><span class="label">Models Tested</span></div>
+        <div class="card-stat"><span class="num">0%</span><span class="label">False Positives</span></div>
+      </div>
+      <div class="card-links">
+        <a href="https://doi.org/10.5281/zenodo.18625574" target="_blank" rel="noopener noreferrer">View on Zenodo</a>
+        <a href="/papers/patternwall_v3_7.pdf" target="_blank" rel="noopener noreferrer">Download Paper (PDF)</a>
+      </div>
+    </div>
+
+    <!-- SENSUS CARD -->
+    <div class="content-card" data-animate data-delay="250">
+      <div class="card-label">White Paper · February 2026</div>
+      <h3>Sensus: Model-Agnostic AI Governance Through Multi-Dimensional Content Evaluation</h3>
+      <div class="card-meta">Melissa K. Pinkston · LKM Constructs · Patent Pending</div>
+      <p>A post-inference governance engine that evaluates AI outputs across five weighted dimensions to detect harmful content bypassing model-native safety. Benchmarked across five frontier models on 1,507 CVE exploit tasks and 28 multi-turn adversarial campaigns. Demonstrates that infrastructure-level governance is necessary because model-level safety is unreliable, inconsistent, and provider-dependent.</p>
+      <div class="card-stats">
+        <div class="card-stat"><span class="num">85.7&ndash;96.4%</span><span class="label">Effective Governance</span></div>
+        <div class="card-stat"><span class="num">5</span><span class="label">Frontier Models</span></div>
+        <div class="card-stat"><span class="num">1,507</span><span class="label">CVE Tasks Tested</span></div>
+        <div class="card-stat"><span class="num">0</span><span class="label">Regressions</span></div>
+      </div>
+      <div class="card-links">
+        <a href="https://doi.org/10.5281/zenodo.18795038" target="_blank" rel="noopener noreferrer">View on Zenodo</a>
+        <a href="/papers/Sensus_White_Paper_v1_1.pdf" target="_blank" rel="noopener noreferrer">Download Paper (PDF)</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ARCHITECTURE -->
+<div class="container"><div class="divider"></div></div>
+
+<!-- COGNITIVE INFRASTRUCTURE SECTION -->
 <section>
   <div class="container">
-    <div class="content-card" data-animate>
-      <div class="section-label">Architecture</div>
-      <h2>A four-stage, defense-in-depth pipeline</h2>
-      <p>Dual-pipeline architecture with bidirectional feedback. What one layer misses, the next catches. The feedback loop recovers up to 5 additional adversarial turns per session. Combined detection rates of 76.7–98.3% across Claude Opus 4.6, GPT-5.2, and Grok 4.1. Model-agnostic. Deterministic. Auditable.</p>
+    <div class="section-header" data-animate>
+      <div class="section-overline">Cognitive Infrastructure</div>
+      <h2 class="section-title">Inference-Time <em>Augmentation</em></h2>
+    </div>
 
-      <div class="pipeline">
-        <div class="pipeline-grid">
-          <div class="pipeline-stage">
-            <div class="stage-num">Stage 01</div>
-            <div class="stage-name">PatternWall</div>
-            <div class="stage-desc">Pre-inference interception. Adversarial prompts blocked before the model processes them. 96.4% hard block rate. Deterministic pattern matching.</div>
-          </div>
-          <div class="pipeline-stage">
-            <div class="stage-num">Stage 02</div>
-            <div class="stage-name">Refusal Filter</div>
-            <div class="stage-desc">Response classification: COMPLIANT, REFUSAL, PARTIAL_REFUSAL, INFRA_ERROR. Prevents false governance signals from model-level refusals.</div>
-          </div>
-          <div class="pipeline-stage">
-            <div class="stage-num">Stage 03</div>
-            <div class="stage-name">Sensus</div>
-            <div class="stage-desc">Post-inference scoring across five weighted dimensions: Truth, Trajectory, Governance, Consistency, EQ. Multi-dimensional behavioral evaluation.</div>
-          </div>
-          <div class="pipeline-stage">
-            <div class="stage-num">Stage 04</div>
-            <div class="stage-name">Audit Trail</div>
-            <div class="stage-desc">Every decision logged with full attribution. PW_CAUGHT, SENSUS_CAUGHT, DOUBLE_MISS, CLEAN_PASS. Zero overlap between layers confirms complementary coverage. Real-time dashboard. Board-ready.</div>
-          </div>
-        </div>
+    <!-- PARALLAX CARD -->
+    <div class="content-card" data-animate data-delay="100">
+      <div class="card-label">Research Paper · March 2026</div>
+      <h3>Parallax: Inference-Time Cognitive Enhancement Across Seven Foundation Models</h3>
+      <div class="card-meta">Melissa K. Pinkston · LKM Constructs · Patent Pending</div>
+      <p>Multi-module cognitive augmentation middleware operating at inference time. Evaluated across seven foundation models from four providers using a 38-task benchmark battery with dual-judge blind scoring. Six of seven models showed measurable cognitive lift with no fine-tuning, weight modification, or model-specific training required.</p>
+      <div class="card-stats">
+        <div class="card-stat"><span class="num">+0.69</span><span class="label">Strongest Model Lift (GPT-4.1)</span></div>
+        <div class="card-stat"><span class="num">7</span><span class="label">Foundation Models Tested</span></div>
+        <div class="card-stat"><span class="num">38</span><span class="label">Benchmark Tasks</span></div>
+        <div class="card-stat"><span class="num">96.2%</span><span class="label">Inter-rater Agreement</span></div>
+      </div>
+      <div class="card-links">
+        <a href="https://doi.org/10.5281/zenodo.19042347" target="_blank" rel="noopener noreferrer">View on Zenodo</a>
+        <a href="/papers/Parallax_Paper_v1.pdf" target="_blank" rel="noopener noreferrer">Download Paper (PDF)</a>
+        <a href="https://demo.parallax-ai.net" target="_blank" rel="noopener noreferrer">Live Demo</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VERTICALS -->
+<!-- IP NOTE & LINKS -->
 <section>
   <div class="container">
-    <div class="section-label">Where Aondor Deploys</div>
-    <h2>Deployed where governance is not optional</h2>
-    <p style="margin-bottom:2rem;">Aondor is built for any AI workflow where outputs need to be trusted, explained, or audited. We deploy across risk conditions, not just verticals.</p>
-    <div class="verticals">
-      <div class="vertical-card">
-        <div class="vertical-tag">Customer-Facing AI</div>
-        <h3>Chatbots, Support, Onboarding</h3>
-        <p>Any AI interaction that reaches a customer without human review. Governance ensures outputs meet brand, compliance, and accuracy standards before delivery.</p>
+    <div class="ip-note">
+      <p>Published benchmarks demonstrate results without revealing proprietary implementation details.</p>
+      <div class="ip-note-bottom-links">
+        <a href="/aondor/">&larr; Aondor Overview</a>
+        <a href="https://parallax-ai.net" target="_blank" rel="noopener noreferrer">Parallax →</a>
       </div>
-      <div class="vertical-card">
-        <div class="vertical-tag">Decision Support</div>
-        <h3>Analysis, Recommendations, Triage</h3>
-        <p>Internal AI that informs human decisions. Clinical decision support, legal analysis, financial triage — anywhere AI outputs influence action.</p>
-      </div>
-      <div class="vertical-card legal">
-        <div class="vertical-tag">Compliance-Sensitive</div>
-        <h3>Regulated Industries &amp; Audit Requirements</h3>
-        <p>Healthcare (HIPAA, EU AI Act), legal (privilege, work product doctrine), financial services — any workflow under regulatory oversight.</p>
-      </div>
-    </div>
-    <div class="verticals" style="grid-template-columns:1fr 1fr;margin-top:0;">
-      <div class="vertical-card">
-        <div class="vertical-tag">High-Review Environments</div>
-        <h3>Legal, Clinical, Financial</h3>
-        <p>Environments where every AI output may need to be explained later. Full audit trail with attribution, scoring, and tamper-evident logging.</p>
-      </div>
-      <div class="vertical-card legal">
-        <div class="vertical-tag">Precedent</div>
-        <h3>The Privilege Question Is Already Decided</h3>
-        <p>On February 10, 2026, Judge Rakoff ruled that AI-generated documents created without direct counsel direction were not protected by privilege. Every law firm using AI tools has ungoverned, discoverable outputs right now.</p>
-        <p style="margin-top:1rem;font-size:0.85rem;color:var(--text-dim);font-style:italic;">United States v. Heppner, No. 25-cr-00503-JSR (S.D.N.Y. Feb. 10, 2026)</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PILOT -->
-<section>
-  <div class="container">
-    <div class="content-card" data-animate>
-      <div class="section-label">Pilot Program</div>
-      <h2>The first AI governance visibility report your board has ever seen</h2>
-      <p>API proxy deployment: route existing AI traffic through Aondor with no changes to your tools, workflows, or vendor relationships. Real-time dashboard access throughout. Compliance-ready report at conclusion.</p>
-
-      <div class="pilot-box">
-        <div class="section-label">Scoped to Your Deployment</div>
-        <p class="pilot-detail" style="font-size:1.1rem;color:var(--text-primary);margin-bottom:1rem;">Pilot structure and pricing are scoped to your deployment.</p>
-        <p class="pilot-detail">Includes real-time governance dashboard, compliance report with gap analysis, and full audit trail of every AI interaction during the pilot period.</p>
-        <p class="pilot-detail">Governance visibility. Board-ready reporting. Audit trail from day one.</p>
-        <div style="margin-top:2rem;">
-          <a href="/contact/" class="cta-btn">Talk to Us About Fit</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container" data-animate>
-    <div class="section-label">Contact</div>
-    <h2>Ready to see what your AI is doing?</h2>
-    <p style="margin-bottom:2rem;color:var(--text-dim);">If your team deploys AI in any workflow where outputs need to be trusted, explained, or audited — we should talk.</p>
-    <div style="display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;">
-      <a href="/contact/" class="cta-btn">Talk to Us About Fit</a>
-      <a href="/products.html" class="cta-btn secondary">Explore Products</a>
     </div>
   </div>
 </section>
